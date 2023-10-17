@@ -74,7 +74,7 @@ class LeaseBuyViewController: UIViewController, UITableViewDelegate, UITableView
         
         return cell
     }
-=======
->>>>>>> c082c2585ae19a9c9ded1c4c3b31f23751fdc03e
+//=======
+//>>>>>>> c082c2585ae19a9c9ded1c4c3b31f23751fdc03e
 
 }
