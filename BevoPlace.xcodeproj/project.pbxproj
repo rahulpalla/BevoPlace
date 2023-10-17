@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EC6DB36D2AD8EE6F0013F965 /* LeaseBuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6DB36C2AD8EE6E0013F965 /* LeaseBuyViewController.swift */; };
+		ECC036642ADE1632006FE32B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECC036632ADE1632006FE32B /* GoogleService-Info.plist */; };
 		FA279C132AD8A2B6000DEC7B /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FA279C122AD8A2B6000DEC7B /* FirebaseAuth */; };
 		FA5C35E92AC5DFE4006B83C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C35E82AC5DFE4006B83C8 /* AppDelegate.swift */; };
 		FA5C35EB2AC5DFE4006B83C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C35EA2AC5DFE4006B83C8 /* SceneDelegate.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		EC6DB36C2AD8EE6E0013F965 /* LeaseBuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaseBuyViewController.swift; sourceTree = "<group>"; };
+		ECC036632ADE1632006FE32B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FA5C35E52AC5DFE4006B83C8 /* BevoPlace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BevoPlace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA5C35E82AC5DFE4006B83C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA5C35EA2AC5DFE4006B83C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				FA5C35EE2AC5DFE4006B83C8 /* Main.storyboard */,
 				FA5C35F12AC5DFE5006B83C8 /* Assets.xcassets */,
 				FA5C35F32AC5DFE5006B83C8 /* LaunchScreen.storyboard */,
+				ECC036632ADE1632006FE32B /* GoogleService-Info.plist */,
 				FA5C35F62AC5DFE5006B83C8 /* Info.plist */,
 			);
 			path = BevoPlace;
@@ -137,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA5C35F52AC5DFE5006B83C8 /* LaunchScreen.storyboard in Resources */,
+				ECC036642ADE1632006FE32B /* GoogleService-Info.plist in Resources */,
 				FA5C35F22AC5DFE5006B83C8 /* Assets.xcassets in Resources */,
 				FA5C35F02AC5DFE4006B83C8 /* Main.storyboard in Resources */,
 			);

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cue-pp-OCc">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -48,11 +48,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="334" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4GZ-SF-tqz">
-                                                    <rect key="frame" x="0.0" y="-56" width="150" height="126"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="150" id="sTo-CW-mUt"/>
-                                                    </constraints>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="05b-D7-t8K">
+                                                    <rect key="frame" x="0.0" y="-42" width="128" height="128"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -70,12 +68,24 @@
                                 <rect key="frame" x="333" y="72" width="44" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <imageReference key="image" image="gearshape.fill" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="lSv-ID-hfr" kind="show" id="jxm-cg-TeY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sKO-9c-rvl">
+                                <rect key="frame" x="281" y="72" width="44" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="">
                                     <imageReference key="image" image="person.crop.circle.fill" catalog="system" symbolScale="large"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="profileButtonPressed:" destination="7ft-uk-wp4" eventType="touchUpInside" id="0Il-k9-W34"/>
+                                    <segue destination="S0R-Ro-ZTy" kind="show" id="l6m-GO-W1N"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -86,6 +96,9 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="3sT-2H-XQ0"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="itemTableView" destination="4sc-0m-fYY" id="48Q-JM-IWF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YNz-p8-JZz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -164,35 +177,37 @@
             </objects>
             <point key="canvasLocation" x="1912.2137404580151" y="-151.40845070422537"/>
         </scene>
-        <!--View Controller-->
+        <!--SettingsViewController-->
         <scene sceneID="lcr-Dg-GGY">
             <objects>
-                <viewController id="lSv-ID-hfr" sceneMemberID="viewController">
+                <viewController title="SettingsViewController" id="lSv-ID-hfr" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="G7o-Gs-QGF">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Vf2-jg-hhA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="KCa-PI-Vay"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sJh-ln-dZ1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5846.5648854961828" y="-89.436619718309871"/>
+            <point key="canvasLocation" x="4596" y="739"/>
         </scene>
-        <!--View Controller-->
+        <!--ProfileViewController-->
         <scene sceneID="bmm-t1-RuL">
             <objects>
-                <viewController id="S0R-Ro-ZTy" sceneMemberID="viewController">
+                <viewController title="ProfileViewController" id="S0R-Ro-ZTy" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bEA-Kf-oBT">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="lFN-d6-IXm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="USE-v0-XHX"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DIz-WU-nwu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5484.7328244274804" y="676.76056338028172"/>
+            <point key="canvasLocation" x="4596" y="73"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="l5h-cp-7nv">
@@ -207,7 +222,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rrr-2q-aiQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6498.4732824427474" y="524.64788732394368"/>
+            <point key="canvasLocation" x="3547" y="-151"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QIH-4Y-It1">
@@ -249,6 +264,7 @@
     </scenes>
     <resources>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
+        <image name="gearshape.fill" catalog="system" width="128" height="123"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
         <image name="plus.app" catalog="system" width="128" height="114"/>
         <image name="square.and.arrow.up.fill" catalog="system" width="115" height="128"/>
