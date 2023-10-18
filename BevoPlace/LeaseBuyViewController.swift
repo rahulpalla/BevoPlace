@@ -79,13 +79,4 @@ class LeaseBuyViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
     
-    
-    @IBAction func logoutButtonPressed(_ sender: Any) {
-        do {
-            try Auth.auth().signOut()
-            self.dismiss(animated: true)
-        } catch {
-            print("Sign out error")
-        }
-    }
 }

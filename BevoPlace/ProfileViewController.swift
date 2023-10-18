@@ -14,6 +14,9 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var otherInfoTextField: UITextField!
     @IBOutlet weak var saveChangesButton: UIButton!
     
+    @IBOutlet weak var logOutButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,6 +26,16 @@ class ProfileViewController: UIViewController {
     @IBAction func onSaveChangesButtonPressed(_ sender: Any) {
         // add functionality to change info in firebase
     }
+    
+    @IBAction func logoutButtonPressed(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+            self.dismiss(animated: true)
+        } catch {
+            print("Sign out error")
+        }
+    }
+
     
     
     /*
