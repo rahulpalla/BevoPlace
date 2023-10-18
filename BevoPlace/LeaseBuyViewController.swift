@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 // Types of period (for lease length)
 enum Period {
@@ -51,6 +52,9 @@ class LeaseBuyViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var itemTableView: UITableView!
     
+    @IBOutlet weak var logOutButton: UIButton!
+    
+    
     let itemCellIdentifier = "ItemCell"
 
     override func viewDidLoad() {
@@ -74,7 +78,14 @@ class LeaseBuyViewController: UIViewController, UITableViewDelegate, UITableView
         
         return cell
     }
-=======
->>>>>>> c082c2585ae19a9c9ded1c4c3b31f23751fdc03e
-
+    
+    
+    @IBAction func logoutButtonPressed(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+            self.dismiss(animated: true)
+        } catch {
+            print("Sign out error")
+        }
+    }
 }
