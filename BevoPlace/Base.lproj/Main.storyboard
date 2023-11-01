@@ -284,12 +284,12 @@
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9WJ-vT-KUo">
                                 <rect key="frame" x="16" y="201" width="361" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="one-time-code"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dv6-W0-WRR">
                                 <rect key="frame" x="16" y="272" width="361" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="one-time-code"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cyy-Fu-hwq">
                                 <rect key="frame" x="16" y="335" width="361" height="35"/>
@@ -305,15 +305,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgY-Vk-Rde">
-                                <rect key="frame" x="16" y="684" width="361" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="cYQ-jf-jBm"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jCq-E0-aiz">
                                 <rect key="frame" x="16" y="444" width="361" height="35"/>
                                 <state key="normal" title="Button"/>
@@ -322,6 +313,15 @@
                                     <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="Zji-9S-S73"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgY-Vk-Rde">
+                                <rect key="frame" x="16" y="569" width="361" height="63"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="63" id="cYQ-jf-jBm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LuQ-MB-EFs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -342,7 +342,7 @@
                             <constraint firstItem="bCV-Xd-Aht" firstAttribute="top" secondItem="LuQ-MB-EFs" secondAttribute="top" id="PcW-xc-cDS"/>
                             <constraint firstItem="jCq-E0-aiz" firstAttribute="trailing" secondItem="Cyy-Fu-hwq" secondAttribute="trailing" id="Pfy-h2-9rW"/>
                             <constraint firstItem="dv6-W0-WRR" firstAttribute="trailing" secondItem="Cyy-Fu-hwq" secondAttribute="trailing" id="XRC-Rq-g79"/>
-                            <constraint firstItem="mgY-Vk-Rde" firstAttribute="top" secondItem="Cyy-Fu-hwq" secondAttribute="bottom" constant="24" id="cQY-gt-MR6"/>
+                            <constraint firstItem="mgY-Vk-Rde" firstAttribute="top" secondItem="Cyy-Fu-hwq" secondAttribute="bottom" constant="199" id="cQY-gt-MR6"/>
                             <constraint firstItem="jCq-E0-aiz" firstAttribute="leading" secondItem="Cyy-Fu-hwq" secondAttribute="leading" id="eel-lg-iLN"/>
                             <constraint firstItem="dv6-W0-WRR" firstAttribute="trailing" secondItem="9WJ-vT-KUo" secondAttribute="trailing" id="egt-7e-acC"/>
                             <constraint firstItem="9WJ-vT-KUo" firstAttribute="trailing" secondItem="3Vi-Xn-oBX" secondAttribute="trailing" id="f0y-fU-7DV"/>
@@ -602,7 +602,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="qJZ-V7-u3e"/>
+        <segue reference="PMr-dT-QrC"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
