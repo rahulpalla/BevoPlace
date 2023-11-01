@@ -6,33 +6,63 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseCore
+import FirebaseFirestore
 
 class ProfileViewController: UIViewController {
 
     @IBOutlet weak var displayNameTextField: UITextField!
-    @IBOutlet weak var displayEmailTextField: UITextField!
+    
+    
     @IBOutlet weak var otherInfoTextField: UITextField!
     @IBOutlet weak var saveChangesButton: UIButton!
+    @IBOutlet weak var logOutButton: UIButton!
+    
+    @IBOutlet weak var displayEmailLabel: UILabel!
+    @IBOutlet weak var profileStatusLabel: UILabel!
     
     override func viewDidLoad() {
+        let docRef = db.collection("users").document(user)
+        docRef.getDocument{(document, error) in
+            if let document = document, document.exists {
+                let dataDescription = document.data().map(String.init(describing: )) ?? "nil"
+                self.displayNameTextField.placeholder = document["name"] as? String
+                self.displayEmailLabel.text = document["email"] as? String
+                self.otherInfoTextField.placeholder = document["number"] as? String
+                print("Document data: \(dataDescription)")
+            }
+            else{
+                print("Document does not exist")
+            }
+        }
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func onSaveChangesButtonPressed(_ sender: Any) {
-        // add functionality to change info in firebase
+        if displayNameTextField.text == "" {
+            self.profileStatusLabel.text = "Please enter a display name"
+        } else if otherInfoTextField.text == "" {
+            self.profileStatusLabel.text = "Please enter contact information"
+        }
+        else{
+            self.profileStatusLabel.text = ""
+            let docRef = db.collection("users").document(user)
+            docRef.updateData([
+                "name" : self.displayNameTextField.text!,
+                "number" : self.otherInfoTextField.text!
+            ])
+            
+        }
     }
     
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func logoutButtonPressed(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+            self.dismiss(animated: true)
+        } catch {
+            print("Sign out error")
+        }
     }
-    */
 
 }
