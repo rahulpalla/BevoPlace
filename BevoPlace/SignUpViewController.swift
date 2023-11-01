@@ -51,9 +51,10 @@ class SignUpViewController: UIViewController {
                         self.signUpStatusLabel.text = "\(error.localizedDescription)"
                     } else {
                         self.signUpStatusLabel.text = "Success!"
-                        db.collection("users").document(self.signUpEmailTextField.text!).setData([
+                        user = self.signUpEmailTextField.text!
+                        db.collection("users").document(user).setData([
                             "name": "Set Display Name",
-                            "email" : self.signUpEmailTextField.text!,
+                            "email" : user,
                             "number": "",
                             "sound": true,
                             "theme" : true

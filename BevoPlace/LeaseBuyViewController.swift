@@ -51,8 +51,7 @@ public var items = [
 class LeaseBuyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var itemTableView: UITableView!
-    
-    @IBOutlet weak var logOutButton: UIButton!
+
     
     
     let itemCellIdentifier = "ItemCell"
@@ -75,8 +74,7 @@ class LeaseBuyViewController: UIViewController, UITableViewDelegate, UITableView
         let row = indexPath.row
         cell.textLabel?.text = items[row].name
         cell.detailTextLabel?.text = items[row].description
-        
         return cell
     }
-    
+
 }

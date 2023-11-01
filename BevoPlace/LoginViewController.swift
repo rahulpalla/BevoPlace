@@ -8,6 +8,8 @@
 import UIKit
 import FirebaseAuth
 
+var user: String = ""
+
 class LoginViewController: UIViewController {
 
         @IBOutlet weak var emailTextField: UITextField!
@@ -29,14 +31,14 @@ class LoginViewController: UIViewController {
             super.viewDidLoad()
             passwordTextField.isSecureTextEntry = true
             
-            Auth.auth().addStateDidChangeListener() {
-                (auth,user) in
-                if user != nil {
-                    self.performSegue(withIdentifier: "loginToTabSegue", sender: nil)
-                    self.emailTextField.text = nil
-                    self.passwordTextField.text = nil
-                }
-            }
+//            Auth.auth().addStateDidChangeListener() {
+//                (auth,user) in
+//                if user != nil {
+//                    self.performSegue(withIdentifier: "loginToTabSegue", sender: nil)
+//                    self.emailTextField.text = nil
+//                    self.passwordTextField.text = nil
+//                }
+//            }
         }
         
         override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -55,7 +57,9 @@ class LoginViewController: UIViewController {
                 if let error = error as NSError? {
                     self.errorLabel.text = "\(error.localizedDescription)"
                 } else {
+                    user = self.emailTextField.text!
                     self.errorLabel.text = ""
+                    self.performSegue(withIdentifier: "loginToTabSegue", sender: nil)
                 }
             }
         }
