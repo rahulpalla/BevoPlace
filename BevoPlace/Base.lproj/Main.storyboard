@@ -119,7 +119,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="4sc-0m-fYY">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="4sc-0m-fYY">
                                 <rect key="frame" x="31" y="194" width="334" height="566"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -191,6 +191,7 @@
                             <constraint firstItem="0fV-E5-LcH" firstAttribute="leading" secondItem="4sc-0m-fYY" secondAttribute="leading" id="NTo-eP-u24"/>
                             <constraint firstItem="0fV-E5-LcH" firstAttribute="leading" secondItem="VIf-wP-nLP" secondAttribute="leading" constant="31" id="Sde-hd-jNe"/>
                             <constraint firstItem="0fV-E5-LcH" firstAttribute="top" secondItem="VIf-wP-nLP" secondAttribute="top" constant="33" id="ayP-Vc-ntE"/>
+                            <constraint firstItem="4sc-0m-fYY" firstAttribute="top" secondItem="wot-Pe-hNt" secondAttribute="bottom" constant="87" id="jBK-vf-2M6"/>
                             <constraint firstItem="VIf-wP-nLP" firstAttribute="trailing" secondItem="4sc-0m-fYY" secondAttribute="trailing" constant="28" id="pte-NQ-Wne"/>
                             <constraint firstItem="0fV-E5-LcH" firstAttribute="centerY" secondItem="sKO-9c-rvl" secondAttribute="centerY" id="rht-mL-2FL"/>
                             <constraint firstItem="sKO-9c-rvl" firstAttribute="baseline" secondItem="wot-Pe-hNt" secondAttribute="baseline" id="uxk-hg-IPP"/>
