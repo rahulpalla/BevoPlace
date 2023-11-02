@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06B0C9842AF3198A00BECBC0 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B0C9832AF3198A00BECBC0 /* AddItemViewController.swift */; };
 		06D1405C2ADEDA8D0011AC89 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D1405B2ADEDA8D0011AC89 /* SettingsViewController.swift */; };
 		06D1405E2ADEDAC40011AC89 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D1405D2ADEDAC40011AC89 /* ProfileViewController.swift */; };
 		EC6DB36D2AD8EE6F0013F965 /* LeaseBuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6DB36C2AD8EE6E0013F965 /* LeaseBuyViewController.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		06B0C9832AF3198A00BECBC0 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		06D1405B2ADEDA8D0011AC89 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		06D1405D2ADEDAC40011AC89 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		EC6DB36C2AD8EE6E0013F965 /* LeaseBuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaseBuyViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				EC6DB36C2AD8EE6E0013F965 /* LeaseBuyViewController.swift */,
 				ECBD7F892AF2F7A60076A54B /* Product.swift */,
 				FA5C35EE2AC5DFE4006B83C8 /* Main.storyboard */,
+				06B0C9832AF3198A00BECBC0 /* AddItemViewController.swift */,
 				06D1405D2ADEDAC40011AC89 /* ProfileViewController.swift */,
 				06D1405B2ADEDA8D0011AC89 /* SettingsViewController.swift */,
 				FA5C35F12AC5DFE5006B83C8 /* Assets.xcassets */,
@@ -185,6 +188,7 @@
 				FA1AE7F82ADF2F57004A515B /* SignUpViewController.swift in Sources */,
 				EC6DB36D2AD8EE6F0013F965 /* LeaseBuyViewController.swift in Sources */,
 				FA5C35ED2AC5DFE4006B83C8 /* LoginViewController.swift in Sources */,
+				06B0C9842AF3198A00BECBC0 /* AddItemViewController.swift in Sources */,
 				FA5C35E92AC5DFE4006B83C8 /* AppDelegate.swift in Sources */,
 				06D1405C2ADEDA8D0011AC89 /* SettingsViewController.swift in Sources */,
 				FA5C35EB2AC5DFE4006B83C8 /* SceneDelegate.swift in Sources */,
