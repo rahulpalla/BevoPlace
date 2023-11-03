@@ -9,6 +9,14 @@
         <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nexa-ExtraLight.ttf">
+            <string>Nexa-ExtraLight</string>
+        </array>
+        <array key="Nexa-Heavy.ttf">
+            <string>Nexa-Heavy</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -19,81 +27,108 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Welcome Back!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zUc-QF-7uv">
-                                <rect key="frame" x="137" y="236" width="118" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="115" y="237" width="162" height="21"/>
+                                <fontDescription key="fontDescription" name="Nexa-Heavy" family="Nexa" pointSize="17"/>
+                                <color key="textColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="chg-tb-mgV">
-                                <rect key="frame" x="16" y="194" width="361" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <rect key="frame" x="16" y="196.33333333333334" width="361" height="34"/>
+                                <fontDescription key="fontDescription" name="Nexa-ExtraLight" family="Nexa" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XDZ-NS-nKD">
-                                <rect key="frame" x="16" y="276" width="361" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <rect key="frame" x="16" y="278.33333333333331" width="361" height="34"/>
+                                <fontDescription key="fontDescription" name="Nexa-ExtraLight" family="Nexa" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZM-6j-4GY">
-                                <rect key="frame" x="223" y="318" width="154" height="29"/>
+                                <rect key="frame" x="216.66666666666663" y="320.33333333333331" width="160.33333333333337" height="29.666666666666686"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Forgot your password?">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="12"/>
+                                    <fontDescription key="titleFontDescription" name="Nexa-Heavy" family="Nexa" pointSize="12"/>
                                 </buttonConfiguration>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wDi-AQ-Ifk">
-                                <rect key="frame" x="16" y="378" width="361" height="35"/>
+                                <rect key="frame" x="16" y="381" width="361" height="36.333333333333314"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Login"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Login">
+                                    <fontDescription key="titleFontDescription" name="Nexa-Heavy" family="Nexa" pointSize="17"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cuw-NB-WwE"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5v5-BU-H2a">
-                                <rect key="frame" x="86" y="529" width="133" height="15"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5v5-BU-H2a">
+                                <rect key="frame" x="86.000000000000014" y="533.33333333333337" width="138.33333333333337" height="15.666666666666629"/>
+                                <fontDescription key="fontDescription" name="Nexa-Heavy" family="Nexa" pointSize="12"/>
+                                <color key="textColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="olc-Vv-pHK" customClass="loginToSignUpSegue">
-                                <rect key="frame" x="215" y="522" width="67" height="29"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="olc-Vv-pHK" customClass="loginToSignUpSegue">
+                                <rect key="frame" x="215" y="526.33333333333337" width="68" height="29.666666666666629"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Sign up">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="12"/>
+                                    <fontDescription key="titleFontDescription" name="Nexa-Heavy" family="Nexa" pointSize="12"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <segue destination="Sme-1L-dGa" kind="presentation" modalPresentationStyle="fullScreen" id="TtG-GY-9aq"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQx-le-fVe">
-                                <rect key="frame" x="16" y="562" width="361" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQx-le-fVe">
+                                <rect key="frame" x="16" y="567" width="361" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="cHl-ey-whh"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BevoPlace" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3yn-zm-8We">
+                                <rect key="frame" x="94" y="56.999999999999993" width="205" height="64.333333333333314"/>
+                                <fontDescription key="fontDescription" name="Nexa-Heavy" family="Nexa" pointSize="30"/>
+                                <color key="textColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="BevoPlaceLogo" translatesAutoresizingMaskIntoConstraints="NO" id="IQf-fW-9ep">
+                                <rect key="frame" x="76" y="704" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="PyX-T3-8fC"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="chg-tb-mgV" firstAttribute="top" secondItem="zUc-QF-7uv" secondAttribute="bottom" constant="40" id="4zm-68-Hgd"/>
-                            <constraint firstItem="zUc-QF-7uv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="133" id="8Dd-Ef-hpm"/>
-                            <constraint firstItem="olc-Vv-pHK" firstAttribute="top" secondItem="wDi-AQ-Ifk" secondAttribute="bottom" constant="1" id="8bM-i6-3MX"/>
+                            <constraint firstItem="chg-tb-mgV" firstAttribute="top" secondItem="zUc-QF-7uv" secondAttribute="bottom" constant="-61.666666666666657" id="4zm-68-Hgd"/>
+                            <constraint firstItem="IQf-fW-9ep" firstAttribute="centerX" secondItem="bQx-le-fVe" secondAttribute="centerX" id="5dM-Zr-yU1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="IQf-fW-9ep" secondAttribute="bottom" constant="20" id="5yb-QE-DRe"/>
+                            <constraint firstItem="zUc-QF-7uv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="237" id="8Dd-Ef-hpm"/>
+                            <constraint firstItem="olc-Vv-pHK" firstAttribute="top" secondItem="wDi-AQ-Ifk" secondAttribute="bottom" constant="109" id="8bM-i6-3MX"/>
                             <constraint firstItem="wDi-AQ-Ifk" firstAttribute="leading" secondItem="XDZ-NS-nKD" secondAttribute="leading" id="A3s-gM-hUn"/>
                             <constraint firstItem="zUc-QF-7uv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Amu-Ve-xbe"/>
                             <constraint firstItem="lZM-6j-4GY" firstAttribute="top" secondItem="XDZ-NS-nKD" secondAttribute="bottom" constant="8" id="BQt-qN-vMO"/>
                             <constraint firstItem="chg-tb-mgV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="CYX-MN-LwN"/>
-                            <constraint firstItem="zUc-QF-7uv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="137" id="OXr-k5-T7R"/>
+                            <constraint firstItem="IQf-fW-9ep" firstAttribute="top" secondItem="bQx-le-fVe" secondAttribute="bottom" constant="116" id="FOU-Im-cmH"/>
+                            <constraint firstItem="3yn-zm-8We" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="94" id="LF2-FD-nYO"/>
+                            <constraint firstItem="zUc-QF-7uv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="115" id="OXr-k5-T7R"/>
                             <constraint firstItem="chg-tb-mgV" firstAttribute="leading" secondItem="XDZ-NS-nKD" secondAttribute="leading" id="PAV-Pr-o1T"/>
+                            <constraint firstItem="3yn-zm-8We" firstAttribute="centerX" secondItem="chg-tb-mgV" secondAttribute="centerX" id="QZp-rw-OUE"/>
+                            <constraint firstItem="chg-tb-mgV" firstAttribute="top" secondItem="3yn-zm-8We" secondAttribute="bottom" constant="75" id="Qd6-zP-fyh"/>
+                            <constraint firstItem="bQx-le-fVe" firstAttribute="leading" secondItem="wDi-AQ-Ifk" secondAttribute="leading" id="R8e-9e-70F"/>
                             <constraint firstItem="chg-tb-mgV" firstAttribute="trailing" secondItem="XDZ-NS-nKD" secondAttribute="trailing" id="UbR-rx-a21"/>
+                            <constraint firstItem="bQx-le-fVe" firstAttribute="trailing" secondItem="wDi-AQ-Ifk" secondAttribute="trailing" id="V6C-Oc-21A"/>
                             <constraint firstItem="wDi-AQ-Ifk" firstAttribute="trailing" secondItem="lZM-6j-4GY" secondAttribute="trailing" id="XbY-PS-roO"/>
                             <constraint firstItem="wDi-AQ-Ifk" firstAttribute="top" secondItem="lZM-6j-4GY" secondAttribute="bottom" constant="31" id="ZzV-GT-zfu"/>
-                            <constraint firstItem="5v5-BU-H2a" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="64" id="bzi-VE-vPt"/>
-                            <constraint firstItem="5v5-BU-H2a" firstAttribute="top" secondItem="wDi-AQ-Ifk" secondAttribute="bottom" constant="8" id="ggS-9R-5u3"/>
+                            <constraint firstItem="5v5-BU-H2a" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="86" id="bzi-VE-vPt"/>
+                            <constraint firstItem="5v5-BU-H2a" firstAttribute="top" secondItem="wDi-AQ-Ifk" secondAttribute="bottom" constant="116" id="ggS-9R-5u3"/>
                             <constraint firstItem="lZM-6j-4GY" firstAttribute="trailing" secondItem="XDZ-NS-nKD" secondAttribute="trailing" id="hQv-jc-ga3"/>
-                            <constraint firstItem="olc-Vv-pHK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="205" id="lv4-8t-bMN"/>
+                            <constraint firstItem="IQf-fW-9ep" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="76" id="iII-FK-web"/>
+                            <constraint firstItem="olc-Vv-pHK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="215" id="lv4-8t-bMN"/>
                             <constraint firstItem="XDZ-NS-nKD" firstAttribute="top" secondItem="chg-tb-mgV" secondAttribute="bottom" constant="48" id="wha-DR-1io"/>
                             <constraint firstItem="zUc-QF-7uv" firstAttribute="centerX" secondItem="chg-tb-mgV" secondAttribute="centerX" id="z95-2z-c4n"/>
+                            <constraint firstItem="3yn-zm-8We" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="57" id="zMA-GF-s8x"/>
+                            <constraint firstItem="bQx-le-fVe" firstAttribute="top" secondItem="olc-Vv-pHK" secondAttribute="bottom" constant="11" id="zye-n7-cPA"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZrV-Ol-0Um"/>
@@ -109,7 +144,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="648" y="-182"/>
+            <point key="canvasLocation" x="646.56488549618314" y="-182.3943661971831"/>
         </scene>
         <!--Lease/Buy-->
         <scene sceneID="gc0-kP-gRS">
@@ -407,43 +442,47 @@
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Vi-Xn-oBX">
                                 <rect key="frame" x="16" y="127" width="361" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Nexa-ExtraLight" family="Nexa" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9WJ-vT-KUo">
                                 <rect key="frame" x="16" y="201" width="361" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Nexa-ExtraLight" family="Nexa" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="one-time-code"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dv6-W0-WRR">
                                 <rect key="frame" x="16" y="272" width="361" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Nexa-ExtraLight" family="Nexa" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="one-time-code"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cyy-Fu-hwq">
-                                <rect key="frame" x="16" y="335" width="361" height="35"/>
+                                <rect key="frame" x="16" y="335" width="361" height="36.333333333333314"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Sign up"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Sign up">
+                                    <fontDescription key="titleFontDescription" name="Nexa-Heavy" family="Nexa" pointSize="17"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="signupButtonPressed:" destination="Sme-1L-dGa" eventType="touchUpInside" id="Y2K-z0-dRG"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Sign Up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCV-Xd-Aht">
-                                <rect key="frame" x="166" y="103" width="60" height="55"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="116" y="53" width="161" height="55"/>
+                                <fontDescription key="fontDescription" name="Nexa-Heavy" family="Nexa" pointSize="17"/>
+                                <color key="textColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jCq-E0-aiz">
-                                <rect key="frame" x="16" y="444" width="361" height="35"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jCq-E0-aiz">
+                                <rect key="frame" x="16" y="445.33333333333331" width="361" height="36.333333333333314"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Already have an account? Login!"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Already have an account? Login!">
+                                    <fontDescription key="titleFontDescription" name="Nexa-Heavy" family="Nexa" pointSize="17"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="Zji-9S-S73"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgY-Vk-Rde">
-                                <rect key="frame" x="16" y="569" width="361" height="63"/>
+                                <rect key="frame" x="16" y="570.33333333333337" width="361" height="63"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="63" id="cYQ-jf-jBm"/>
                                 </constraints>
@@ -451,31 +490,40 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BevoPlaceLogo" translatesAutoresizingMaskIntoConstraints="NO" id="uMA-dH-5YP">
+                                <rect key="frame" x="76" y="704" width="241" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="qdf-33-bdm"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LuQ-MB-EFs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="3Vi-Xn-oBX" firstAttribute="leading" secondItem="ghg-3I-mhv" secondAttribute="leadingMargin" id="06q-7p-Wvn"/>
-                            <constraint firstItem="jCq-E0-aiz" firstAttribute="top" secondItem="Cyy-Fu-hwq" secondAttribute="bottom" constant="34" id="0X4-Ar-bLQ"/>
-                            <constraint firstItem="bCV-Xd-Aht" firstAttribute="leading" secondItem="LuQ-MB-EFs" secondAttribute="leading" constant="166" id="2PF-fC-oYb"/>
+                            <constraint firstItem="jCq-E0-aiz" firstAttribute="top" secondItem="Cyy-Fu-hwq" secondAttribute="bottom" constant="74" id="0X4-Ar-bLQ"/>
+                            <constraint firstItem="bCV-Xd-Aht" firstAttribute="leading" secondItem="LuQ-MB-EFs" secondAttribute="leading" constant="116" id="2PF-fC-oYb"/>
                             <constraint firstItem="Cyy-Fu-hwq" firstAttribute="top" secondItem="dv6-W0-WRR" secondAttribute="bottom" constant="29" id="9ef-sr-TH0"/>
                             <constraint firstItem="mgY-Vk-Rde" firstAttribute="trailing" secondItem="Cyy-Fu-hwq" secondAttribute="trailing" id="Aii-nr-bgO"/>
                             <constraint firstItem="9WJ-vT-KUo" firstAttribute="leading" secondItem="3Vi-Xn-oBX" secondAttribute="leading" id="CI8-Zc-zaq"/>
+                            <constraint firstItem="uMA-dH-5YP" firstAttribute="top" secondItem="mgY-Vk-Rde" secondAttribute="bottom" constant="70.666666666666629" id="CaS-8Y-3t0"/>
                             <constraint firstItem="9WJ-vT-KUo" firstAttribute="top" secondItem="3Vi-Xn-oBX" secondAttribute="bottom" constant="40" id="Dcs-mr-YI1"/>
                             <constraint firstItem="dv6-W0-WRR" firstAttribute="leading" secondItem="Cyy-Fu-hwq" secondAttribute="leading" id="EHQ-pd-saX"/>
                             <constraint firstItem="3Vi-Xn-oBX" firstAttribute="trailing" secondItem="ghg-3I-mhv" secondAttribute="trailingMargin" id="IR9-l6-Obj"/>
                             <constraint firstItem="3Vi-Xn-oBX" firstAttribute="top" secondItem="LuQ-MB-EFs" secondAttribute="top" constant="127" id="IuW-RD-ap8"/>
-                            <constraint firstItem="bCV-Xd-Aht" firstAttribute="centerX" secondItem="3Vi-Xn-oBX" secondAttribute="centerX" id="Ixx-gQ-rmX"/>
-                            <constraint firstItem="9WJ-vT-KUo" firstAttribute="top" secondItem="bCV-Xd-Aht" secondAttribute="bottom" constant="43" id="L6I-cC-Vkk"/>
+                            <constraint firstItem="bCV-Xd-Aht" firstAttribute="centerX" secondItem="3Vi-Xn-oBX" secondAttribute="centerX" constant="-0.5" id="Ixx-gQ-rmX"/>
+                            <constraint firstItem="9WJ-vT-KUo" firstAttribute="top" secondItem="bCV-Xd-Aht" secondAttribute="bottom" constant="93" id="L6I-cC-Vkk"/>
                             <constraint firstItem="mgY-Vk-Rde" firstAttribute="leading" secondItem="Cyy-Fu-hwq" secondAttribute="leading" id="Oc8-Ct-40T"/>
-                            <constraint firstItem="bCV-Xd-Aht" firstAttribute="top" secondItem="LuQ-MB-EFs" secondAttribute="top" id="PcW-xc-cDS"/>
+                            <constraint firstItem="bCV-Xd-Aht" firstAttribute="top" secondItem="LuQ-MB-EFs" secondAttribute="top" constant="53" id="PcW-xc-cDS"/>
                             <constraint firstItem="jCq-E0-aiz" firstAttribute="trailing" secondItem="Cyy-Fu-hwq" secondAttribute="trailing" id="Pfy-h2-9rW"/>
+                            <constraint firstItem="uMA-dH-5YP" firstAttribute="leading" secondItem="LuQ-MB-EFs" secondAttribute="leading" constant="76" id="Txi-Dx-9xA"/>
                             <constraint firstItem="dv6-W0-WRR" firstAttribute="trailing" secondItem="Cyy-Fu-hwq" secondAttribute="trailing" id="XRC-Rq-g79"/>
                             <constraint firstItem="mgY-Vk-Rde" firstAttribute="top" secondItem="Cyy-Fu-hwq" secondAttribute="bottom" constant="199" id="cQY-gt-MR6"/>
                             <constraint firstItem="jCq-E0-aiz" firstAttribute="leading" secondItem="Cyy-Fu-hwq" secondAttribute="leading" id="eel-lg-iLN"/>
                             <constraint firstItem="dv6-W0-WRR" firstAttribute="trailing" secondItem="9WJ-vT-KUo" secondAttribute="trailing" id="egt-7e-acC"/>
                             <constraint firstItem="9WJ-vT-KUo" firstAttribute="trailing" secondItem="3Vi-Xn-oBX" secondAttribute="trailing" id="f0y-fU-7DV"/>
                             <constraint firstItem="dv6-W0-WRR" firstAttribute="top" secondItem="9WJ-vT-KUo" secondAttribute="bottom" constant="37" id="h2X-PQ-BdA"/>
+                            <constraint firstItem="uMA-dH-5YP" firstAttribute="centerX" secondItem="mgY-Vk-Rde" secondAttribute="centerX" id="yL0-zC-wsi"/>
                             <constraint firstItem="dv6-W0-WRR" firstAttribute="leading" secondItem="9WJ-vT-KUo" secondAttribute="leading" id="ylU-tt-BHx"/>
                         </constraints>
                     </view>
@@ -751,6 +799,7 @@
         <segue reference="PMr-dT-QrC"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="BevoPlaceLogo" width="878" height="246"/>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
