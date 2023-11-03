@@ -51,5 +51,15 @@ class LeaseBuyViewController: UIViewController, UITableViewDelegate, UITableView
         
         return cell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addItemSegue",
+           let destination = segue.destination as? AddItemViewController
+        {
+            //destination.delegate = self
+        }
+    }
+//=======
+//>>>>>>> c082c2585ae19a9c9ded1c4c3b31f23751fdc03e
 
 }

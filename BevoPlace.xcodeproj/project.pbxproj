@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06B0C9842AF3198A00BECBC0 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B0C9832AF3198A00BECBC0 /* AddItemViewController.swift */; };
 		06D1405C2ADEDA8D0011AC89 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D1405B2ADEDA8D0011AC89 /* SettingsViewController.swift */; };
 		06D1405E2ADEDAC40011AC89 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D1405D2ADEDAC40011AC89 /* ProfileViewController.swift */; };
 		EC43BF332AF599C20097CE27 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC43BF322AF599C20097CE27 /* ProductCell.swift */; };
@@ -53,6 +54,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		06B0C9832AF3198A00BECBC0 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		06D1405B2ADEDA8D0011AC89 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		06D1405D2ADEDAC40011AC89 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		EC43BF322AF599C20097CE27 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				EC43BF322AF599C20097CE27 /* ProductCell.swift */,
 				ECBD7F892AF2F7A60076A54B /* Product.swift */,
 				FA5C35EE2AC5DFE4006B83C8 /* Main.storyboard */,
+				06B0C9832AF3198A00BECBC0 /* AddItemViewController.swift */,
 				06D1405D2ADEDAC40011AC89 /* ProfileViewController.swift */,
 				06D1405B2ADEDA8D0011AC89 /* SettingsViewController.swift */,
 				FA5C35F12AC5DFE5006B83C8 /* Assets.xcassets */,
@@ -269,6 +272,7 @@
 				FA1AE7F82ADF2F57004A515B /* SignUpViewController.swift in Sources */,
 				EC6DB36D2AD8EE6F0013F965 /* LeaseBuyViewController.swift in Sources */,
 				FA5C35ED2AC5DFE4006B83C8 /* LoginViewController.swift in Sources */,
+				06B0C9842AF3198A00BECBC0 /* AddItemViewController.swift in Sources */,
 				FA5C35E92AC5DFE4006B83C8 /* AppDelegate.swift in Sources */,
 				EC43BF332AF599C20097CE27 /* ProductCell.swift in Sources */,
 				06D1405C2ADEDA8D0011AC89 /* SettingsViewController.swift in Sources */,
