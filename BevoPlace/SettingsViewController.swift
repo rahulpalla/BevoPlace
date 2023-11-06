@@ -22,9 +22,19 @@ class SettingsViewController: UIViewController {
         soundModeLabel.text = "Sound Off:"
     }
     
-    @IBAction func onLightModeSwitched(_ sender: Any) {
+    @IBAction func onLightModeSwitched(_ sender: UISwitch) {
         lightModeLabel.text = "Dark Mode Activated:"
         // add in functionality for dark mode
+        
+        if #available(iOS 13.0, *) {
+             let appDelegate = UIApplication.shared.windows.first
+                 if sender.isOn {
+                    appDelegate?.overrideUserInterfaceStyle = .dark
+                      return
+                 }
+             appDelegate?.overrideUserInterfaceStyle = .light
+             return
+        }
     }
     
     @IBAction func onSoundModeSwitched(_ sender: Any) {
