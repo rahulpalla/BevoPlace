@@ -71,6 +71,8 @@
 		FA5C35F12AC5DFE5006B83C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA5C35F42AC5DFE5006B83C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA5C35F62AC5DFE5006B83C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA633A132AF59DCE000654A5 /* Nexa-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nexa-ExtraLight.ttf"; sourceTree = "<group>"; };
+		FA633A142AF59DCE000654A5 /* Nexa-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nexa-Heavy.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 		FA5C35E72AC5DFE4006B83C8 /* BevoPlace */ = {
 			isa = PBXGroup;
 			children = (
+				FA633A0F2AF59D7D000654A5 /* Fonts */,
 				ECBD7F8B2AF2FE6E0076A54B /* TexasLaunchSound.mp3 */,
 				FA5C35E82AC5DFE4006B83C8 /* AppDelegate.swift */,
 				FA1AE7F72ADF2F57004A515B /* SignUpViewController.swift */,
@@ -151,6 +154,23 @@
 				FA5C35F62AC5DFE5006B83C8 /* Info.plist */,
 			);
 			path = BevoPlace;
+			sourceTree = "<group>";
+		};
+		FA633A0F2AF59D7D000654A5 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				FA633A122AF59DCE000654A5 /* nexa */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		FA633A122AF59DCE000654A5 /* nexa */ = {
+			isa = PBXGroup;
+			children = (
+				FA633A132AF59DCE000654A5 /* Nexa-ExtraLight.ttf */,
+				FA633A142AF59DCE000654A5 /* Nexa-Heavy.ttf */,
+			);
+			path = nexa;
 			sourceTree = "<group>";
 		};
 		FABF2EB42AF2FD0E00511D84 /* Frameworks */ = {
