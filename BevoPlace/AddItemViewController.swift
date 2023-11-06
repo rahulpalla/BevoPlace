@@ -9,7 +9,7 @@ import UIKit
 
 var categoryPickerData = ["Textbooks", "UT Merch", "Stationary", "Electronics", "Travel"]
 var sizePickerData = ["n/a", "XS", "S", "M", "L", "XL"]
-var periodsPickerData = ["days", "weeks", "months"]
+var periodsPickerData = ["day", "week", "month"]
 
 class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
