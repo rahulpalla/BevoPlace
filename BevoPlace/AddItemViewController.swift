@@ -110,7 +110,7 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             "userID": 43 //change
         ]
         
-        let newProduct = db.collection("products").document("test")
+        let newProduct = db.collection("products").document()
         
         newProduct.setData(productData) { error in
             if let error = error {
