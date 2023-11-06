@@ -7,29 +7,19 @@
 
 import Foundation
 
-// Types of period (for lease length)
-enum Period {
-    case none, day, week, month
-}
-
-// Clothing sizes (varieties)
-enum Size {
-    case none, XS, S, M, L, XL, XXL
-}
-
 public class Product {
     var id: Int
     var name: String
     var description: String
     var lease: Bool
     var price: Double
-    var period: Period
+    var period: String
     var numPeriods: Int
-    var size: Size
+    var size: String
     var userID: Int
     var image: String
     
-    init(id: Int, name: String, description: String, userID: Int, image: String, lease: Bool, price: Double, period: Period = Period.none, numPeriods: Int = 0, size: Size = Size.none) {
+    init(id: Int, name: String, description: String, userID: Int, image: String, lease: Bool, price: Double, period: String, numPeriods: Int, size: String) {
         self.id = id
         self.name = name
         self.description = description

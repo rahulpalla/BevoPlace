@@ -7,25 +7,120 @@
 
 import UIKit
 
-class AddItemViewController: UIViewController {
+var categoryPickerData = ["Textbooks", "UT Merch", "Stationary", "Electronics", "Travel"]
+var sizePickerData = ["n/a", "XS", "S", "M", "L", "XL"]
+var periodsPickerData = ["days", "weeks", "months"]
+
+class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var lendSellSegCtrl: UISegmentedControl!
     
-    @IBOutlet weak var category: UIButton!
+    @IBOutlet weak var categoryPicker: UIPickerView!
+    
+    @IBOutlet weak var sizePicker: UIPickerView!
+    
+    @IBOutlet weak var periodsPicker: UIPickerView!
+    
+    @IBOutlet weak var periodsLabel: UILabel!
     
     @IBOutlet weak var titleField: UITextField!
     
+    @IBOutlet weak var priceSlider: UISlider!
+    
+    @IBOutlet weak var numPeriodsSlider: UISlider!
+    
+    @IBOutlet weak var numPeriodsLabel: UILabel!
     
     @IBOutlet weak var descriptionField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        categoryPicker.delegate = self
+        categoryPicker.dataSource = self
+        
+        sizePicker.delegate = self
+        sizePicker.dataSource = self
+        
+        periodsPicker.delegate = self
+        periodsPicker.dataSource = self
 
-        // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func onSegCtrlChanged(_ sender: Any) {
+        if(lendSellSegCtrl.selectedSegmentIndex == 0) {
+            periodsPicker.isHidden = false
+            periodsLabel.isHidden = false
+            numPeriodsSlider.isHidden = false
+            numPeriodsLabel.isHidden = false
+        } else {
+            periodsPicker.isHidden = true
+            periodsLabel.isHidden = true
+            numPeriodsSlider.isHidden = true
+            numPeriodsLabel.isHidden = true
+        }
+    }
+    
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if (pickerView.tag == 0) {
+            return categoryPickerData.count
+        } else if (pickerView.tag == 1) {
+            return sizePickerData.count
+        } else {
+            return periodsPickerData.count
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if (pickerView.tag == 0) {
+            return categoryPickerData[row]
+        } else if (pickerView.tag == 1) {
+            return sizePickerData[row]
+        } else {
+            return periodsPickerData[row]
+        }
     }
     
     @IBAction func onPostButtonClicked(_ sender: Any) {
-//        var newProduct = Product(id: <#T##Int#>, name: titleField.text, description: descriptionField.text, userID: <#T##Int#>, image: <#T##String#>, lease: <#T##Bool#>, price: <#T##Double#>)
+        var lease = (lendSellSegCtrl.selectedSegmentIndex == 0)
+        let categoryPickerRow = categoryPicker.selectedRow(inComponent: 0)
+        let categoryValue = String(categoryPickerData[categoryPickerRow])
+        let sizePickerRow = sizePicker.selectedRow(inComponent: 0)
+        let sizeValue = String(sizePickerData[sizePickerRow])
+        let periodsPickerRow = periodsPicker.selectedRow(inComponent: 0)
+        let periodsValue = String(periodsPickerData[periodsPickerRow])
+        let priceValue = priceSlider.value
+        let numPeriodsValue = numPeriodsSlider.value
+        
+        let productData: [String: Any] = [
+            "description": descriptionField.text!,
+            "id": 3, //change
+            "image": "",
+            "lease": lease,
+            "name": titleField.text!,
+            "numPeriods": periodsValue,
+            "period": periodsValue,
+            "price": priceValue,
+            "size": sizeValue,
+            "userID": 43 //change
+        ]
+        
+        let newProduct = db.collection("products").document("test")
+        
+        newProduct.setData(productData) { error in
+            if let error = error {
+                print("Error creating new product: \(error)")
+            } else {
+                print("Product successfully created!")
+                
+            }
+        }
+        
     }
     
 }

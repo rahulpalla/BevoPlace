@@ -7,26 +7,26 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
 
-public var items = [
-    Product(id: 1, name: "Vintage Texas Sweatshirt", description: "Lightly worn sweatshirt, burnt orange gameday fit", userID: 1, image: "https://www.google.com", lease: true, price: 25,
-            period: Period.week ,numPeriods: 3, size: Size.L)
-]
+public var items = [Product]()
 
-class LeaseBuyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDelegate, UITableViewDataSource {
+    
+    var itmes:[Product] = []
     
     @IBOutlet weak var itemTableView: UITableView!
 
-    
-    
     let itemCellIdentifier = "ItemCell"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.fetchAllProducts()
         // Important setup for Table View.
         itemTableView.delegate = self
         itemTableView.dataSource = self
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -45,8 +45,8 @@ class LeaseBuyViewController: UIViewController, UITableViewDelegate, UITableView
             cell.leaseLengthLabel.text = ""
         } else {
             // Lease Item interface
-            cell.productPriceLabel.text = "Price: $\(String(round(items[row].price)))/\(String(describing: items[row].period))"
-            cell.leaseLengthLabel.text = "Lease length: \(items[row].numPeriods) \(String(describing: items[row].period))s"
+            cell.productPriceLabel.text = "Price: $\(String(round(items[row].price)))/\(items[row].period))"
+            cell.leaseLengthLabel.text = "Lease length: \(items[row].numPeriods) \(items[row].period))s"
         }
         
         return cell
@@ -59,6 +59,33 @@ class LeaseBuyViewController: UIViewController, UITableViewDelegate, UITableView
             //destination.delegate = self
         }
     }
+    
+    func fetchAllProducts() {
+        db.collection("products").getDocuments() { (querySnapshot, error) in
+            if let error = error {
+                print("Error getting documents: \(error)")
+            } else {
+                for document in querySnapshot!.documents {
+                    var data = document.data()
+                    //print("\(document.documentID): \(document.data())")
+                    let price = data["price"] as? Double ?? 0.0
+                    let lease = data["lease"] as? Bool ?? true
+                    let period = data["period"] as? String ?? ""
+                    let userID = data["userID"] as? Int ?? 0
+                    let size = data["size"] as? String ?? ""
+                    let name = data["name"] as? String ?? ""
+                    let id = data["id"] as? Int ?? 0
+                    let image = data["image"] as? String ?? ""
+                    let numPeriods = data["numPeriods"] as? Int ?? 0
+                    let description = data["description"] as? String ?? ""
+                    items.append(Product(id: id, name: name, description: description, userID: userID, image: image, lease: lease, price: price, period: period, numPeriods: numPeriods, size: size))
+                    self.itemTableView.reloadData()
+                }
+            }
+        }
+    }
+    
+    
 //=======
 //>>>>>>> c082c2585ae19a9c9ded1c4c3b31f23751fdc03e
 
