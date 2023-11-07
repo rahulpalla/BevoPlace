@@ -35,20 +35,21 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = itemTableView.dequeueReusableCell(withIdentifier: itemCellIdentifier, for: indexPath as IndexPath) as! ProductCell
-
+        
         let row = indexPath.row
-        cell.productTitleLabel.text = items[row].name
+        cell.productTitleLabel?.text = items[row].name
         cell.productSizeLabel.text = "Size: \(String(describing: items[row].size))"
+
+        let price = round(items[row].price * 100.0) / 100.0
         if (!items[row].lease) {
             // Buy Item interface
-            cell.productPriceLabel.text = "Price: $\(String(round(items[row].price)))"
+            cell.productPriceLabel.text = "Price: $\(String(price))"
             cell.leaseLengthLabel.text = ""
         } else {
             // Lease Item interface
-            cell.productPriceLabel.text = "Price: $\(String(round(items[row].price)))/\(items[row].period))"
-            cell.leaseLengthLabel.text = "Lease length: \(items[row].numPeriods) \(items[row].period))s"
+            cell.productPriceLabel.text = "Price: $\(String(price))/\(items[row].period)"
+            cell.leaseLengthLabel.text = "Lease length: \(items[row].numPeriods) \(items[row].period)s"
         }
-        
         return cell
     }
     

@@ -33,17 +33,20 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyItemCell", for: indexPath) as! MyProductCell
         
         let row = indexPath.row
-//        cell.productTitleLabel?.text = myItems[row].name
+        cell.productTitleLabel?.text = myItems[row].name
         cell.productSizeLabel.text = "Size: \(String(describing: myItems[row].size))"
-//        if (!myItems[row].lease) {
-//            // Buy Item interface
-//            cell.productPriceLabel.text = "Price: $\(String(round(myItems[row].price)))"
-//            cell.leaseLengthLabel.text = ""
-//        } else {
-//            // Lease Item interface
-//            cell.productPriceLabel.text = "Price: $\(String(round(myItems[row].price)))/\(myItems[row].period))"
-//            cell.leaseLengthLabel.text = "Lease length: \(myItems[row].numPeriods) \(myItems[row].period))s"
-//        }
+
+        
+        let price = round(myItems[row].price * 100.0) / 100.0
+        if (!myItems[row].lease) {
+            // Buy Item interface
+            cell.productPriceLabel.text = "Price: $\(String(price))"
+            cell.leaseLengthLabel.text = ""
+        } else {
+            // Lease Item interface
+            cell.productPriceLabel.text = "Price: $\(String(price))/\(myItems[row].period)"
+            cell.leaseLengthLabel.text = "Lease length: \(myItems[row].numPeriods) \(myItems[row].period)s"
+        }
         return cell
     }
     
