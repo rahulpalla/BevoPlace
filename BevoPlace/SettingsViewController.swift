@@ -7,6 +7,11 @@
 
 import UIKit
 import AVFoundation
+import Firebase
+
+protocol loadSettings{
+    func loadUserSettings()
+}
 
 class SettingsViewController: UIViewController {
 
@@ -15,72 +20,47 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var lightModeSwitch: UISwitch!
     @IBOutlet weak var darkModeSwitch: UISwitch!
     @IBOutlet weak var saveChangesButton: UIButton!
+    @IBOutlet weak var soundModeSwitch: UISwitch!
     var audioPlayer: AVAudioPlayer?
+    var firestore: Firestore!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         lightModeLabel.text = "Light Mode Activated:"
         soundModeLabel.text = "Sound Off:"
+        firestore = Firestore.firestore()
+        self.lightModeSwitch.isOn = UserSettingsManager.shared.darkModeEnabled
+        self.soundModeSwitch.isOn = UserSettingsManager.shared.soundEnabled
     }
     
     @IBAction func onLightModeSwitched(_ sender: UISwitch) {
         lightModeLabel.text = "Dark Mode Activated:"
-        // add in functionality for dark mode
-        
-        if #available(iOS 13.0, *) {
-             let appDelegate = UIApplication.shared.windows.first
-                 if sender.isOn {
-                    appDelegate?.overrideUserInterfaceStyle = .dark
-                      return
-                 }
-             appDelegate?.overrideUserInterfaceStyle = .light
-             return
-        }
+        UserSettingsManager.shared.darkModeEnabled = sender.isOn
+        UserSettingsManager.shared.applyUserSettings()
     }
     
     @IBAction func onSoundModeSwitched(_ sender: UISwitch) {
-        if sender.isOn {
-            soundModeLabel.text = "Sound On:"
-            playThemeSong()
-        } else {
-            soundModeLabel.text = "Sound Off:"
-            stopThemeSong()
-        }
-    }
-    
-    func playThemeSong() {
-        guard let url = Bundle.main.url(forResource: "TexasLaunchSound", withExtension: "mp3") else {
-            print("Theme song not found")
-            return
-        }
+        soundModeLabel.text = sender.isOn ? "Sound On:" : "Sound Off:"
         
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOf: url)
-            audioPlayer?.numberOfLoops = -1 // Play on loop indefinitely
-            audioPlayer?.play()
-        } catch {
-            print("Error playing theme song: \(error.localizedDescription)")
-        }
-    }
-
-    func stopThemeSong() {
-        audioPlayer?.stop()
-        audioPlayer = nil
+        UserSettingsManager.shared.soundEnabled = sender.isOn
+        UserSettingsManager.shared.applyUserSettings()
     }
     
     @IBAction func onSaveChangesButtonPressed(_ sender: Any) {
+        saveUserSettings()
     }
     
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func saveUserSettings() {
+        // Assuming you have a way to identify the current user (e.g., authentication)
+        // Replace "currentUserID" with the actual user ID or a unique identifier for the user.
+        let currentUserID = user
+        
+        // Update and save user settings in Firestore
+        firestore.collection("user_settings").document(currentUserID).setData([
+            "darkMode": lightModeSwitch.isOn,
+            "soundOn": soundModeSwitch.isOn
+        ])
     }
-    */
 
 }

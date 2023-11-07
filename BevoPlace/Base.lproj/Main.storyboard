@@ -791,6 +791,7 @@
                         <outlet property="lightModeSwitch" destination="S3G-cr-59d" id="CtS-jH-ohW"/>
                         <outlet property="saveChangesButton" destination="vmV-Nm-Irf" id="eex-Wh-JGa"/>
                         <outlet property="soundModeLabel" destination="Ud9-l3-r1b" id="RBW-pu-S0B"/>
+                        <outlet property="soundModeSwitch" destination="Eo1-5v-7fn" id="B6x-Ph-VI8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sJh-ln-dZ1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

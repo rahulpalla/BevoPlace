@@ -7,8 +7,12 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
 
 var user: String = ""
+var darkModeEnabled: Bool = false
+var soundEnabled: Bool = false
+var userSettings: [String: Any] = [:]
 
 class LoginViewController: UIViewController {
 
@@ -23,6 +27,7 @@ class LoginViewController: UIViewController {
         @IBOutlet weak var signUpButton: UIButton!
         
         @IBOutlet weak var errorLabel: UILabel!
+
         
         
         
@@ -59,11 +64,34 @@ class LoginViewController: UIViewController {
                 } else {
                     user = self.emailTextField.text!
                     self.errorLabel.text = ""
-                    self.performSegue(withIdentifier: "loginToTabSegue", sender: nil)
+                    self.loadUserSettingsAndSegue()
                 }
             }
         }
     }
+    
+    func loadUserSettingsAndSegue() {
+        // Access the Firestore document containing user settings
+        Firestore.firestore().collection("user_settings").document(user).getDocument { (document, error) in
+            if let document = document, document.exists {
+                if let data = document.data() {
+                    // Fetch user settings, such as dark mode and sound preferences
+                    if let isDarkModeOn = data["darkMode"] as? Bool {
+                        UserSettingsManager.shared.darkModeEnabled = isDarkModeOn
+                    }
+
+                    if let isSoundOn = data["soundOn"] as? Bool {
+                        UserSettingsManager.shared.soundEnabled = isSoundOn
+                    }
+                }
+            }
+            UserSettingsManager.shared.applyUserSettings()
+            // Continue with the segue once user settings are loaded
+            self.performSegue(withIdentifier: "loginToTabSegue", sender: nil)
+        }
+    }
+
+
     
 }
 
