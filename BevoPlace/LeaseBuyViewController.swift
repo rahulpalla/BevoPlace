@@ -71,7 +71,7 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
                     let price = data["price"] as? Double ?? 0.0
                     let lease = data["lease"] as? Bool ?? true
                     let period = data["period"] as? String ?? ""
-                    let userID = data["userID"] as? Int ?? 0
+                    let userID = data["userID"] as? String ?? ""
                     let size = data["size"] as? String ?? ""
                     let name = data["name"] as? String ?? ""
                     let id = data["id"] as? Int ?? 0
