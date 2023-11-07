@@ -16,10 +16,10 @@ public class Product {
     var period: String
     var numPeriods: Int
     var size: String
-    var userID: Int
+    var userID: String
     var image: String
     
-    init(id: Int, name: String, description: String, userID: Int, image: String, lease: Bool, price: Double, period: String, numPeriods: Int, size: String) {
+    init(id: Int, name: String, description: String, userID: String, image: String, lease: Bool, price: Double, period: String, numPeriods: Int, size: String) {
         self.id = id
         self.name = name
         self.description = description
