@@ -10,6 +10,7 @@ import UIKit
 var categoryPickerData = ["Tickets","Clothes", "Textbooks", "UT Merch", "Stationary", "Electronics", "Travel", "Other"]
 var sizePickerData = ["N/A", "XS", "S", "M", "L", "XL"]
 var periodsPickerData = ["days", "weeks", "months"]
+var imageClick = false
 
 class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
@@ -32,6 +33,10 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBOutlet weak var numPeriodsLabel: UILabel!
     
     @IBOutlet weak var descriptionField: UITextField!
+    
+    
+    @IBOutlet weak var statusLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,28 +101,41 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         let periodsValue = String(periodsPickerData[periodsPickerRow])
         let priceValue = Double(priceTextField.text!) ?? 0
         let numPeriodsValue = Double(numPeriodsTextField.text!) ?? 0
-        
-        let productData: [String: Any] = [
-            "description": descriptionField.text!,
-            "id": items.count+1,
-            "image": "",
-            "lease": lease,
-            "name": titleField.text!,
-            "numPeriods": periodsValue,
-            "period": periodsValue,
-            "price": priceValue,
-            "size": sizeValue,
-            "userID": user
-        ]
-        
-        let newProduct = db.collection("products").document()
-        
-        newProduct.setData(productData) { error in
-            if let error = error {
-                print("Error creating new product: \(error)")
-            } else {
-                print("Product successfully created!")
-                
+        if(titleField.text == ""){
+            statusLabel.text = "Please enter a title"
+        }
+        else if(descriptionField.text == ""){
+            statusLabel.text = "Please enter a description"
+        }
+        else{
+            let productData: [String: Any] = [
+                "description": descriptionField.text!,
+                "id": items.count+1,
+                "image": "",
+                "lease": lease,
+                "name": titleField.text!,
+                "numPeriods": numPeriodsValue,
+                "period": periodsValue,
+                "price": priceValue,
+                "size": sizeValue,
+                "userID": user
+            ]
+            
+            let newProduct = db.collection("products").document()
+            
+            newProduct.setData(productData) { error in
+                if let error = error {
+                    print("Error creating new product: \(error)")
+                    self.statusLabel.text = "Error creating new product: \(error)"
+                } else {
+                    print("Product successfully created!")
+                    self.statusLabel.text = "Product successfully created!"
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        self.dismiss(animated: true)
+                    }
+                   
+                    
+                }
             }
         }
         
