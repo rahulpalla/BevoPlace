@@ -58,6 +58,24 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
+    // Swiping to delete the item
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // delete from firestore
+            db.collection("products").document(myItems[indexPath.row].docID).delete()
+            
+            // delete from current items
+            for i in 0...items.count {
+                if (items[i].docID == myItems[indexPath.row].docID) {
+                    items.remove(at: i)
+                    break
+                }
+            }
+            myItems.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     func fetchAllProducts() {
         db.collection("products").getDocuments() { (querySnapshot, error) in
             if let error = error {
@@ -65,7 +83,6 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
             } else {
                 for document in querySnapshot!.documents {
                     var data = document.data()
-                    //print("\(document.documentID): \(document.data())")
                     let price = data["price"] as? Double ?? 0.0
                     let lease = data["lease"] as? Bool ?? true
                     let period = data["period"] as? String ?? ""
@@ -76,9 +93,12 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
                     let image = data["image"] as? String ?? ""
                     let numPeriods = data["numPeriods"] as? Int ?? 0
                     let description = data["description"] as? String ?? ""
-                    self.myItems.append(Product(id: id, name: name, description: description, userID: userID, image: image, lease: lease, price: price, period: period, numPeriods: numPeriods, size: size))
+                    let docID = data["docID"] as? String ?? ""
+                    
+                    if (userID == user) {
+                        self.myItems.append(Product(id: id, name: name, description: description, userID: userID, image: image, lease: lease, price: price, period: period, numPeriods: numPeriods, size: size, docID: docID))
+                    }
                     self.myItemTableView.reloadData()
-                    print("MY ITEMSSS: \(self.myItems)")
                 }
             }
         }
