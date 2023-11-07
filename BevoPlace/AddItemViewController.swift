@@ -170,6 +170,8 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             statusLabel.text = "Please enter a description"
         }
         else{
+            let newProduct = db.collection("products").document()
+
             let productData: [String: Any] = [
                 "description": descriptionField.text!,
                 "id": items.count+1,
@@ -180,11 +182,10 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                 "period": periodsValue,
                 "price": priceValue,
                 "size": sizeValue,
-                "userID": user
+                "userID": user,
+                "docID": newProduct.documentID
             ]
-            
-            let newProduct = db.collection("products").document()
-            
+                    
             newProduct.setData(productData) { error in
                 if let error = error {
                     print("Error creating new product: \(error)")

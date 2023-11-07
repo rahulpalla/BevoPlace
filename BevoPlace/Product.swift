@@ -18,8 +18,9 @@ public class Product {
     var size: String
     var userID: String
     var image: String
+    var docID: String
     
-    init(id: Int, name: String, description: String, userID: String, image: String, lease: Bool, price: Double, period: String, numPeriods: Int, size: String) {
+    init(id: Int, name: String, description: String, userID: String, image: String, lease: Bool, price: Double, period: String, numPeriods: Int, size: String, docID: String) {
         self.id = id
         self.name = name
         self.description = description
@@ -30,6 +31,7 @@ public class Product {
         self.size = size
         self.userID = userID
         self.image = image
+        self.docID = docID
     }
     
 }

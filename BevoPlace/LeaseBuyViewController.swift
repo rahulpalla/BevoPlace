@@ -23,6 +23,7 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
         super.viewDidLoad()
         
         self.fetchAllProducts()
+        self.itemTableView.reloadData()
         // Important setup for Table View.
         itemTableView.delegate = self
         itemTableView.dataSource = self
@@ -79,7 +80,8 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
                     let image = data["image"] as? String ?? ""
                     let numPeriods = data["numPeriods"] as? Int ?? 0
                     let description = data["description"] as? String ?? ""
-                    items.append(Product(id: id, name: name, description: description, userID: userID, image: image, lease: lease, price: price, period: period, numPeriods: numPeriods, size: size))
+                    let docID = data["docID"] as? String ?? ""
+                    items.append(Product(id: id, name: name, description: description, userID: userID, image: image, lease: lease, price: price, period: period, numPeriods: numPeriods, size: size, docID: docID))
                     self.itemTableView.reloadData()
                 }
             }
