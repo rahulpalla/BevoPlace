@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import AVFoundation
 
 var categoryPickerData = ["Tickets","Clothes", "Textbooks", "UT Merch", "Stationary", "Electronics", "Travel", "Other"]
 var sizePickerData = ["N/A", "XS", "S", "M", "L", "XL"]
 var periodsPickerData = ["days", "weeks", "months"]
 var imageClick = false
 
-class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var lendSellSegCtrl: UISegmentedControl!
     
@@ -34,12 +35,17 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     @IBOutlet weak var descriptionField: UITextField!
     
+    @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var statusLabel: UILabel!
+    
+    let picker = UIImagePickerController()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        picker.delegate = self
         
         categoryPicker.delegate = self
         categoryPicker.dataSource = self
@@ -66,7 +72,6 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         }
     }
     
-    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -89,6 +94,63 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         } else {
             return periodsPickerData[row]
         }
+    }
+    
+    @IBAction func onCameraButtonPressed(_ sender: Any) {
+        if UIImagePickerController.availableCaptureModes(for: .rear) != nil {
+            // there is a rear camera available
+            switch AVCaptureDevice.authorizationStatus(for: .video) {
+            case .notDetermined:
+                AVCaptureDevice.requestAccess(for: .video) {
+                    (accessGranted) in
+                    guard accessGranted == true else { return }
+                }
+            case .authorized:
+                break
+            default:
+                print("Access was previously denied")
+                return
+            }
+            
+            // we have authorization;  now do stuff
+            picker.allowsEditing = false
+            picker.sourceType = .camera
+            picker.cameraCaptureMode = .photo
+            present(picker,animated: true)
+            
+        } else {
+            
+            // there is no rear camera
+            let alertVC = UIAlertController(title: "No camera", message: "Sorry, this device has no rear camera", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default)
+            alertVC.addAction(okAction)
+            present(alertVC,animated:true)
+        }
+    }
+    
+    @IBAction func onUploadImageButtonPressed(_ sender: Any) {
+        picker.allowsEditing = false
+        picker.sourceType = .photoLibrary
+        present(picker,animated:true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        // get the selected picture
+        let chosenImage = info[.originalImage] as! UIImage
+        
+        // shrink it to a visible size
+        imageView.contentMode = .scaleAspectFit
+        
+        // put the picture into the imageView
+        imageView.image = chosenImage
+        
+        // dismiss the popover
+        dismiss(animated: true)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        print("User cancelled")
+        dismiss(animated: true)
     }
     
     @IBAction func onPostButtonClicked(_ sender: Any) {
