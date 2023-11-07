@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class SettingsViewController: UIViewController {
 
@@ -14,6 +15,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var lightModeSwitch: UISwitch!
     @IBOutlet weak var darkModeSwitch: UISwitch!
     @IBOutlet weak var saveChangesButton: UIButton!
+    var audioPlayer: AVAudioPlayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,9 +39,34 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    @IBAction func onSoundModeSwitched(_ sender: Any) {
-        soundModeLabel.text = "Sound On:"
-        // add in functionality for sound on
+    @IBAction func onSoundModeSwitched(_ sender: UISwitch) {
+        if sender.isOn {
+            soundModeLabel.text = "Sound On:"
+            playThemeSong()
+        } else {
+            soundModeLabel.text = "Sound Off:"
+            stopThemeSong()
+        }
+    }
+    
+    func playThemeSong() {
+        guard let url = Bundle.main.url(forResource: "TexasLaunchSound", withExtension: "mp3") else {
+            print("Theme song not found")
+            return
+        }
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.numberOfLoops = -1 // Play on loop indefinitely
+            audioPlayer?.play()
+        } catch {
+            print("Error playing theme song: \(error.localizedDescription)")
+        }
+    }
+
+    func stopThemeSong() {
+        audioPlayer?.stop()
+        audioPlayer = nil
     }
     
     @IBAction func onSaveChangesButtonPressed(_ sender: Any) {

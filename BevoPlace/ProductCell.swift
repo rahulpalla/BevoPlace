@@ -16,6 +16,4 @@ class ProductCell: UITableViewCell {
     @IBOutlet weak var ctaButton: UIButton!
     @IBOutlet weak var leaseLengthLabel: UILabel!
     
-    @IBAction func ctaButtonClicked(_ sender: Any) {
-    }
 }
