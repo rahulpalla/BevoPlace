@@ -7,8 +7,8 @@
 
 import UIKit
 
-var categoryPickerData = ["Textbooks", "UT Merch", "Stationary", "Electronics", "Travel"]
-var sizePickerData = ["n/a", "XS", "S", "M", "L", "XL"]
+var categoryPickerData = ["Tickets","Clothes", "Textbooks", "UT Merch", "Stationary", "Electronics", "Travel", "Other"]
+var sizePickerData = ["N/A", "XS", "S", "M", "L", "XL"]
 var periodsPickerData = ["days", "weeks", "months"]
 
 class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
@@ -25,9 +25,9 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     @IBOutlet weak var titleField: UITextField!
     
-    @IBOutlet weak var priceSlider: UISlider!
+    @IBOutlet weak var priceTextField: UITextField!
     
-    @IBOutlet weak var numPeriodsSlider: UISlider!
+    @IBOutlet weak var numPeriodsTextField: UITextField!
     
     @IBOutlet weak var numPeriodsLabel: UILabel!
     
@@ -51,12 +51,12 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         if(lendSellSegCtrl.selectedSegmentIndex == 0) {
             periodsPicker.isHidden = false
             periodsLabel.isHidden = false
-            numPeriodsSlider.isHidden = false
+            numPeriodsTextField.isHidden = false
             numPeriodsLabel.isHidden = false
         } else {
             periodsPicker.isHidden = true
             periodsLabel.isHidden = true
-            numPeriodsSlider.isHidden = true
+            numPeriodsTextField.isHidden = true
             numPeriodsLabel.isHidden = true
         }
     }
@@ -94,12 +94,12 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         let sizeValue = String(sizePickerData[sizePickerRow])
         let periodsPickerRow = periodsPicker.selectedRow(inComponent: 0)
         let periodsValue = String(periodsPickerData[periodsPickerRow])
-        let priceValue = priceSlider.value
-        let numPeriodsValue = numPeriodsSlider.value
+        let priceValue = Double(priceTextField.text!) ?? 0
+        let numPeriodsValue = Double(numPeriodsTextField.text!) ?? 0
         
         let productData: [String: Any] = [
             "description": descriptionField.text!,
-            "id": 3, //change
+            "id": items.count+1,
             "image": "",
             "lease": lease,
             "name": titleField.text!,
@@ -107,7 +107,7 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             "period": periodsValue,
             "price": priceValue,
             "size": sizeValue,
-            "userID": 43 //change
+            "userID": user
         ]
         
         let newProduct = db.collection("products").document()

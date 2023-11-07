@@ -35,20 +35,21 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = itemTableView.dequeueReusableCell(withIdentifier: itemCellIdentifier, for: indexPath as IndexPath) as! ProductCell
-
+        
         let row = indexPath.row
-        cell.productTitleLabel.text = items[row].name
+        cell.productTitleLabel?.text = items[row].name
         cell.productSizeLabel.text = "Size: \(String(describing: items[row].size))"
+
+        let price = round(items[row].price * 100.0) / 100.0
         if (!items[row].lease) {
             // Buy Item interface
-            cell.productPriceLabel.text = "Price: $\(String(round(items[row].price)))"
+            cell.productPriceLabel.text = "Price: $\(String(price))"
             cell.leaseLengthLabel.text = ""
         } else {
             // Lease Item interface
-            cell.productPriceLabel.text = "Price: $\(String(round(items[row].price)))/\(items[row].period))"
-            cell.leaseLengthLabel.text = "Lease length: \(items[row].numPeriods) \(items[row].period))s"
+            cell.productPriceLabel.text = "Price: $\(String(price))/\(items[row].period)"
+            cell.leaseLengthLabel.text = "Lease length: \(items[row].numPeriods) \(items[row].period)s"
         }
-        
         return cell
     }
     
@@ -71,7 +72,7 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
                     let price = data["price"] as? Double ?? 0.0
                     let lease = data["lease"] as? Bool ?? true
                     let period = data["period"] as? String ?? ""
-                    let userID = data["userID"] as? Int ?? 0
+                    let userID = data["userID"] as? String ?? ""
                     let size = data["size"] as? String ?? ""
                     let name = data["name"] as? String ?? ""
                     let id = data["id"] as? Int ?? 0
