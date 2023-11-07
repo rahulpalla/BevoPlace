@@ -26,13 +26,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome Back!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zUc-QF-7uv">
-                                <rect key="frame" x="115" y="237" width="162" height="20"/>
+                                <rect key="frame" x="115" y="237" width="162" height="21"/>
                                 <fontDescription key="fontDescription" name="Nexa-Heavy" family="Nexa" pointSize="17"/>
                                 <color key="textColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="chg-tb-mgV">
-                                <rect key="frame" x="16" y="196.66666666666666" width="998" height="35"/>
+                                <rect key="frame" x="16" y="197.66666666666666" width="998" height="34"/>
                                 <fontDescription key="fontDescription" name="Nexa-ExtraLight" family="Nexa" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -42,13 +42,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5v5-BU-H2a">
-                                <rect key="frame" x="86" y="535" width="128" height="15.333333333333371"/>
+                                <rect key="frame" x="86.000000000000014" y="535" width="138.33333333333337" height="15.333333333333371"/>
                                 <fontDescription key="fontDescription" name="Nexa-Heavy" family="Nexa" pointSize="12"/>
                                 <color key="textColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BevoPlace" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3yn-zm-8We">
-                                <rect key="frame" x="94" y="57.000000000000007" width="842" height="64.666666666666686"/>
+                                <rect key="frame" x="94" y="57.000000000000007" width="842" height="65.666666666666686"/>
                                 <fontDescription key="fontDescription" name="Nexa-Heavy" family="Nexa" pointSize="30"/>
                                 <color key="textColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -73,7 +73,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XE2-Zp-Zbz">
-                                <rect key="frame" x="242" y="321" width="135" height="28"/>
+                                <rect key="frame" x="242" y="321" width="135" height="29.666666666666686"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="135" id="gYF-i6-jZm"/>
                                 </constraints>
@@ -318,7 +318,7 @@
         <!--LendSellViewController-->
         <scene sceneID="IRr-oy-6uB">
             <objects>
-                <viewController title="LendSellViewController" id="3DI-te-DJc" sceneMemberID="viewController">
+                <viewController title="LendSellViewController" id="3DI-te-DJc" customClass="LendSellViewController" customModule="BevoPlace" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BDV-CX-ist">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -341,28 +341,60 @@
                                     <segue destination="oIa-CV-8TW" kind="show" identifier="addItemSegue" id="QGd-xR-bIA"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="NYK-Fd-att">
-                                <rect key="frame" x="29" y="125" width="334" height="644"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="jxf-Nn-vey">
+                                <rect key="frame" x="36" y="148" width="334" height="633"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="566" id="rc1-LE-uff"/>
-                                </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ItemCell" id="cL4-0l-Ic7">
-                                        <rect key="frame" x="0.0" y="50" width="334" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyItemCell" rowHeight="188" id="Uug-9B-Y8M" customClass="MyProductCell" customModule="BevoPlace" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="334" height="188"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cL4-0l-Ic7" id="ylZ-qs-OqJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="334" height="44"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Uug-9B-Y8M" id="ObR-Sa-7kv">
+                                            <rect key="frame" x="0.0" y="0.0" width="334" height="188"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pmE-Q9-med">
-                                                    <rect key="frame" x="0.0" y="-56" width="150" height="126"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Product Item Title (Name)" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="twE-9z-d7K">
+                                                    <rect key="frame" x="158" y="116" width="161" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fXZ-Le-qxN">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="150" id="SYF-fh-HmE"/>
+                                                        <constraint firstAttribute="width" constant="128" id="GXT-gh-KBB"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price: $5/day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Deq-RF-TnG">
+                                                    <rect key="frame" x="231" y="59" width="113" height="12"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lease length: 3 weeks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8w-dJ-Z4E">
+                                                    <rect key="frame" x="158" y="90" width="148" height="12"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Size: L" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nhB-FE-Qdf">
+                                                    <rect key="frame" x="158" y="23" width="41" height="12"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="leaseLengthLabel" destination="l8w-dJ-Z4E" id="ohL-JC-bhW"/>
+                                            <outlet property="productPriceLabel" destination="Deq-RF-TnG" id="A7M-As-Wut"/>
+                                            <outlet property="productSizeLabel" destination="nhB-FE-Qdf" id="LLW-4L-kWN"/>
+                                            <outlet property="productTitleLabel" destination="twE-9z-d7K" id="dfN-gN-yNi"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -371,10 +403,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Lend/Sell" image="square.and.arrow.up.fill" catalog="system" id="tNC-Q5-iKn"/>
+                    <connections>
+                        <outlet property="myItemTableView" destination="jxf-Nn-vey" id="lTd-kV-rzw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O6M-Tu-pSQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3070.9923664122134" y="1273.943661971831"/>
+            <point key="canvasLocation" x="3069.4656488549617" y="1273.943661971831"/>
         </scene>
         <!--Add Item View Controller-->
         <scene sceneID="hzz-SN-bx4">
