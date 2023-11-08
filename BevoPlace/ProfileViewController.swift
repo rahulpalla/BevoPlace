@@ -46,7 +46,7 @@ class ProfileViewController: UIViewController {
             self.profileStatusLabel.text = "Please enter contact information"
         }
         else{
-            self.profileStatusLabel.text = ""
+            self.profileStatusLabel.text = "Successfully updated!"
             let docRef = db.collection("users").document(user)
             docRef.updateData([
                 "name" : self.displayNameTextField.text!,
