@@ -9,6 +9,9 @@ import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 
+
+
+
 public var items = [Product]()
 
 class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDelegate, UITableViewDataSource {
@@ -39,7 +42,7 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
         let row = indexPath.row
         cell.productTitleLabel?.text = items[row].name
         cell.productSizeLabel.text = "Size: \(String(describing: items[row].size))"
-
+        
         let price = round(items[row].price * 100.0) / 100.0
         if (!items[row].lease) {
             // Buy Item interface
@@ -54,10 +57,12 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "addItemSegue",
-           let destination = segue.destination as? AddItemViewController
-        {
-            //destination.delegate = self
+        if segue.identifier == "leaseBuyToViewItemSegue",
+            let viewItemVC = segue.destination as? ViewItemViewController,
+            let index = itemTableView.indexPathForSelectedRow?.row {
+            viewItemVC.delegate = self
+            viewItemVC.index = index
+            viewItemVC.product = items[index]
         }
     }
     
@@ -86,8 +91,5 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
         }
     }
     
-    
-//=======
-//>>>>>>> c082c2585ae19a9c9ded1c4c3b31f23751fdc03e
 
 }
