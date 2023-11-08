@@ -455,8 +455,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U28Q7KWGNS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BevoPlace/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Access to camera will be needed by this app to upload product pictures";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Audio might be recorded on this app through the device microphone";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -482,8 +485,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U28Q7KWGNS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BevoPlace/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Access to camera will be needed by this app to upload product pictures";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Audio might be recorded on this app through the device microphone";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

@@ -7,11 +7,14 @@
 
 import UIKit
 import AVFoundation
+import FirebaseStorage
 
+let storageRef = Storage.storage().reference()
 var categoryPickerData = ["Tickets","Clothes", "Textbooks", "UT Merch", "Stationary", "Electronics", "Travel", "Other"]
 var sizePickerData = ["N/A", "XS", "S", "M", "L", "XL"]
-var periodsPickerData = ["days", "weeks", "months"]
+var periodsPickerData = ["day", "week", "month"]
 var imageClick = false
+
 
 class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -163,41 +166,58 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         let periodsValue = String(periodsPickerData[periodsPickerRow])
         let priceValue = Double(priceTextField.text!) ?? 0
         let numPeriodsValue = Double(numPeriodsTextField.text!) ?? 0
-        if(titleField.text == ""){
+        
+        if (titleField.text == ""){
             statusLabel.text = "Please enter a title"
-        }
-        else if(descriptionField.text == ""){
+        } else if (descriptionField.text == ""){
             statusLabel.text = "Please enter a description"
-        }
-        else{
+        } else if ((imageView.image!.pngData() == nil)) {
+            statusLabel.text = "Please add a photo"
+        } else {
             let newProduct = db.collection("products").document()
-
-            let productData: [String: Any] = [
-                "description": descriptionField.text!,
-                "id": items.count+1,
-                "image": "",
-                "lease": lease,
-                "name": titleField.text!,
-                "numPeriods": numPeriodsValue,
-                "period": periodsValue,
-                "price": priceValue,
-                "size": sizeValue,
-                "userID": user,
-                "docID": newProduct.documentID
-            ]
-                    
-            newProduct.setData(productData) { error in
-                if let error = error {
-                    print("Error creating new product: \(error)")
-                    self.statusLabel.text = "Error creating new product: \(error)"
-                } else {
-                    print("Product successfully created!")
-                    self.statusLabel.text = "Product successfully created!"
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        self.dismiss(animated: true)
+            
+            // set upload path
+            let photoRef = storageRef.child("image/\(newProduct.documentID)/productPhoto")
+            let metadata = StorageMetadata()
+            metadata.contentType = "image/jpeg"
+            
+            // Upload data and metadata
+            if let uploadData = imageView.image!.pngData() {
+                photoRef.putData(imageView.image!.pngData()!, metadata: metadata) { (metadata, error) in
+                    if error != nil {
+                        print(error?.localizedDescription)
+                    } else {
+                        
                     }
-                   
-                    
+                }
+                
+                let productData: [String: Any] = [
+                    "description": descriptionField.text!,
+                    "id": items.count+1,
+                    "image": "image/\(newProduct.documentID)/productPhoto",
+                    "lease": lease,
+                    "name": titleField.text!,
+                    "numPeriods": numPeriodsValue,
+                    "period": periodsValue,
+                    "price": priceValue,
+                    "size": sizeValue,
+                    "userID": user,
+                    "docID": newProduct.documentID
+                ]
+                
+                newProduct.setData(productData) { error in
+                    if let error = error {
+                        print("Error creating new product: \(error)")
+                        self.statusLabel.text = "Error creating new product: \(error)"
+                    } else {
+                        print("Product successfully created!")
+                        self.statusLabel.text = "Product successfully created!"
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            self.dismiss(animated: true)
+                        }
+                        
+                        
+                    }
                 }
             }
         }

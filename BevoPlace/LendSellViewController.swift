@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseStorage
 
 class LendSellViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -18,11 +19,15 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.fetchAllProducts()
         // Important setup for Table View.
         myItemTableView.delegate = self
         myItemTableView.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        myItemTableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -33,6 +38,19 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyItemCell", for: indexPath) as! MyProductCell
         
         let row = indexPath.row
+        
+        // download image from firebase with the url
+        let pathReference = Storage.storage().reference(withPath: "image/\(myItems[row].docID)/productPhoto")
+        pathReference.getData(maxSize: 1 * 1024 * 1024 * 1024) { data, error in
+            if let error = error {
+                // Uh-oh, an error occurred!
+                print(error.localizedDescription)
+                cell.myProductImage.image = UIImage()
+            } else {
+                cell.myProductImage.image = UIImage(data: data!)
+            }
+        }
+        
         cell.productTitleLabel?.text = myItems[row].name
         cell.productSizeLabel.text = "Size: \(String(describing: myItems[row].size))"
 

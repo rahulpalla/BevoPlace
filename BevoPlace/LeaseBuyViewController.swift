@@ -8,26 +8,29 @@
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
+import FirebaseStorage
 
 public var items = [Product]()
 
 class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDelegate, UITableViewDataSource {
-    
-    var itmes:[Product] = []
-    
+        
     @IBOutlet weak var itemTableView: UITableView!
 
     let itemCellIdentifier = "ItemCell"
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.fetchAllProducts()
         self.itemTableView.reloadData()
         // Important setup for Table View.
         itemTableView.delegate = self
         itemTableView.dataSource = self
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        itemTableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -38,6 +41,19 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
         let cell = itemTableView.dequeueReusableCell(withIdentifier: itemCellIdentifier, for: indexPath as IndexPath) as! ProductCell
         
         let row = indexPath.row
+        
+        // download image from firebase with the url
+        let pathReference = Storage.storage().reference(withPath: "image/\(items[row].docID)/productPhoto")
+        pathReference.getData(maxSize: 1 * 1024 * 1024 * 1024) { data, error in
+            if let error = error {
+                // Uh-oh, an error occurred!
+                print(error.localizedDescription)
+            } else {
+                cell.ProductImage.image = UIImage(data: data!)
+            }
+        }
+        
+        
         cell.productTitleLabel?.text = items[row].name
         cell.productSizeLabel.text = "Size: \(String(describing: items[row].size))"
 
@@ -69,7 +85,6 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
             } else {
                 for document in querySnapshot!.documents {
                     var data = document.data()
-                    //print("\(document.documentID): \(document.data())")
                     let price = data["price"] as? Double ?? 0.0
                     let lease = data["lease"] as? Bool ?? true
                     let period = data["period"] as? String ?? ""
@@ -87,9 +102,5 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
             }
         }
     }
-    
-    
-//=======
-//>>>>>>> c082c2585ae19a9c9ded1c4c3b31f23751fdc03e
 
 }
