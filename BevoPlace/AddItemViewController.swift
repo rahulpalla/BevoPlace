@@ -52,6 +52,10 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
 
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     @IBAction func onSegCtrlChanged(_ sender: Any) {
         if(lendSellSegCtrl.selectedSegmentIndex == 0) {
             periodsPicker.isHidden = false

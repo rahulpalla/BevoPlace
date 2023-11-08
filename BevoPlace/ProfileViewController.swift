@@ -39,6 +39,10 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     @IBAction func onSaveChangesButtonPressed(_ sender: Any) {
         if displayNameTextField.text == "" {
             self.profileStatusLabel.text = "Please enter a display name"
