@@ -6,13 +6,17 @@
 //
 
 import UIKit
+import AVFoundation
+import FirebaseStorage
 
+let storageRef = Storage.storage().reference()
 var categoryPickerData = ["Tickets","Clothes", "Textbooks", "UT Merch", "Stationary", "Electronics", "Travel", "Other"]
 var sizePickerData = ["N/A", "XS", "S", "M", "L", "XL"]
-var periodsPickerData = ["days", "weeks", "months"]
+var periodsPickerData = ["day", "week", "month"]
 var imageClick = false
 
-class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+
+class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var lendSellSegCtrl: UISegmentedControl!
     
@@ -34,12 +38,17 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     @IBOutlet weak var descriptionField: UITextField!
     
+    @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var statusLabel: UILabel!
+    
+    let picker = UIImagePickerController()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        picker.delegate = self
         
         categoryPicker.delegate = self
         categoryPicker.dataSource = self
@@ -70,7 +79,6 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         }
     }
     
-    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -95,6 +103,63 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         }
     }
     
+    @IBAction func onCameraButtonPressed(_ sender: Any) {
+        if UIImagePickerController.availableCaptureModes(for: .rear) != nil {
+            // there is a rear camera available
+            switch AVCaptureDevice.authorizationStatus(for: .video) {
+            case .notDetermined:
+                AVCaptureDevice.requestAccess(for: .video) {
+                    (accessGranted) in
+                    guard accessGranted == true else { return }
+                }
+            case .authorized:
+                break
+            default:
+                print("Access was previously denied")
+                return
+            }
+            
+            // we have authorization;  now do stuff
+            picker.allowsEditing = false
+            picker.sourceType = .camera
+            picker.cameraCaptureMode = .photo
+            present(picker,animated: true)
+            
+        } else {
+            
+            // there is no rear camera
+            let alertVC = UIAlertController(title: "No camera", message: "Sorry, this device has no rear camera", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default)
+            alertVC.addAction(okAction)
+            present(alertVC,animated:true)
+        }
+    }
+    
+    @IBAction func onUploadImageButtonPressed(_ sender: Any) {
+        picker.allowsEditing = false
+        picker.sourceType = .photoLibrary
+        present(picker,animated:true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        // get the selected picture
+        let chosenImage = info[.originalImage] as! UIImage
+        
+        // shrink it to a visible size
+        imageView.contentMode = .scaleAspectFit
+        
+        // put the picture into the imageView
+        imageView.image = chosenImage
+        
+        // dismiss the popover
+        dismiss(animated: true)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        print("User cancelled")
+        dismiss(animated: true)
+    }
+    
     @IBAction func onPostButtonClicked(_ sender: Any) {
         var lease = (lendSellSegCtrl.selectedSegmentIndex == 0)
         let categoryPickerRow = categoryPicker.selectedRow(inComponent: 0)
@@ -105,40 +170,58 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         let periodsValue = String(periodsPickerData[periodsPickerRow])
         let priceValue = Double(priceTextField.text!) ?? 0
         let numPeriodsValue = Double(numPeriodsTextField.text!) ?? 0
-        if(titleField.text == ""){
+        
+        if (titleField.text == ""){
             statusLabel.text = "Please enter a title"
-        }
-        else if(descriptionField.text == ""){
+        } else if (descriptionField.text == ""){
             statusLabel.text = "Please enter a description"
-        }
-        else{
-            let productData: [String: Any] = [
-                "description": descriptionField.text!,
-                "id": items.count+1,
-                "image": "",
-                "lease": lease,
-                "name": titleField.text!,
-                "numPeriods": numPeriodsValue,
-                "period": periodsValue,
-                "price": priceValue,
-                "size": sizeValue,
-                "userID": user
-            ]
-            
+        } else if ((imageView.image!.pngData() == nil)) {
+            statusLabel.text = "Please add a photo"
+        } else {
             let newProduct = db.collection("products").document()
             
-            newProduct.setData(productData) { error in
-                if let error = error {
-                    print("Error creating new product: \(error)")
-                    self.statusLabel.text = "Error creating new product: \(error)"
-                } else {
-                    print("Product successfully created!")
-                    self.statusLabel.text = "Product successfully created!"
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        self.dismiss(animated: true)
+            // set upload path
+            let photoRef = storageRef.child("image/\(newProduct.documentID)/productPhoto")
+            let metadata = StorageMetadata()
+            metadata.contentType = "image/jpeg"
+            
+            // Upload data and metadata
+            if let uploadData = imageView.image!.pngData() {
+                photoRef.putData(imageView.image!.pngData()!, metadata: metadata) { (metadata, error) in
+                    if error != nil {
+                        print(error?.localizedDescription)
+                    } else {
+                        
                     }
-                   
-                    
+                }
+                
+                let productData: [String: Any] = [
+                    "description": descriptionField.text!,
+                    "id": items.count+1,
+                    "image": "image/\(newProduct.documentID)/productPhoto",
+                    "lease": lease,
+                    "name": titleField.text!,
+                    "numPeriods": numPeriodsValue,
+                    "period": periodsValue,
+                    "price": priceValue,
+                    "size": sizeValue,
+                    "userID": user,
+                    "docID": newProduct.documentID
+                ]
+                
+                newProduct.setData(productData) { error in
+                    if let error = error {
+                        print("Error creating new product: \(error)")
+                        self.statusLabel.text = "Error creating new product: \(error)"
+                    } else {
+                        print("Product successfully created!")
+                        self.statusLabel.text = "Product successfully created!"
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            self.dismiss(animated: true)
+                        }
+                        
+                        
+                    }
                 }
             }
         }
