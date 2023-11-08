@@ -2,8 +2,8 @@ Contributions:
 
 Rahul Palla (Release 25%, Overall 25%)
 
--Set up Login, Sign Up Page, and did frontend styling for both and created Logo
--Created View Item Page and connected to Firebase to load from Firestore
+- Set up Login, Sign Up Page, and did frontend styling for both and created Logo
+- Created View Item Page and connected to Firebase to load from Firestore
 - Set Up Firestore
 - Connected Authentication pages and LeaseBuy and LendSell pages to Firebase
 - Connected Profile changes to Firebase
@@ -11,15 +11,15 @@ Rahul Palla (Release 25%, Overall 25%)
 
 Shaz Momin  (Release 25%, Overall 25%)
 
--Created LeaseBuy and LendSell Pages as well as TableViews for LeaseBuy
--Connected LeaseBuy and LendSell pages to Firebase
--Created Product class and connected to Firebase
--Created Custom cell for ProductCell
--Bug Fixes and minor styling changes throughout
+- Created LeaseBuy and LendSell Pages as well as TableViews for LeaseBuy
+- Connected LeaseBuy and LendSell pages to Firebase
+- Created Product class and connected to Firebase
+- Created Custom cell for ProductCell
+- Bug Fixes and minor styling changes throughout
 
 Navita Dhillon  (Release 25%, Overall 25%)
 
--Created image implementation for app
+- Created image implementation for app
 - Created 2nd Table View to fix errors from previous version
 - Set up local camera for app
 - Created Custom cell for MyProductCell
