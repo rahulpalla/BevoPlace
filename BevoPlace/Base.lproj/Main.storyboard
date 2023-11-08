@@ -401,6 +401,7 @@
                                             <outlet property="productPriceLabel" destination="Deq-RF-TnG" id="A7M-As-Wut"/>
                                             <outlet property="productSizeLabel" destination="nhB-FE-Qdf" id="LLW-4L-kWN"/>
                                             <outlet property="productTitleLabel" destination="twE-9z-d7K" id="dfN-gN-yNi"/>
+                                            <segue destination="oN5-il-c2A" kind="show" identifier="lendSellToViewItemSegue" id="Eir-zo-M7n"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -999,10 +1000,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ohG-lc-VXv">
-                                <rect key="frame" x="16" y="172" width="361" height="261"/>
+                                <rect key="frame" x="16" y="172" width="361" height="310"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exj-BB-qeJ">
-                                <rect key="frame" x="16" y="489" width="361" height="62"/>
+                                <rect key="frame" x="16" y="538" width="361" height="62"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="62" id="jxR-6W-XME"/>
                                 </constraints>
@@ -1011,7 +1012,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3z-pS-TKe">
-                                <rect key="frame" x="16" y="559" width="361" height="62"/>
+                                <rect key="frame" x="16" y="608" width="361" height="62"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="62" id="QER-9P-N9z"/>
                                 </constraints>
@@ -1020,7 +1021,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uX6-lv-o4X">
-                                <rect key="frame" x="16" y="629" width="361" height="62"/>
+                                <rect key="frame" x="16" y="678" width="361" height="62"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1059,10 +1060,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EeL-nl-idT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4358" y="-226"/>
+            <point key="canvasLocation" x="4512" y="-292"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="Eir-zo-M7n"/>
         <segue reference="qJZ-V7-u3e"/>
     </inferredMetricsTieBreakers>
     <resources>
