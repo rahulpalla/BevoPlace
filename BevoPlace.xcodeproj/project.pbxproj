@@ -53,6 +53,7 @@
 		FA5C35F02AC5DFE4006B83C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA5C35EE2AC5DFE4006B83C8 /* Main.storyboard */; };
 		FA5C35F22AC5DFE5006B83C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA5C35F12AC5DFE5006B83C8 /* Assets.xcassets */; };
 		FA5C35F52AC5DFE5006B83C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA5C35F32AC5DFE5006B83C8 /* LaunchScreen.storyboard */; };
+		FAA048952AFADC9900CFC9D4 /* ViewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA048942AFADC9900CFC9D4 /* ViewItemViewController.swift */; };
 		FABF2EB62AF2FD0E00511D84 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FABF2EB52AF2FD0E00511D84 /* FirebaseFirestore */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,7 @@
 		FA5C35F62AC5DFE5006B83C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA633A132AF59DCE000654A5 /* Nexa-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nexa-ExtraLight.ttf"; sourceTree = "<group>"; };
 		FA633A142AF59DCE000654A5 /* Nexa-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nexa-Heavy.ttf"; sourceTree = "<group>"; };
+		FAA048942AFADC9900CFC9D4 /* ViewItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewItemViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 				72C6C9E82AFACCF10003AFFF /* UserSettingsManager.swift */,
 				FA5C35EA2AC5DFE4006B83C8 /* SceneDelegate.swift */,
 				EC6DB36C2AD8EE6E0013F965 /* LeaseBuyViewController.swift */,
+				FAA048942AFADC9900CFC9D4 /* ViewItemViewController.swift */,
 				EC43BF322AF599C20097CE27 /* ProductCell.swift */,
 				ECBD7F892AF2F7A60076A54B /* Product.swift */,
 				FA5C35EE2AC5DFE4006B83C8 /* Main.storyboard */,
@@ -305,6 +308,7 @@
 				72C6C9E92AFACCF10003AFFF /* UserSettingsManager.swift in Sources */,
 				06B0C9842AF3198A00BECBC0 /* AddItemViewController.swift in Sources */,
 				FA5C35E92AC5DFE4006B83C8 /* AppDelegate.swift in Sources */,
+				FAA048952AFADC9900CFC9D4 /* ViewItemViewController.swift in Sources */,
 				EC43BF332AF599C20097CE27 /* ProductCell.swift in Sources */,
 				06D1405C2ADEDA8D0011AC89 /* SettingsViewController.swift in Sources */,
 				FA5C35EB2AC5DFE4006B83C8 /* SceneDelegate.swift in Sources */,

@@ -36,14 +36,14 @@ class LoginViewController: UIViewController {
             super.viewDidLoad()
             passwordTextField.isSecureTextEntry = true
             
-//            Auth.auth().addStateDidChangeListener() {
-//                (auth,user) in
-//                if user != nil {
-//                    self.performSegue(withIdentifier: "loginToTabSegue", sender: nil)
-//                    self.emailTextField.text = nil
-//                    self.passwordTextField.text = nil
-//                }
-//            }
+            Auth.auth().addStateDidChangeListener() {
+                (auth,user) in
+                if user != nil {
+                    self.performSegue(withIdentifier: "loginToTabSegue", sender: nil)
+                    self.emailTextField.text = nil
+                    self.passwordTextField.text = nil
+                }
+            }
         }
         
         override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

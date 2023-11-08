@@ -31,6 +31,10 @@ class SignUpViewController: UIViewController {
             signUpPasswordTextField.isSecureTextEntry = true
             signUpConfirmPasswordTextField.isSecureTextEntry = true
         }
+    
+        override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+            self.view.endEditing(true)
+        }
         
         @IBAction func signupButtonPressed(_ sender: Any) {
             //custom error messages for empty fields

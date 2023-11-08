@@ -8,12 +8,14 @@
 import Foundation
 import UIKit
 
-class ProductCell: UITableViewCell {
+
+
+class ProductCell: UITableViewCell{
     @IBOutlet weak var ProductImage: UIImageView!
     @IBOutlet weak var productTitleLabel: UILabel!
     @IBOutlet weak var productSizeLabel: UILabel!
     @IBOutlet weak var productPriceLabel: UILabel!
-    @IBOutlet weak var ctaButton: UIButton!
     @IBOutlet weak var leaseLengthLabel: UILabel!
-    
+
+
 }
