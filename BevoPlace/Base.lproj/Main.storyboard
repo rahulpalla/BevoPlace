@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22129"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -778,46 +777,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PF5-5E-NBE">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PF5-5E-NBE">
                                 <rect key="frame" x="157" y="146" width="79" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Light Mode:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crL-Oe-U5u">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Light Mode:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crL-Oe-U5u">
                                 <rect key="frame" x="49" y="230" width="105" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sound Off:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ud9-l3-r1b">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sound Off:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ud9-l3-r1b">
                                 <rect key="frame" x="49" y="379" width="95" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" title="lightSwitch" preferredStyle="sliding" translatesAutoresizingMaskIntoConstraints="NO" id="S3G-cr-59d">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" title="lightSwitch" preferredStyle="sliding" translatesAutoresizingMaskIntoConstraints="NO" id="S3G-cr-59d">
                                 <rect key="frame" x="49" y="280" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="onTintColor" systemColor="systemOrangeColor"/>
                                 <connections>
                                     <action selector="onLightModeSwitched:" destination="lSv-ID-hfr" eventType="valueChanged" id="R0c-z0-yen"/>
                                 </connections>
                             </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" title="soundSwitch" preferredStyle="sliding" translatesAutoresizingMaskIntoConstraints="NO" id="Eo1-5v-7fn">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" title="soundSwitch" preferredStyle="sliding" translatesAutoresizingMaskIntoConstraints="NO" id="Eo1-5v-7fn">
                                 <rect key="frame" x="49" y="433" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="onTintColor" systemColor="systemOrangeColor"/>
                                 <connections>
                                     <action selector="onSoundModeSwitched:" destination="lSv-ID-hfr" eventType="valueChanged" id="YGP-PU-1Ws"/>
                                 </connections>
                             </switch>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vmV-Nm-Irf">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vmV-Nm-Irf">
                                 <rect key="frame" x="130" y="530" width="133" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Save Changes">
                                     <color key="baseForegroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
@@ -827,9 +820,35 @@
                                     <action selector="onSaveChangesButtonPressed:" destination="lSv-ID-hfr" eventType="touchUpInside" id="sD2-sv-kgc"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7l5-kK-Jgd">
+                                <rect key="frame" x="16" y="655" width="361" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="FhH-R7-7ms"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Vf2-jg-hhA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Vf2-jg-hhA" firstAttribute="bottom" secondItem="7l5-kK-Jgd" secondAttribute="bottom" constant="96" id="2vL-5a-l0z"/>
+                            <constraint firstItem="crL-Oe-U5u" firstAttribute="top" secondItem="Vf2-jg-hhA" secondAttribute="top" constant="186" id="BTs-y9-z7n"/>
+                            <constraint firstItem="7l5-kK-Jgd" firstAttribute="top" secondItem="vmV-Nm-Irf" secondAttribute="bottom" constant="90" id="Gyh-J7-s0j"/>
+                            <constraint firstItem="Eo1-5v-7fn" firstAttribute="top" secondItem="Ud9-l3-r1b" secondAttribute="bottom" constant="30" id="MOa-ra-gf2"/>
+                            <constraint firstItem="7l5-kK-Jgd" firstAttribute="trailing" secondItem="G7o-Gs-QGF" secondAttribute="trailingMargin" id="OVq-FW-XJX"/>
+                            <constraint firstItem="Ud9-l3-r1b" firstAttribute="leading" secondItem="Eo1-5v-7fn" secondAttribute="leading" id="VdQ-9w-AoK"/>
+                            <constraint firstItem="vmV-Nm-Irf" firstAttribute="centerX" secondItem="7l5-kK-Jgd" secondAttribute="centerX" id="WtU-Eo-Z0q"/>
+                            <constraint firstItem="PF5-5E-NBE" firstAttribute="centerX" secondItem="vmV-Nm-Irf" secondAttribute="centerX" id="aIb-0v-Cu3"/>
+                            <constraint firstItem="PF5-5E-NBE" firstAttribute="top" secondItem="Vf2-jg-hhA" secondAttribute="top" constant="102" id="d3g-Mx-NrC"/>
+                            <constraint firstItem="Ud9-l3-r1b" firstAttribute="top" secondItem="S3G-cr-59d" secondAttribute="bottom" constant="68" id="d6e-tP-Nck"/>
+                            <constraint firstItem="crL-Oe-U5u" firstAttribute="leading" secondItem="Vf2-jg-hhA" secondAttribute="leading" constant="49" id="kkN-Zs-VVF"/>
+                            <constraint firstItem="S3G-cr-59d" firstAttribute="top" secondItem="crL-Oe-U5u" secondAttribute="bottom" constant="26" id="mee-Vy-ltS"/>
+                            <constraint firstItem="S3G-cr-59d" firstAttribute="leading" secondItem="Ud9-l3-r1b" secondAttribute="leading" id="tEq-Ez-iXB"/>
+                            <constraint firstItem="7l5-kK-Jgd" firstAttribute="leading" secondItem="G7o-Gs-QGF" secondAttribute="leadingMargin" id="vmJ-Ht-8NK"/>
+                            <constraint firstItem="crL-Oe-U5u" firstAttribute="leading" secondItem="S3G-cr-59d" secondAttribute="leading" id="ylP-2U-5rV"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="KCa-PI-Vay"/>
                     <connections>
@@ -839,11 +858,12 @@
                         <outlet property="saveChangesButton" destination="vmV-Nm-Irf" id="eex-Wh-JGa"/>
                         <outlet property="soundModeLabel" destination="Ud9-l3-r1b" id="RBW-pu-S0B"/>
                         <outlet property="soundModeSwitch" destination="Eo1-5v-7fn" id="B6x-Ph-VI8"/>
+                        <outlet property="statusLabel" destination="7l5-kK-Jgd" id="JCU-LG-Bdb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sJh-ln-dZ1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5282" y="740"/>
+            <point key="canvasLocation" x="5281.679389312977" y="739.43661971830988"/>
         </scene>
         <!--ProfileViewController-->
         <scene sceneID="bmm-t1-RuL">
@@ -1101,7 +1121,7 @@
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
         <image name="plus.app" catalog="system" width="128" height="114"/>
-        <image name="square.and.arrow.up" catalog="system" width="108" height="128"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <image name="square.and.arrow.up.fill" catalog="system" width="115" height="128"/>
         <systemColor name="secondarySystemGroupedBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

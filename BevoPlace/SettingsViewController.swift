@@ -21,6 +21,9 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var darkModeSwitch: UISwitch!
     @IBOutlet weak var saveChangesButton: UIButton!
     @IBOutlet weak var soundModeSwitch: UISwitch!
+    @IBOutlet weak var statusLabel: UILabel!
+    
+    
     var audioPlayer: AVAudioPlayer?
     var firestore: Firestore!
     
@@ -49,6 +52,8 @@ class SettingsViewController: UIViewController {
     
     @IBAction func onSaveChangesButtonPressed(_ sender: Any) {
         saveUserSettings()
+        statusLabel.text = "Settings updated!"
+        
     }
     
     func saveUserSettings() {
