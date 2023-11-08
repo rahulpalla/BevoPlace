@@ -1,6 +1,7 @@
 Contributions:
 
 Rahul Palla (Release 25%, Overall 25%)
+
 -Set up Login, Sign Up Page, and did frontend styling for both and created Logo
 -Created View Item Page and connected to Firebase to load from Firestore
 - Set Up Firestore
@@ -9,6 +10,7 @@ Rahul Palla (Release 25%, Overall 25%)
 - Bug Fixes and minor styling changes throughout
 
 Shaz Momin  (Release 25%, Overall 25%)
+
 -Created LeaseBuy and LendSell Pages as well as TableViews for LeaseBuy
 -Connected LeaseBuy and LendSell pages to Firebase
 -Created Product class and connected to Firebase
@@ -16,6 +18,7 @@ Shaz Momin  (Release 25%, Overall 25%)
 -Bug Fixes and minor styling changes throughout
 
 Navita Dhillon  (Release 25%, Overall 25%)
+
 -Created image implementation for app
 - Created 2nd Table View to fix errors from previous version
 - Set up local camera for app
@@ -24,6 +27,7 @@ Navita Dhillon  (Release 25%, Overall 25%)
 - Bug Fixes and minor styling changes throughout
 
 Khoi Nguyen  (Release 25%, Overall 25%)
+
 - Set up sound for app
 - Set up Dark/Light Mode
 - Fixed logo bug for dark mode
