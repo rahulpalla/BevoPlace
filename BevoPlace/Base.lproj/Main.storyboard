@@ -387,16 +387,9 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4hj-MB-kU2">
-                                                    <rect key="frame" x="243" y="115" width="75" height="24"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="filled" title="View"/>
-                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="ctaButton" destination="4hj-MB-kU2" id="NY3-FF-M3X"/>
                                             <outlet property="leaseLengthLabel" destination="l8w-dJ-Z4E" id="ohL-JC-bhW"/>
                                             <outlet property="myProductImage" destination="fXZ-Le-qxN" id="bXf-Md-va9"/>
                                             <outlet property="productPriceLabel" destination="Deq-RF-TnG" id="A7M-As-Wut"/>

@@ -9,7 +9,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseCore
 import FirebaseFirestore
-
+import FirebaseStorage
 class ViewItemViewController: UIViewController {
     
     
@@ -39,10 +39,17 @@ class ViewItemViewController: UIViewController {
                 let dataDescription = document.data().map(String.init(describing: )) ?? "nil"
                 print("Document data: \(dataDescription)")
                 self.titleLabel.text = self.product.name
-                //itemImage code
-                self.displayNameLabel.text = document["name"] as? String
-                self.emailLabel.text = self.product.userID
-                self.contactLabel.text = document["numer"] as? String
+                let pathReference = Storage.storage().reference(withPath: "image/\(self.product.docID)/productPhoto")
+                pathReference.getData(maxSize: 1 * 1024 * 1024 * 1024) { data, error in
+                    if let error = error {
+                        print(error.localizedDescription)
+                    } else {
+                        self.itemImage.image = UIImage(data: data!)
+                    }
+                    self.displayNameLabel.text = document["name"] as? String
+                    self.emailLabel.text = self.product.userID
+                    self.contactLabel.text = document["numer"] as? String
+                }
             }
             else{
                 print("Document does not exist")

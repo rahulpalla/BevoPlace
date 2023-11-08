@@ -14,6 +14,5 @@ class MyProductCell: UITableViewCell {
     @IBOutlet weak var productTitleLabel: UILabel!
     @IBOutlet weak var productSizeLabel: UILabel!
     @IBOutlet weak var leaseLengthLabel: UILabel!
-    @IBOutlet weak var ctaButton: UIButton!
     @IBOutlet weak var productPriceLabel: UILabel!
 }
