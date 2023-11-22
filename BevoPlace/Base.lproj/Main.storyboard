@@ -27,12 +27,6 @@
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5v5-BU-H2a">
-                                <rect key="frame" x="86.000000000000014" y="535" width="150.33333333333337" height="15.333333333333371"/>
-                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="12"/>
-                                <color key="textColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="BevoPlaceLogo" translatesAutoresizingMaskIntoConstraints="NO" id="IQf-fW-9ep">
                                 <rect key="frame" x="76" y="704" width="240" height="128"/>
                                 <constraints>
@@ -49,6 +43,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Login">
                                     <fontDescription key="titleFontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
+                                    <color key="baseBackgroundColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9lA-UE-m4y"/>
@@ -84,13 +79,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bo5-Rt-tos">
-                                <rect key="frame" x="225" y="527" width="80" height="30"/>
+                                <rect key="frame" x="76" y="523" width="229" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Llk-ms-o92"/>
                                 </constraints>
                                 <color key="tintColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Sign Up">
+                                <buttonConfiguration key="configuration" style="plain" title="Don't have an account? Sign Up">
                                     <fontDescription key="titleFontDescription" name="Futura-Bold" family="Futura" pointSize="12"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -103,11 +98,10 @@
                         <constraints>
                             <constraint firstItem="chg-tb-mgV" firstAttribute="top" secondItem="zUc-QF-7uv" secondAttribute="bottom" constant="111.66666666666666" id="4zm-68-Hgd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="IQf-fW-9ep" secondAttribute="bottom" constant="20" id="5yb-QE-DRe"/>
-                            <constraint firstItem="5v5-BU-H2a" firstAttribute="centerY" secondItem="bo5-Rt-tos" secondAttribute="centerY" id="6Tt-CK-0I5"/>
                             <constraint firstItem="zUc-QF-7uv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="65" id="8Dd-Ef-hpm"/>
                             <constraint firstItem="zUc-QF-7uv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Amu-Ve-xbe"/>
-                            <constraint firstItem="UeW-Mv-RWt" firstAttribute="top" secondItem="bo5-Rt-tos" secondAttribute="bottom" constant="11.333333333333371" id="BZz-P8-3qP"/>
-                            <constraint firstItem="bo5-Rt-tos" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="225" id="BeX-Mz-cdo"/>
+                            <constraint firstItem="UeW-Mv-RWt" firstAttribute="top" secondItem="bo5-Rt-tos" secondAttribute="bottom" constant="16" id="BZz-P8-3qP"/>
+                            <constraint firstItem="bo5-Rt-tos" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="76" id="BeX-Mz-cdo"/>
                             <constraint firstItem="chg-tb-mgV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="CYX-MN-LwN"/>
                             <constraint firstItem="5oW-pF-Q5Z" firstAttribute="centerX" secondItem="IQf-fW-9ep" secondAttribute="centerX" id="Cze-0U-s8q"/>
                             <constraint firstItem="XE2-Zp-Zbz" firstAttribute="top" secondItem="XDZ-NS-nKD" secondAttribute="bottom" constant="7.3333333333333144" id="Fqp-o3-ilu"/>
@@ -116,11 +110,9 @@
                             <constraint firstItem="chg-tb-mgV" firstAttribute="leading" secondItem="XDZ-NS-nKD" secondAttribute="leading" id="PAV-Pr-o1T"/>
                             <constraint firstItem="chg-tb-mgV" firstAttribute="trailing" secondItem="XDZ-NS-nKD" secondAttribute="trailing" id="UbR-rx-a21"/>
                             <constraint firstItem="5oW-pF-Q5Z" firstAttribute="top" secondItem="XDZ-NS-nKD" secondAttribute="bottom" constant="74.333333333333314" id="Xhc-wJ-thU"/>
-                            <constraint firstAttribute="bottom" secondItem="5v5-BU-H2a" secondAttribute="bottom" constant="301.66666666666663" id="YD8-H2-sNq"/>
                             <constraint firstItem="XE2-Zp-Zbz" firstAttribute="trailing" secondItem="5oW-pF-Q5Z" secondAttribute="trailing" id="aHb-ke-SUX"/>
                             <constraint firstItem="IQf-fW-9ep" firstAttribute="top" secondItem="UeW-Mv-RWt" secondAttribute="bottom" constant="86" id="bds-Np-pPj"/>
                             <constraint firstItem="bo5-Rt-tos" firstAttribute="trailing" secondItem="UeW-Mv-RWt" secondAttribute="trailing" constant="20" id="bxy-TN-Mlq"/>
-                            <constraint firstItem="5v5-BU-H2a" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="86" id="bzi-VE-vPt"/>
                             <constraint firstItem="5oW-pF-Q5Z" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="e1b-EY-ckb"/>
                             <constraint firstItem="XDZ-NS-nKD" firstAttribute="leading" secondItem="5oW-pF-Q5Z" secondAttribute="leading" id="eJw-eQ-uRX"/>
                             <constraint firstItem="UeW-Mv-RWt" firstAttribute="centerX" secondItem="IQf-fW-9ep" secondAttribute="centerX" id="hDQ-bR-oxP"/>
@@ -254,6 +246,7 @@
                                 <buttonConfiguration key="configuration" style="plain">
                                     <imageReference key="image" image="gearshape.fill" catalog="system" symbolScale="large"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
+                                    <color key="baseForegroundColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <segue destination="lSv-ID-hfr" kind="show" id="jxm-cg-TeY"/>
@@ -270,6 +263,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title="">
                                     <imageReference key="image" image="person.crop.circle.fill" catalog="system" symbolScale="large"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
+                                    <color key="baseForegroundColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <segue destination="S0R-Ro-ZTy" kind="show" id="l6m-GO-W1N"/>
@@ -457,6 +451,8 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9KK-jk-Oho">
                                 <rect key="frame" x="153" y="743.33333333333337" width="116" height="38"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Post Item">
                                     <fontDescription key="titleFontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
@@ -699,6 +695,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Sign up">
                                     <fontDescription key="titleFontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
+                                    <color key="baseBackgroundColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="signupButtonPressed:" destination="Sme-1L-dGa" eventType="touchUpInside" id="Y2K-z0-dRG"/>
@@ -717,6 +714,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Already have an account? Login!">
                                     <fontDescription key="titleFontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
+                                    <color key="baseBackgroundColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="Zji-9S-S73"/>
@@ -810,20 +808,22 @@
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" title="lightSwitch" preferredStyle="sliding" translatesAutoresizingMaskIntoConstraints="NO" id="S3G-cr-59d">
                                 <rect key="frame" x="49" y="282" width="51" height="31"/>
-                                <color key="onTintColor" systemColor="systemOrangeColor"/>
+                                <color key="onTintColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
                                     <action selector="onLightModeSwitched:" destination="lSv-ID-hfr" eventType="valueChanged" id="R0c-z0-yen"/>
                                 </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" title="soundSwitch" preferredStyle="sliding" translatesAutoresizingMaskIntoConstraints="NO" id="Eo1-5v-7fn">
                                 <rect key="frame" x="49" y="437" width="51" height="31"/>
-                                <color key="onTintColor" systemColor="systemOrangeColor"/>
+                                <color key="onTintColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
                                     <action selector="onSoundModeSwitched:" destination="lSv-ID-hfr" eventType="valueChanged" id="YGP-PU-1Ws"/>
                                 </connections>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vmV-Nm-Irf">
                                 <rect key="frame" x="126" y="527.33333333333337" width="141" height="37.666666666666629"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Save Changes">
                                     <fontDescription key="titleFontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
@@ -907,10 +907,11 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VTj-yt-fuc">
                                 <rect key="frame" x="126" y="567" width="141" height="39"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="Save Changes">
+                                <buttonConfiguration key="configuration" style="filled" title="Save Changes">
                                     <fontDescription key="titleFontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
-                                    <color key="baseForegroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                     <color key="baseBackgroundColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -953,10 +954,12 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Omn-d4-hZ3">
                                 <rect key="frame" x="126" y="628" width="141" height="40"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Log Out">
                                     <fontDescription key="titleFontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
+                                    <color key="baseBackgroundColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="logoutButtonPressed:" destination="S0R-Ro-ZTy" eventType="touchUpInside" id="Rsh-cQ-niT"/>
@@ -1131,7 +1134,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="nIA-Vy-m3C"/>
-        <segue reference="PMr-dT-QrC"/>
+        <segue reference="qJZ-V7-u3e"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="BevoPlaceLogo" width="878" height="246"/>
@@ -1147,9 +1150,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
