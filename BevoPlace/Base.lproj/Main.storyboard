@@ -41,9 +41,11 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5oW-pF-Q5Z">
                                 <rect key="frame" x="16" y="388" width="361" height="35"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="gvc-29-KAo"/>
                                 </constraints>
+                                <color key="tintColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Login">
                                     <fontDescription key="titleFontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
@@ -57,6 +59,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="145" id="gYF-i6-jZm"/>
                                 </constraints>
+                                <color key="tintColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Forgot Password?">
                                     <fontDescription key="titleFontDescription" name="Futura-Bold" family="Futura" pointSize="12"/>
@@ -85,6 +88,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Llk-ms-o92"/>
                                 </constraints>
+                                <color key="tintColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Sign Up">
                                     <fontDescription key="titleFontDescription" name="Futura-Bold" family="Futura" pointSize="12"/>
@@ -456,7 +460,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Post Item">
                                     <fontDescription key="titleFontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
-                                    <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
+                                    <color key="baseBackgroundColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="onPostButtonClicked:" destination="oIa-CV-8TW" eventType="touchUpInside" id="TKW-lp-GFg"/>
@@ -690,6 +694,8 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cyy-Fu-hwq">
                                 <rect key="frame" x="16" y="368" width="361" height="36.333333333333314"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Sign up">
                                     <fontDescription key="titleFontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
@@ -706,6 +712,8 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jCq-E0-aiz">
                                 <rect key="frame" x="16" y="474" width="361" height="36.333333333333314"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Already have an account? Login!">
                                     <fontDescription key="titleFontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
@@ -820,7 +828,7 @@
                                 <buttonConfiguration key="configuration" style="gray" title="Save Changes">
                                     <fontDescription key="titleFontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
                                     <color key="baseForegroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                    <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
+                                    <color key="baseBackgroundColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="onSaveChangesButtonPressed:" destination="lSv-ID-hfr" eventType="touchUpInside" id="sD2-sv-kgc"/>
@@ -903,7 +911,7 @@
                                 <buttonConfiguration key="configuration" style="gray" title="Save Changes">
                                     <fontDescription key="titleFontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
                                     <color key="baseForegroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                    <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
+                                    <color key="baseBackgroundColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="onSaveChangesButtonPressed:" destination="S0R-Ro-ZTy" eventType="touchUpInside" id="64L-A3-nh9"/>
@@ -945,6 +953,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Omn-d4-hZ3">
                                 <rect key="frame" x="126" y="628" width="141" height="40"/>
+                                <color key="tintColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Log Out">
                                     <fontDescription key="titleFontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
@@ -1122,7 +1131,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="nIA-Vy-m3C"/>
-        <segue reference="qJZ-V7-u3e"/>
+        <segue reference="PMr-dT-QrC"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="BevoPlaceLogo" width="878" height="246"/>
