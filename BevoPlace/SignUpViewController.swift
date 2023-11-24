@@ -30,6 +30,7 @@ class SignUpViewController: UIViewController {
             super.viewDidLoad()
             signUpPasswordTextField.isSecureTextEntry = true
             signUpConfirmPasswordTextField.isSecureTextEntry = true
+            signUpPageButton.layer.cornerRadius = 10
         }
     
         override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
