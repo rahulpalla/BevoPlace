@@ -33,6 +33,20 @@ class ViewItemViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        
+        itemImage.layer.cornerRadius = 15
+        
+        let background = UIImage(named: "towerPretty.png")
+
+        var imageView : UIImageView!
+        imageView = UIImageView(frame: view.bounds)
+        imageView.contentMode =  UIView.ContentMode.scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.image = background
+        imageView.center = view.center
+                view.addSubview(imageView)
+                self.view.sendSubviewToBack(imageView)
+        
         let docRef = db.collection("users").document(product.userID)
         docRef.getDocument{(document, error) in
             if let document = document, document.exists {
@@ -48,7 +62,7 @@ class ViewItemViewController: UIViewController {
                     }
                     self.displayNameLabel.text = document["name"] as? String
                     self.emailLabel.text = self.product.userID
-                    self.contactLabel.text = document["numer"] as? String
+                    self.contactLabel.text = document["number"] as? String
                 }
             }
             else{
@@ -57,10 +71,7 @@ class ViewItemViewController: UIViewController {
         }
         super.viewDidLoad()
        
-        
-        
-        
-        // Do any additional setup after loading the view.
+
     }
     
     

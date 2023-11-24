@@ -30,6 +30,7 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        saveChangesButton.layer.cornerRadius = 10
         lightModeLabel.text = "Light Mode Activated:"
         soundModeLabel.text = "Sound Off:"
         firestore = Firestore.firestore()

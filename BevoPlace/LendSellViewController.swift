@@ -12,18 +12,36 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
 
     var myItems:[Product] = []
     
-    
     @IBOutlet weak var myItemTableView: UITableView!
     
     let itemCellIdentifier = "MyItemCell"
+    
+    let myRefreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        myRefreshControl.addTarget(self, action: #selector( handleRefreshControl(_:)), for: .valueChanged)
+        self.myItemTableView.addSubview(self.myRefreshControl)
+        
         self.fetchAllProducts()
         // Important setup for Table View.
         myItemTableView.delegate = self
         myItemTableView.dataSource = self
+        
+        myItemTableView.layer.cornerRadius = 10.0
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "back2.jpeg")!)
+        
+    }
+    
+    @objc func handleRefreshControl(_ myRefreshControl: UIRefreshControl) {
+       // Update your content…
+        self.fetchAllProducts()
+        self.myItemTableView.reloadData()
+       // Dismiss the refresh control.
+       DispatchQueue.main.async {
+          myRefreshControl.endRefreshing()
+       }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,19 +69,25 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
             }
         }
         
+        cell.leaseBuyLabel.layer.cornerRadius = 10
+        cell.leaseBuyLabel.layer.masksToBounds = true
         cell.productTitleLabel?.text = myItems[row].name
-        cell.productSizeLabel.text = "Size: \(String(describing: myItems[row].size))"
+        cell.productSizeLabel.text = "\(String(describing: myItems[row].category))"
 
         
         let price = round(myItems[row].price * 100.0) / 100.0
         if (!myItems[row].lease) {
             // Buy Item interface
-            cell.productPriceLabel.text = "Price: $\(String(price))"
+            cell.dummyLeaseLengthLabel.isHidden = true
+            cell.productPriceLabel.text = "$\(String(price))"
             cell.leaseLengthLabel.text = ""
+            cell.leaseBuyLabel.text = "Buy"
         } else {
             // Lease Item interface
-            cell.productPriceLabel.text = "Price: $\(String(price))/\(myItems[row].period)"
-            cell.leaseLengthLabel.text = "Lease length: \(myItems[row].numPeriods) \(myItems[row].period)s"
+            cell.dummyLeaseLengthLabel.isHidden = false
+            cell.productPriceLabel.text = "$\(String(price))/\(myItems[row].period)"
+            cell.leaseLengthLabel.text = "\(myItems[row].numPeriods) \(myItems[row].period)s"
+            cell.leaseBuyLabel.text = "Lease"
         }
         return cell
     }
@@ -103,6 +127,7 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func fetchAllProducts() {
+        self.myItems.removeAll()
         db.collection("products").getDocuments() { (querySnapshot, error) in
             if let error = error {
                 print("Error getting documents: \(error)")
@@ -110,6 +135,7 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
                 for document in querySnapshot!.documents {
                     var data = document.data()
                     let price = data["price"] as? Double ?? 0.0
+                    let category = data["category"] as? String ?? ""
                     let lease = data["lease"] as? Bool ?? true
                     let period = data["period"] as? String ?? ""
                     let userID = data["userID"] as? String ?? ""
@@ -121,8 +147,10 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
                     let description = data["description"] as? String ?? ""
                     let docID = data["docID"] as? String ?? ""
                     
+                    var newProd = Product(id: id, name: name, description: description, category: category, userID: userID, image: image, lease: lease, price: price, period: period, numPeriods: numPeriods, size: size, docID: docID)
+                    
                     if (userID == user) {
-                        self.myItems.append(Product(id: id, name: name, description: description, userID: userID, image: image, lease: lease, price: price, period: period, numPeriods: numPeriods, size: size, docID: docID))
+                        self.myItems.append(newProd)
                     }
                     self.myItemTableView.reloadData()
                 }

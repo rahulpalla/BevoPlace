@@ -20,8 +20,10 @@ class UserSettingsManager {
             let appDelegate = UIApplication.shared.windows.first
             if darkModeEnabled {
                 appDelegate?.overrideUserInterfaceStyle = .dark
+                
             } else {
                 appDelegate?.overrideUserInterfaceStyle = .light
+                
             }
         }
 

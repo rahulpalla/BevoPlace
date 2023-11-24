@@ -35,6 +35,8 @@ class LoginViewController: UIViewController {
             super.viewDidLoad()
             super.viewDidLoad()
             passwordTextField.isSecureTextEntry = true
+            loginButton.layer.cornerRadius = 10
+            signUpButton.layer.cornerRadius = 10
             
 //            Auth.auth().addStateDidChangeListener() {
 //                (auth,user) in

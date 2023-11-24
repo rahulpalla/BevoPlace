@@ -23,6 +23,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileStatusLabel: UILabel!
     
     override func viewDidLoad() {
+        saveChangesButton.layer.cornerRadius = 10
+        logOutButton.layer.cornerRadius = 10
         let docRef = db.collection("users").document(user)
         docRef.getDocument{(document, error) in
             if let document = document, document.exists {
