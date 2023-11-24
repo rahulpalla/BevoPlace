@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 public class Product {
     var id: Int
@@ -17,7 +18,8 @@ public class Product {
     var numPeriods: Int
     var size: String
     var userID: String
-    var image: String
+    var imagePath: String
+    var image: UIImage
     var docID: String
     
     init(id: Int, name: String, description: String, userID: String, image: String, lease: Bool, price: Double, period: String, numPeriods: Int, size: String, docID: String) {
@@ -30,7 +32,8 @@ public class Product {
         self.numPeriods = numPeriods
         self.size = size
         self.userID = userID
-        self.image = image
+        self.imagePath = image
+        self.image = UIImage()
         self.docID = docID
     }
     
