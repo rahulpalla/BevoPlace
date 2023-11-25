@@ -15,17 +15,23 @@ import FirebaseStorage
 
 public var items = [Product]()
 
-class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDelegate, UITableViewDataSource {
+
+
+class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+    
+    var filteredItems : [Product] = items
         
     @IBOutlet weak var itemTableView: UITableView!
-
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     let itemCellIdentifier = "ItemCell"
     
     let myRefreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        searchBar.delegate = self
         myRefreshControl.addTarget(self, action: #selector( handleRefreshControl(_:)), for: .valueChanged)
         self.itemTableView.addSubview(self.myRefreshControl)
         
@@ -34,6 +40,7 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
         // Important setup for Table View.
         itemTableView.delegate = self
         itemTableView.dataSource = self
+        filteredItems = items
         
         itemTableView.layer.cornerRadius = 10.0
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "back2.jpeg")!)
@@ -55,16 +62,18 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return filteredItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = itemTableView.dequeueReusableCell(withIdentifier: itemCellIdentifier, for: indexPath as IndexPath) as! ProductCell
         
+        
+        
         let row = indexPath.row
         
         // download image from firebase with the url
-        let pathReference = Storage.storage().reference(withPath: "image/\(items[row].docID)/productPhoto")
+        let pathReference = Storage.storage().reference(withPath: "image/\(filteredItems[row].docID)/productPhoto")
         pathReference.getData(maxSize: 1 * 1024 * 1024 * 1024) { data, error in
             if let error = error {
                 // Uh-oh, an error occurred!
@@ -76,11 +85,11 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
         
         cell.leaseBuyLabel.layer.cornerRadius = 10
         cell.leaseBuyLabel.layer.masksToBounds = true
-        cell.productTitleLabel?.text = items[row].name
-        cell.productSizeLabel.text = "\(String(describing: items[row].category))"
+        cell.productTitleLabel?.text = filteredItems[row].name
+        cell.productSizeLabel.text = "\(String(describing: filteredItems[row].category))"
         
-        let price = round(items[row].price * 100.0) / 100.0
-        if (!items[row].lease) {
+        let price = round(filteredItems[row].price * 100.0) / 100.0
+        if (!filteredItems[row].lease) {
             // Buy Item interface
             cell.productPriceLabel.text = "$\(String(price))"
             cell.leaseLengthLabel.text = ""
@@ -89,8 +98,8 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
         } else {
             // Lease Item interface
             cell.dummyLeaseLengthLabel.isHidden = false
-            cell.productPriceLabel.text = "$\(String(price))/\(items[row].period)"
-            cell.leaseLengthLabel.text = "\(items[row].numPeriods) \(items[row].period)s"
+            cell.productPriceLabel.text = "$\(String(price))/\(filteredItems[row].period)"
+            cell.leaseLengthLabel.text = "\(filteredItems[row].numPeriods) \(filteredItems[row].period)s"
             cell.leaseBuyLabel.text = "Lease"
         }
         return cell
@@ -127,10 +136,26 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
                     let description = data["description"] as? String ?? ""
                     let docID = data["docID"] as? String ?? ""
                     items.append(Product(id: id, name: name, description: description, category: category, userID: userID, image: image, lease: lease, price: price, period: period, numPeriods: numPeriods, size: size, docID: docID))
+                    self.filteredItems = items
                     self.itemTableView.reloadData()
                 }
             }
         }
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText == ""{
+            filteredItems = items
+        }
+        else{
+            filteredItems = []
+            for item in items{
+                if item.name.lowercased().contains(searchText.lowercased()){
+                    filteredItems.append(item)
+                }
+            }
+        }
+        self.itemTableView.reloadData()
     }
 
 }
