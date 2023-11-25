@@ -315,6 +315,7 @@
                             </button>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="C1p-9B-qWT">
                                 <rect key="frame" x="0.0" y="134" width="393" height="44"/>
+                                <color key="barTintColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="7ft-uk-wp4" id="3M7-sn-gQU"/>
@@ -1235,6 +1236,7 @@
         <segue reference="nIA-Vy-m3C"/>
         <segue reference="qJZ-V7-u3e"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
         <image name="BevoPlaceLogo" width="878" height="246"/>
         <image name="camera" catalog="system" width="128" height="93"/>
