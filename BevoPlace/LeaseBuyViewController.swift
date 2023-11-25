@@ -15,9 +15,11 @@ import FirebaseStorage
 
 public var items = [Product]()
 
-public var filteredItems : [Product] = items
+
 
 class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+    
+    var filteredItems : [Product] = items
         
     @IBOutlet weak var itemTableView: UITableView!
     
@@ -134,7 +136,7 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
                     let description = data["description"] as? String ?? ""
                     let docID = data["docID"] as? String ?? ""
                     items.append(Product(id: id, name: name, description: description, category: category, userID: userID, image: image, lease: lease, price: price, period: period, numPeriods: numPeriods, size: size, docID: docID))
-                    filteredItems = items
+                    self.filteredItems = items
                     self.itemTableView.reloadData()
                 }
             }

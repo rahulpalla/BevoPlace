@@ -8,11 +8,16 @@
 import UIKit
 import FirebaseStorage
 
-class LendSellViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class LendSellViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
     var myItems:[Product] = []
     
+    var myFilteredItems : [Product] = items
+    
     @IBOutlet weak var myItemTableView: UITableView!
+    
+    
+    @IBOutlet weak var searchBar: UISearchBar!
     
     let itemCellIdentifier = "MyItemCell"
     
@@ -28,9 +33,9 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
         // Important setup for Table View.
         myItemTableView.delegate = self
         myItemTableView.dataSource = self
-        
         myItemTableView.layer.cornerRadius = 10.0
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "back2.jpeg")!)
+        myFilteredItems = myItems
         
     }
     
@@ -49,7 +54,7 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myItems.count
+        return myFilteredItems.count
     }
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -58,7 +63,7 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
         let row = indexPath.row
         
         // download image from firebase with the url
-        let pathReference = Storage.storage().reference(withPath: "image/\(myItems[row].docID)/productPhoto")
+        let pathReference = Storage.storage().reference(withPath: "image/\(myFilteredItems[row].docID)/productPhoto")
         pathReference.getData(maxSize: 1 * 1024 * 1024 * 1024) { data, error in
             if let error = error {
                 // Uh-oh, an error occurred!
@@ -71,12 +76,12 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
         
         cell.leaseBuyLabel.layer.cornerRadius = 10
         cell.leaseBuyLabel.layer.masksToBounds = true
-        cell.productTitleLabel?.text = myItems[row].name
-        cell.productSizeLabel.text = "\(String(describing: myItems[row].category))"
+        cell.productTitleLabel?.text = myFilteredItems[row].name
+        cell.productSizeLabel.text = "\(String(describing: myFilteredItems[row].category))"
 
         
-        let price = round(myItems[row].price * 100.0) / 100.0
-        if (!myItems[row].lease) {
+        let price = round(myFilteredItems[row].price * 100.0) / 100.0
+        if (!myFilteredItems[row].lease) {
             // Buy Item interface
             cell.dummyLeaseLengthLabel.isHidden = true
             cell.productPriceLabel.text = "$\(String(price))"
@@ -85,8 +90,8 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
         } else {
             // Lease Item interface
             cell.dummyLeaseLengthLabel.isHidden = false
-            cell.productPriceLabel.text = "$\(String(price))/\(myItems[row].period)"
-            cell.leaseLengthLabel.text = "\(myItems[row].numPeriods) \(myItems[row].period)s"
+            cell.productPriceLabel.text = "$\(String(price))/\(myFilteredItems[row].period)"
+            cell.leaseLengthLabel.text = "\(myFilteredItems[row].numPeriods) \(myFilteredItems[row].period)s"
             cell.leaseBuyLabel.text = "Lease"
         }
         return cell
@@ -123,6 +128,7 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
             }
             myItems.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            self.myFilteredItems = self.myItems
         }
     }
     
@@ -152,10 +158,26 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
                     if (userID == user) {
                         self.myItems.append(newProd)
                     }
+                    self.myFilteredItems = self.myItems
                     self.myItemTableView.reloadData()
                 }
             }
         }
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText == ""{
+            myFilteredItems = myItems
+        }
+        else{
+            myFilteredItems = []
+            for myItem in myItems{
+                if myItem.name.lowercased().contains(searchText.lowercased()){
+                    myFilteredItems.append(myItem)
+                }
+            }
+        }
+        self.myItemTableView.reloadData()
     }
 
 }
