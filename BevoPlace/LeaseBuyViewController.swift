@@ -12,21 +12,46 @@ import FirebaseStorage
 
 public var items = [Product]()
 
-class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDelegate, UITableViewDataSource {
+
+
+class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+    
+    var filteredItems : [Product] = items
         
     @IBOutlet weak var itemTableView: UITableView!
-
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     let itemCellIdentifier = "ItemCell"
+    
+    let myRefreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        searchBar.delegate = self
+        myRefreshControl.addTarget(self, action: #selector( handleRefreshControl(_:)), for: .valueChanged)
+        self.itemTableView.addSubview(self.myRefreshControl)
+        
         self.fetchAllProducts()
         self.itemTableView.reloadData()
         // Important setup for Table View.
         itemTableView.delegate = self
         itemTableView.dataSource = self
+        filteredItems = items
         
+        itemTableView.layer.cornerRadius = 10.0
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "back2.jpeg")!)
+        
+    }
+    
+    @objc func handleRefreshControl(_ myRefreshControl: UIRefreshControl) {
+       // Update your content…
+        self.fetchAllProducts()
+        self.itemTableView.reloadData()
+       // Dismiss the refresh control.
+       DispatchQueue.main.async {
+          myRefreshControl.endRefreshing()
+       }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,11 +59,13 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return filteredItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = itemTableView.dequeueReusableCell(withIdentifier: itemCellIdentifier, for: indexPath as IndexPath) as! ProductCell
+        
+        
         
         let row = indexPath.row
         
@@ -57,18 +84,24 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
 //        }
         cell.ProductImage.image = items[row].image
         
-        cell.productTitleLabel?.text = items[row].name
-        cell.productSizeLabel.text = "Size: \(String(describing: items[row].size))"
+        cell.leaseBuyLabel.layer.cornerRadius = 10
+        cell.leaseBuyLabel.layer.masksToBounds = true
+        cell.productTitleLabel?.text = filteredItems[row].name
+        cell.productSizeLabel.text = "\(String(describing: filteredItems[row].category))"
         
-        let price = round(items[row].price * 100.0) / 100.0
-        if (!items[row].lease) {
+        let price = round(filteredItems[row].price * 100.0) / 100.0
+        if (!filteredItems[row].lease) {
             // Buy Item interface
-            cell.productPriceLabel.text = "Price: $\(String(price))"
+            cell.productPriceLabel.text = "$\(String(price))"
             cell.leaseLengthLabel.text = ""
+            cell.dummyLeaseLengthLabel.isHidden = true
+            cell.leaseBuyLabel.text = "Buy"
         } else {
             // Lease Item interface
-            cell.productPriceLabel.text = "Price: $\(String(price))/\(items[row].period)"
-            cell.leaseLengthLabel.text = "Lease length: \(items[row].numPeriods) \(items[row].period)s"
+            cell.dummyLeaseLengthLabel.isHidden = false
+            cell.productPriceLabel.text = "$\(String(price))/\(filteredItems[row].period)"
+            cell.leaseLengthLabel.text = "\(filteredItems[row].numPeriods) \(filteredItems[row].period)s"
+            cell.leaseBuyLabel.text = "Lease"
         }
         return cell
     }
@@ -84,6 +117,7 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
     }
     
     func fetchAllProducts() {
+        items.removeAll()
         db.collection("products").getDocuments() { (querySnapshot, error) in
             if let error = error {
                 print("Error getting documents: \(error)")
@@ -92,6 +126,7 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
                     var data = document.data()
                     let price = data["price"] as? Double ?? 0.0
                     let lease = data["lease"] as? Bool ?? true
+                    let category = data["category"] as? String ?? ""
                     let period = data["period"] as? String ?? ""
                     let userID = data["userID"] as? String ?? ""
                     let size = data["size"] as? String ?? ""
@@ -101,7 +136,8 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
                     let numPeriods = data["numPeriods"] as? Int ?? 0
                     let description = data["description"] as? String ?? ""
                     let docID = data["docID"] as? String ?? ""
-                    items.append(Product(id: id, name: name, description: description, userID: userID, image: image, lease: lease, price: price, period: period, numPeriods: numPeriods, size: size, docID: docID))
+                    items.append(Product(id: id, name: name, description: description, category: category, userID: userID, image: image, lease: lease, price: price, period: period, numPeriods: numPeriods, size: size, docID: docID))
+                    self.filteredItems = items
                     self.itemTableView.reloadData()
                 }
             }
@@ -121,4 +157,20 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
             }
         }
     }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText == ""{
+            filteredItems = items
+        }
+        else{
+            filteredItems = []
+            for item in items{
+                if item.name.lowercased().contains(searchText.lowercased()){
+                    filteredItems.append(item)
+                }
+            }
+        }
+        self.itemTableView.reloadData()
+    }
+
 }

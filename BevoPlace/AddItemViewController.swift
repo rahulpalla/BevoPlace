@@ -10,7 +10,7 @@ import AVFoundation
 import FirebaseStorage
 
 let storageRef = Storage.storage().reference()
-var categoryPickerData = ["Tickets","Clothes", "Textbooks", "UT Merch", "Stationary", "Electronics", "Travel", "Other"]
+var categoryPickerData = ["Tickets", "Clothes", "Textbooks", "UT Merch", "Stationary", "Electronics", "Travel", "Other"]
 var sizePickerData = ["N/A", "XS", "S", "M", "L", "XL"]
 var periodsPickerData = ["day", "week", "month"]
 var imageClick = false
@@ -42,11 +42,15 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     @IBOutlet weak var statusLabel: UILabel!
     
+    @IBOutlet weak var postItemButton: UIButton!
+    
     let picker = UIImagePickerController()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        postItemButton.layer.cornerRadius = 10
         
         picker.delegate = self
         
@@ -175,7 +179,7 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             statusLabel.text = "Please enter a title"
         } else if (descriptionField.text == ""){
             statusLabel.text = "Please enter a description"
-        } else if ((imageView.image!.pngData() == nil)) {
+        } else if ((imageView.image?.pngData() == nil)) {
             statusLabel.text = "Please add a photo"
         } else {
             let newProduct = db.collection("products").document()
@@ -186,7 +190,7 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             metadata.contentType = "image/jpeg"
             
             // Upload data and metadata
-            if let uploadData = imageView.image!.pngData() {
+            if let uploadData = imageView.image?.pngData() {
                 photoRef.putData(imageView.image!.pngData()!, metadata: metadata) { (metadata, error) in
                     if error != nil {
                         print(error?.localizedDescription)
@@ -198,6 +202,7 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                 let productData: [String: Any] = [
                     "description": descriptionField.text!,
                     "id": items.count+1,
+                    "category": categoryValue,
                     "image": "image/\(newProduct.documentID)/productPhoto",
                     "lease": lease,
                     "name": titleField.text!,
@@ -225,6 +230,8 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                 }
             }
         }
+//        let otherVC = delegate as! TableProtocol
+//        otherVC.fetchAllProducts()
         
     }
     
