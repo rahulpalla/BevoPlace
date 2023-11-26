@@ -61,18 +61,22 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyItemCell", for: indexPath) as! MyProductCell
         
         let row = indexPath.row
+                
+//        let imgPath = "image/\(myItems[row].docID)/productPhoto"
+//        
+//        // download image from firebase with the url
+//        let pathReference = Storage.storage().reference(withPath: imgPath)
+//        pathReference.getData(maxSize: 1 * 1024 * 1024 * 1024) { data, error in
+//            if let error = error {
+//                // Uh-oh, an error occurred!
+//                print(error.localizedDescription)
+//                cell.myProductImage.image = UIImage()
+//            } else {
+//                cell.myProductImage.image = UIImage(data: data!)
+//            }
+//        }
         
-        // download image from firebase with the url
-        let pathReference = Storage.storage().reference(withPath: "image/\(myFilteredItems[row].docID)/productPhoto")
-        pathReference.getData(maxSize: 1 * 1024 * 1024 * 1024) { data, error in
-            if let error = error {
-                // Uh-oh, an error occurred!
-                print(error.localizedDescription)
-                cell.myProductImage.image = UIImage()
-            } else {
-                cell.myProductImage.image = UIImage(data: data!)
-            }
-        }
+        cell.myProductImage.image = myItems[row].image
         
         cell.leaseBuyLabel.layer.cornerRadius = 10
         cell.leaseBuyLabel.layer.masksToBounds = true
@@ -160,6 +164,20 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
                     }
                     self.myFilteredItems = self.myItems
                     self.myItemTableView.reloadData()
+                }
+            }
+        }
+        
+        // Download images from firebase using the image url
+        for item in myItems {
+            let imgPath = "image/\(item.docID)/productPhoto"
+            let pathReference = Storage.storage().reference(withPath: imgPath)
+            pathReference.getData(maxSize: 1 * 1024 * 1024 * 1024) { data, error in
+                if let error = error {
+                    // Uh-oh, an error occurred!
+                    print(error.localizedDescription)
+                } else {
+                    item.image = UIImage(data: data!)!
                 }
             }
         }

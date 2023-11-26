@@ -10,9 +10,6 @@ import FirebaseAuth
 import FirebaseFirestore
 import FirebaseStorage
 
-
-
-
 public var items = [Product]()
 
 
@@ -72,16 +69,20 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
         
         let row = indexPath.row
         
-        // download image from firebase with the url
-        let pathReference = Storage.storage().reference(withPath: "image/\(filteredItems[row].docID)/productPhoto")
-        pathReference.getData(maxSize: 1 * 1024 * 1024 * 1024) { data, error in
-            if let error = error {
-                // Uh-oh, an error occurred!
-                print(error.localizedDescription)
-            } else {
-                cell.ProductImage.image = UIImage(data: data!)
-            }
-        }
+//        // check if we have the image saved locally
+//        let imgPath = "image/\(items[row].docID)/productPhoto"
+//        
+//         download image from firebase with the url
+//        let pathReference = Storage.storage().reference(withPath: imgPath)
+//        pathReference.getData(maxSize: 1 * 1024 * 1024 * 1024) { data, error in
+//            if let error = error {
+//                // Uh-oh, an error occurred!
+//                print(error.localizedDescription)
+//            } else {
+//                cell.ProductImage.image = UIImage(data: data!)
+//            }
+//        }
+        cell.ProductImage.image = items[row].image
         
         cell.leaseBuyLabel.layer.cornerRadius = 10
         cell.leaseBuyLabel.layer.masksToBounds = true
@@ -138,6 +139,20 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
                     items.append(Product(id: id, name: name, description: description, category: category, userID: userID, image: image, lease: lease, price: price, period: period, numPeriods: numPeriods, size: size, docID: docID))
                     self.filteredItems = items
                     self.itemTableView.reloadData()
+                }
+            }
+        }
+        
+        // Download images from firebase using the image url
+        for item in items {
+            let imgPath = "image/\(item.docID)/productPhoto"
+            let pathReference = Storage.storage().reference(withPath: imgPath)
+            pathReference.getData(maxSize: 1 * 1024 * 1024 * 1024) { data, error in
+                if let error = error {
+                    // Uh-oh, an error occurred!
+                    print(error.localizedDescription)
+                } else {
+                    item.image = UIImage(data: data!)!
                 }
             }
         }
