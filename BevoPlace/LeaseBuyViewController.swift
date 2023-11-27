@@ -106,7 +106,7 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
 //                cell.ProductImage.image = UIImage(data: data!)
 //            }
 //        }
-        cell.ProductImage.image = items[row].image
+        cell.ProductImage.image = filteredItems[row].image
         
         cell.leaseBuyLabel.layer.cornerRadius = 10
         cell.leaseBuyLabel.layer.masksToBounds = true
