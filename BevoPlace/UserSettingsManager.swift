@@ -10,9 +10,17 @@ import AVFoundation
 class UserSettingsManager {
     static let shared = UserSettingsManager()
 
-    var darkModeEnabled: Bool = false
+    var darkModeEnabled: Bool = false {
+        didSet {
+            // Call the closure when the dark mode setting changes
+            onChange?()
+        }
+    }
+    
     var soundEnabled: Bool = false
     var audioPlayer: AVAudioPlayer?
+    
+    var onChange: (() -> Void)?
     
     func applyUserSettings() {
         // Apply dark mode settings

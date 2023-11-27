@@ -40,8 +40,31 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
         filteredItems = items
         
         itemTableView.layer.cornerRadius = 10.0
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "back2.jpeg")!)
         
+        updateBackground()
+
+        UserSettingsManager.shared.onChange = { [weak self] in
+            DispatchQueue.main.async {
+                self?.updateBackground()
+            }
+        }
+        
+    }
+    
+    func updateBackground() {
+        let backgroundImageName = UserSettingsManager.shared.darkModeEnabled ? "dark.jpeg" : "back2.jpeg"
+        let backgroundImage = UIImage(named: backgroundImageName)
+        
+        // Set the content mode to aspect fill
+        let imageView = UIImageView(image: backgroundImage)
+        imageView.contentMode = .scaleAspectFill
+        imageView.frame = view.bounds
+        
+        // Remove existing background image views
+        view.subviews.filter { $0 is UIImageView }.forEach { $0.removeFromSuperview() }
+
+        // Add the new background image view
+        view.insertSubview(imageView, at: 0)
     }
     
     @objc func handleRefreshControl(_ myRefreshControl: UIRefreshControl) {
@@ -56,6 +79,7 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
     
     override func viewWillAppear(_ animated: Bool) {
         itemTableView.reloadData()
+        updateBackground()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -172,5 +196,4 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
         }
         self.itemTableView.reloadData()
     }
-
 }
