@@ -99,7 +99,7 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
 //            }
 //        }
         
-        cell.myProductImage.image = myItems[row].image
+        cell.myProductImage.image = myFilteredItems[row].image
         
         cell.leaseBuyLabel.layer.cornerRadius = 10
         cell.leaseBuyLabel.layer.masksToBounds = true

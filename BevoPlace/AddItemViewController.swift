@@ -190,8 +190,8 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             metadata.contentType = "image/jpeg"
             
             // Upload data and metadata
-            if let uploadData = imageView.image?.pngData() {
-                photoRef.putData(imageView.image!.pngData()!, metadata: metadata) { (metadata, error) in
+            if let uploadData = UIImage(data: imageView.image!.pngData()!) {
+                photoRef.putData(uploadData.jpegData(compressionQuality: 0.2)!, metadata: metadata) { (metadata, error) in
                     if error != nil {
                         print(error?.localizedDescription)
                     } else {
@@ -233,6 +233,13 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
 //        let otherVC = delegate as! TableProtocol
 //        otherVC.fetchAllProducts()
         
+    }
+    
+    // Compresses image for efficient fetch/save calls to database
+    func compressImage(image: UIImage) -> UIImage {
+        let resizedImage = image.aspectFittedToHeight(200)
+        resizedImage.jpegData(compressionQuality: 0.3)
+        return resizedImage
     }
     
 }

@@ -190,6 +190,7 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
                         } else {
                             // Set the product's image property once the image data is retrieved
                             product.image = UIImage(data: data!)!
+                            
                         }
                     }
                 }
