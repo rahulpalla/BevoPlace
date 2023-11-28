@@ -131,12 +131,13 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
             
         } else if segue.identifier == "lendSellToViewItemSegue",
                 let viewItemVC = segue.destination as? ViewItemViewController,
-                let index = myItemTableView.indexPathForSelectedRow?.row {
-                viewItemVC.delegate = self
-                viewItemVC.index = index
-                viewItemVC.product = myItems[index]
-        } else if segue.identifier == "wishlistIdentifier",
-                  let destination = segue.destination as? WishlistViewController {}
+                  let index = myItemTableView.indexPathForSelectedRow?.row {
+            viewItemVC.delegate = self
+            viewItemVC.index = index
+            viewItemVC.product = myItems[index]
+        }
+//        } else if segue.identifier == "wishlistIdentifier",
+//                  let destination = segue.destination as? WishlistViewController {}
     }
     
     // Swiping to delete the item
