@@ -136,8 +136,6 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
             viewItemVC.index = index
             viewItemVC.product = myItems[index]
         }
-//        } else if segue.identifier == "wishlistIdentifier",
-//                  let destination = segue.destination as? WishlistViewController {}
     }
     
     // Swiping to delete the item
