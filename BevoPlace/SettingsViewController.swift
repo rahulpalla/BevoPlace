@@ -69,12 +69,12 @@ class SettingsViewController: UIViewController {
         ])
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "helpSegue",
-//           let destination = segue.destination as? HelpViewController
-//        {
-//
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "helpSegue",
+           let destination = segue.destination as? HelpViewController
+        {
+
+        }
+    }
 
 }

@@ -16,6 +16,7 @@
 		72C6C9E92AFACCF10003AFFF /* UserSettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C6C9E82AFACCF10003AFFF /* UserSettingsManager.swift */; };
 		EC366B8D2B156EA400B484AB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC366B8C2B156EA400B484AB /* Extensions.swift */; };
 		EC43BF332AF599C20097CE27 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC43BF322AF599C20097CE27 /* ProductCell.swift */; };
+		EC43F6A22B1590A2008EF92B /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC43F6A12B1590A2008EF92B /* HelpViewController.swift */; };
 		EC6DB36D2AD8EE6F0013F965 /* LeaseBuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6DB36C2AD8EE6E0013F965 /* LeaseBuyViewController.swift */; };
 		ECBD7F8A2AF2F7A60076A54B /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBD7F892AF2F7A60076A54B /* Product.swift */; };
 		ECBD7F8C2AF2FE6E0076A54B /* TexasLaunchSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ECBD7F8B2AF2FE6E0076A54B /* TexasLaunchSound.mp3 */; };
@@ -69,6 +70,7 @@
 		72C6C9E82AFACCF10003AFFF /* UserSettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsManager.swift; sourceTree = "<group>"; };
 		EC366B8C2B156EA400B484AB /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		EC43BF322AF599C20097CE27 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		EC43F6A12B1590A2008EF92B /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		EC6DB36C2AD8EE6E0013F965 /* LeaseBuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaseBuyViewController.swift; sourceTree = "<group>"; };
 		ECBD7F892AF2F7A60076A54B /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		ECBD7F8B2AF2FE6E0076A54B /* TexasLaunchSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TexasLaunchSound.mp3; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				FA5C35F32AC5DFE5006B83C8 /* LaunchScreen.storyboard */,
 				ECC036632ADE1632006FE32B /* GoogleService-Info.plist */,
 				FA5C35F62AC5DFE5006B83C8 /* Info.plist */,
+				EC43F6A12B1590A2008EF92B /* HelpViewController.swift */,
 			);
 			path = BevoPlace;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				FA5C35E92AC5DFE4006B83C8 /* AppDelegate.swift in Sources */,
 				FAA048952AFADC9900CFC9D4 /* ViewItemViewController.swift in Sources */,
 				EC366B8D2B156EA400B484AB /* Extensions.swift in Sources */,
+				EC43F6A22B1590A2008EF92B /* HelpViewController.swift in Sources */,
 				EC43BF332AF599C20097CE27 /* ProductCell.swift in Sources */,
 				06FCE9292B15648D0089A124 /* WishlistProductCell.swift in Sources */,
 				06D1405C2ADEDA8D0011AC89 /* SettingsViewController.swift in Sources */,
