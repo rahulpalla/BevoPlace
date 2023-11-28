@@ -12,7 +12,7 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
 
     var myItems:[Product] = []
     
-    var myFilteredItems : [Product] = items
+    //var myFilteredItems : [Product] = items
     
     @IBOutlet weak var myItemTableView: UITableView!
     
@@ -34,7 +34,7 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
         myItemTableView.delegate = self
         myItemTableView.dataSource = self
         myItemTableView.layer.cornerRadius = 10.0
-        myFilteredItems = myItems
+        //myFilteredItems = myItems
         
         updateBackground()
 
@@ -77,7 +77,7 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myFilteredItems.count
+        return myItems.count
     }
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -99,16 +99,16 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
 //            }
 //        }
         
-        cell.myProductImage.image = myFilteredItems[row].image
+        cell.myProductImage.image = myItems[row].image
         
         cell.leaseBuyLabel.layer.cornerRadius = 10
         cell.leaseBuyLabel.layer.masksToBounds = true
-        cell.productTitleLabel?.text = myFilteredItems[row].name
-        cell.productSizeLabel.text = "\(String(describing: myFilteredItems[row].category))"
+        cell.productTitleLabel?.text = myItems[row].name
+        cell.productSizeLabel.text = "\(String(describing: myItems[row].category))"
 
         
-        let price = round(myFilteredItems[row].price * 100.0) / 100.0
-        if (!myFilteredItems[row].lease) {
+        let price = round(myItems[row].price * 100.0) / 100.0
+        if (!myItems[row].lease) {
             // Buy Item interface
             cell.dummyLeaseLengthLabel.isHidden = true
             cell.productPriceLabel.text = "$\(String(price))"
@@ -117,8 +117,8 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
         } else {
             // Lease Item interface
             cell.dummyLeaseLengthLabel.isHidden = false
-            cell.productPriceLabel.text = "$\(String(price))/\(myFilteredItems[row].period)"
-            cell.leaseLengthLabel.text = "\(myFilteredItems[row].numPeriods) \(myFilteredItems[row].period)s"
+            cell.productPriceLabel.text = "$\(String(price))/\(myItems[row].period)"
+            cell.leaseLengthLabel.text = "\(myItems[row].numPeriods) \(myItems[row].period)s"
             cell.leaseBuyLabel.text = "Lease"
         }
         return cell
@@ -153,7 +153,7 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
             }
             myItems.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            self.myFilteredItems = self.myItems
+            //self.myFilteredItems = self.myItems
         }
     }
     
@@ -214,7 +214,7 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
                 // Notify the main queue when all asynchronous tasks are complete
                 dispatchGroup.notify(queue: .main) {
                     // Update the filteredItems array with the downloaded data
-                    self.myFilteredItems = self.myItems
+                    //self.myFilteredItems = self.myItems
                     // Reload the table view with the updated data
                     self.myItemTableView.reloadData()
                 }
@@ -222,19 +222,19 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText == ""{
-            myFilteredItems = myItems
-        }
-        else{
-            myFilteredItems = []
-            for myItem in myItems{
-                if myItem.name.lowercased().contains(searchText.lowercased()){
-                    myFilteredItems.append(myItem)
-                }
-            }
-        }
-        self.myItemTableView.reloadData()
-    }
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        if searchText == ""{
+//            myFilteredItems = myItems
+//        }
+//        else{
+//            myFilteredItems = []
+//            for myItem in myItems{
+//                if myItem.name.lowercased().contains(searchText.lowercased()){
+//                    myFilteredItems.append(myItem)
+//                }
+//            }
+//        }
+//        self.myItemTableView.reloadData()
+//    }
 
 }
