@@ -108,7 +108,7 @@ class WishListViewController: UIViewController, ObservableObject, UITableViewDel
         cell.leaseBuyLabel.layer.cornerRadius = 10
         cell.leaseBuyLabel.layer.masksToBounds = true
         cell.productTitleLabel?.text = filteredWishListItems[row].name
-        cell.productSizeLabel.text = "\(String(describing: filteredWishListItems[row].category))"
+        cell.productCategoryLabel.text = "\(String(describing: filteredWishListItems[row].category))"
         
         let price = round(filteredWishListItems[row].price * 100.0) / 100.0
         if (!filteredWishListItems[row].lease) {
@@ -128,7 +128,7 @@ class WishListViewController: UIViewController, ObservableObject, UITableViewDel
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "wishlistToViewItemSegue",
+        if segue.identifier == "wishListToViewItemSegue",
             let viewItemVC = segue.destination as? ViewItemViewController,
             let index = wishListTableView.indexPathForSelectedRow?.row {
             viewItemVC.delegate = self
