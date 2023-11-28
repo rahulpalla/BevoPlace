@@ -220,4 +220,8 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
         }
         self.itemTableView.reloadData()
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 }

@@ -222,6 +222,10 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
 //    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 //        if searchText == ""{
 //            myFilteredItems = myItems
