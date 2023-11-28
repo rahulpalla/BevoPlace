@@ -68,5 +68,13 @@ class SettingsViewController: UIViewController {
             "soundOn": soundModeSwitch.isOn
         ])
     }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "helpSegue",
+//           let destination = segue.destination as? HelpViewController
+//        {
+//
+//        }
+//    }
 
 }
