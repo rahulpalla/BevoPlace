@@ -141,11 +141,18 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
     
     func fetchAllProducts() {
         items.removeAll()
+
         db.collection("products").getDocuments() { (querySnapshot, error) in
             if let error = error {
                 print("Error getting documents: \(error)")
             } else {
+                // Create a DispatchGroup to track the completion of all asynchronous tasks
+                let dispatchGroup = DispatchGroup()
+
                 for document in querySnapshot!.documents {
+                    // Enter the DispatchGroup before starting each asynchronous task
+                    dispatchGroup.enter()
+
                     var data = document.data()
                     let price = data["price"] as? Double ?? 0.0
                     let lease = data["lease"] as? Bool ?? true
@@ -159,27 +166,45 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
                     let numPeriods = data["numPeriods"] as? Int ?? 0
                     let description = data["description"] as? String ?? ""
                     let docID = data["docID"] as? String ?? ""
-                    items.append(Product(id: id, name: name, description: description, category: category, userID: userID, image: image, lease: lease, price: price, period: period, numPeriods: numPeriods, size: size, docID: docID))
+
+                    // Create a product with a placeholder UIImage
+                    let product = Product(id: id, name: name, description: description, category: category, userID: userID, image: image, lease: lease, price: price, period: period, numPeriods: numPeriods, size: size, docID: docID)
+
+                    // Append the product to the items array
+                    items.append(product)
+
+                    let imgPath = "image/\(docID)/productPhoto"
+                    let pathReference = Storage.storage().reference(withPath: imgPath)
+
+                    // Download image data asynchronously
+                    pathReference.getData(maxSize: 1 * 1024 * 1024 * 1024) { data, error in
+                        // Ensure the leave() call is executed even if there's an error
+                        defer {
+                            dispatchGroup.leave()
+                        }
+
+                        if let error = error {
+                            // Uh-oh, an error occurred!
+                            print(error.localizedDescription)
+                        } else {
+                            // Set the product's image property once the image data is retrieved
+                            product.image = UIImage(data: data!)!
+                            
+                        }
+                    }
+                }
+
+                // Notify the main queue when all asynchronous tasks are complete
+                dispatchGroup.notify(queue: .main) {
+                    // Update the filteredItems array with the downloaded data
                     self.filteredItems = items
+                    // Reload the table view with the updated data
                     self.itemTableView.reloadData()
                 }
             }
         }
-        
-        // Download images from firebase using the image url
-        for item in items {
-            let imgPath = "image/\(item.docID)/productPhoto"
-            let pathReference = Storage.storage().reference(withPath: imgPath)
-            pathReference.getData(maxSize: 1 * 1024 * 1024 * 1024) { data, error in
-                if let error = error {
-                    // Uh-oh, an error occurred!
-                    print(error.localizedDescription)
-                } else {
-                    item.image = UIImage(data: data!)!
-                }
-            }
-        }
     }
+
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText == ""{

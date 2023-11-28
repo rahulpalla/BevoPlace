@@ -20,10 +20,7 @@ class ViewItemViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     
-    
-    
     @IBOutlet weak var itemImage: UIImageView!
-    
     
     @IBOutlet weak var displayNameLabel: UILabel!
     
@@ -31,6 +28,11 @@ class ViewItemViewController: UIViewController {
     
     @IBOutlet weak var contactLabel: UILabel!
     
+    @IBOutlet weak var priceLabel: UILabel!
+    
+    @IBOutlet weak var sizeLabel: UILabel!
+    
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     override func viewDidLoad() {
         
@@ -52,7 +54,17 @@ class ViewItemViewController: UIViewController {
             if let document = document, document.exists {
                 let dataDescription = document.data().map(String.init(describing: )) ?? "nil"
                 print("Document data: \(dataDescription)")
+                
                 self.titleLabel.text = self.product.name
+                self.descriptionLabel.text = self.product.description
+                self.descriptionLabel.numberOfLines = 4
+                self.sizeLabel.text = self.product.size
+                if (self.product.lease) {
+                    self.priceLabel.text = "$\(String(self.product.price))/\(self.product.period)"
+                } else {
+                    self.priceLabel.text = "$\(String(self.product.price))"
+                }
+                
                 let pathReference = Storage.storage().reference(withPath: "image/\(self.product.docID)/productPhoto")
                 pathReference.getData(maxSize: 1 * 1024 * 1024 * 1024) { data, error in
                     if let error = error {
@@ -69,14 +81,9 @@ class ViewItemViewController: UIViewController {
                 print("Document does not exist")
             }
         }
+        
         super.viewDidLoad()
        
-
     }
-    
-    
-    
-
-
 
 }

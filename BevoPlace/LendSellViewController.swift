@@ -99,7 +99,7 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
 //            }
 //        }
         
-        cell.myProductImage.image = myItems[row].image
+        cell.myProductImage.image = myFilteredItems[row].image
         
         cell.leaseBuyLabel.layer.cornerRadius = 10
         cell.leaseBuyLabel.layer.masksToBounds = true
@@ -131,12 +131,11 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
             
         } else if segue.identifier == "lendSellToViewItemSegue",
                 let viewItemVC = segue.destination as? ViewItemViewController,
-                let index = myItemTableView.indexPathForSelectedRow?.row {
-                viewItemVC.delegate = self
-                viewItemVC.index = index
-                viewItemVC.product = myItems[index]
-        } else if segue.identifier == "wishlistIdentifier",
-                  let destination = segue.destination as? WishlistViewController {}
+                  let index = myItemTableView.indexPathForSelectedRow?.row {
+            viewItemVC.delegate = self
+            viewItemVC.index = index
+            viewItemVC.product = myItems[index]
+        }
     }
     
     // Swiping to delete the item
@@ -159,16 +158,23 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func fetchAllProducts() {
-        self.myItems.removeAll()
+        myItems.removeAll()
+
         db.collection("products").getDocuments() { (querySnapshot, error) in
             if let error = error {
                 print("Error getting documents: \(error)")
             } else {
+                // Create a DispatchGroup to track the completion of all asynchronous tasks
+                let dispatchGroup = DispatchGroup()
+
                 for document in querySnapshot!.documents {
+                    // Enter the DispatchGroup before starting each asynchronous task
+                    dispatchGroup.enter()
+
                     var data = document.data()
                     let price = data["price"] as? Double ?? 0.0
-                    let category = data["category"] as? String ?? ""
                     let lease = data["lease"] as? Bool ?? true
+                    let category = data["category"] as? String ?? ""
                     let period = data["period"] as? String ?? ""
                     let userID = data["userID"] as? String ?? ""
                     let size = data["size"] as? String ?? ""
@@ -178,28 +184,39 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
                     let numPeriods = data["numPeriods"] as? Int ?? 0
                     let description = data["description"] as? String ?? ""
                     let docID = data["docID"] as? String ?? ""
-                    
-                    var newProd = Product(id: id, name: name, description: description, category: category, userID: userID, image: image, lease: lease, price: price, period: period, numPeriods: numPeriods, size: size, docID: docID)
-                    
-                    if (userID == user) {
-                        self.myItems.append(newProd)
+
+                    // Create a product with a placeholder UIImage
+                    let product = Product(id: id, name: name, description: description, category: category, userID: userID, image: image, lease: lease, price: price, period: period, numPeriods: numPeriods, size: size, docID: docID)
+
+                    // Append the product to the items array
+                    self.myItems.append(product)
+
+                    let imgPath = "image/\(docID)/productPhoto"
+                    let pathReference = Storage.storage().reference(withPath: imgPath)
+
+                    // Download image data asynchronously
+                    pathReference.getData(maxSize: 1 * 1024 * 1024 * 1024) { data, error in
+                        // Ensure the leave() call is executed even if there's an error
+                        defer {
+                            dispatchGroup.leave()
+                        }
+
+                        if let error = error {
+                            // Uh-oh, an error occurred!
+                            print(error.localizedDescription)
+                        } else {
+                            // Set the product's image property once the image data is retrieved
+                            product.image = UIImage(data: data!)!
+                        }
                     }
-                    self.myFilteredItems = self.myItems
-                    self.myItemTableView.reloadData()
                 }
-            }
-        }
-        
-        // Download images from firebase using the image url
-        for item in myItems {
-            let imgPath = "image/\(item.docID)/productPhoto"
-            let pathReference = Storage.storage().reference(withPath: imgPath)
-            pathReference.getData(maxSize: 1 * 1024 * 1024 * 1024) { data, error in
-                if let error = error {
-                    // Uh-oh, an error occurred!
-                    print(error.localizedDescription)
-                } else {
-                    item.image = UIImage(data: data!)!
+
+                // Notify the main queue when all asynchronous tasks are complete
+                dispatchGroup.notify(queue: .main) {
+                    // Update the filteredItems array with the downloaded data
+                    self.myFilteredItems = self.myItems
+                    // Reload the table view with the updated data
+                    self.myItemTableView.reloadData()
                 }
             }
         }
