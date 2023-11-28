@@ -12,7 +12,7 @@
 		06B0C98A2AF9BF0E00BECBC0 /* MyProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B0C9892AF9BF0E00BECBC0 /* MyProductCell.swift */; };
 		06D1405C2ADEDA8D0011AC89 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D1405B2ADEDA8D0011AC89 /* SettingsViewController.swift */; };
 		06D1405E2ADEDAC40011AC89 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D1405D2ADEDAC40011AC89 /* ProfileViewController.swift */; };
-		06FCE9272B15632A0089A124 /* WishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FCE9262B15632A0089A124 /* WishlistViewController.swift */; };
+		06FCE9272B15632A0089A124 /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FCE9262B15632A0089A124 /* WishListViewController.swift */; };
 		06FCE9292B15648D0089A124 /* WishlistProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FCE9282B15648D0089A124 /* WishlistProductCell.swift */; };
 		72C6C9E92AFACCF10003AFFF /* UserSettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C6C9E82AFACCF10003AFFF /* UserSettingsManager.swift */; };
 		EC43BF332AF599C20097CE27 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC43BF322AF599C20097CE27 /* ProductCell.swift */; };
@@ -65,7 +65,7 @@
 		06B0C9892AF9BF0E00BECBC0 /* MyProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProductCell.swift; sourceTree = "<group>"; };
 		06D1405B2ADEDA8D0011AC89 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		06D1405D2ADEDAC40011AC89 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		06FCE9262B15632A0089A124 /* WishlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewController.swift; sourceTree = "<group>"; };
+		06FCE9262B15632A0089A124 /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
 		06FCE9282B15648D0089A124 /* WishlistProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistProductCell.swift; sourceTree = "<group>"; };
 		72C6C9E82AFACCF10003AFFF /* UserSettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsManager.swift; sourceTree = "<group>"; };
 		EC43BF322AF599C20097CE27 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
@@ -155,7 +155,7 @@
 				72C6C9E82AFACCF10003AFFF /* UserSettingsManager.swift */,
 				FA5C35EA2AC5DFE4006B83C8 /* SceneDelegate.swift */,
 				EC6DB36C2AD8EE6E0013F965 /* LeaseBuyViewController.swift */,
-				06FCE9262B15632A0089A124 /* WishlistViewController.swift */,
+				06FCE9262B15632A0089A124 /* WishListViewController.swift */,
 				FAA048942AFADC9900CFC9D4 /* ViewItemViewController.swift */,
 				EC43BF322AF599C20097CE27 /* ProductCell.swift */,
 				ECBD7F892AF2F7A60076A54B /* Product.swift */,
@@ -312,7 +312,7 @@
 				EC6DB36D2AD8EE6F0013F965 /* LeaseBuyViewController.swift in Sources */,
 				FA5C35ED2AC5DFE4006B83C8 /* LoginViewController.swift in Sources */,
 				72C6C9E92AFACCF10003AFFF /* UserSettingsManager.swift in Sources */,
-				06FCE9272B15632A0089A124 /* WishlistViewController.swift in Sources */,
+				06FCE9272B15632A0089A124 /* WishListViewController.swift in Sources */,
 				06B0C9842AF3198A00BECBC0 /* AddItemViewController.swift in Sources */,
 				FA5C35E92AC5DFE4006B83C8 /* AppDelegate.swift in Sources */,
 				FAA048952AFADC9900CFC9D4 /* ViewItemViewController.swift in Sources */,

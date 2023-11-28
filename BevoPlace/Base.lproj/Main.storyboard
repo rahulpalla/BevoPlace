@@ -1222,167 +1222,17 @@
             </objects>
             <point key="canvasLocation" x="2620.6106870229005" y="538.73239436619724"/>
         </scene>
-        <!--Wishlist View Controller-->
+        <!--Wish List View Controller-->
         <scene sceneID="Lzl-XK-cDl">
             <objects>
-                <viewController id="YTV-XL-cAB" customClass="WishlistViewController" customModule="BevoPlace" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="YTV-XL-cAB" customClass="WishListViewController" customModule="BevoPlace" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BAy-g0-3ql">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="F4l-Pt-u7y">
-                                <rect key="frame" x="32" y="153" width="331" height="665"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="bUe-Yn-2Ui" customClass="WishlistProductCell" customModule="BevoPlace" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="331" height="43.666667938232422"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bUe-Yn-2Ui" id="lNg-wU-Taf">
-                                            <rect key="frame" x="0.0" y="0.0" width="331" height="43.666667938232422"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Wishlist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8A2-3c-jpQ">
-                                <rect key="frame" x="41" y="96" width="88" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ItemCell" rowHeight="150" id="90N-uY-wY6" customClass="ProductCell" customModule="BevoPlace" customModuleProvider="target">
-                                <rect key="frame" x="-155" y="211" width="361" height="150"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="90N-uY-wY6" id="QZN-Q6-kxm">
-                                    <rect key="frame" x="0.0" y="0.0" width="361" height="150"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jOv-Hj-2Qu">
-                                            <rect key="frame" x="-4" y="33" width="150" height="84"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="150" id="Utu-Kg-FDp"/>
-                                            </constraints>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Item Title (Name)" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g39-65-cSM">
-                                            <rect key="frame" x="156" y="39" width="210" height="2"/>
-                                            <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="15"/>
-                                            <color key="textColor" red="0.86657112839999995" green="0.28742766380000001" blue="0.0026916975620000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 weeks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dw8-o6-ovt">
-                                            <rect key="frame" x="255" y="90" width="111" height="15"/>
-                                            <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="12"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Lease" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWa-zV-grr">
-                                            <rect key="frame" x="290" y="112" width="64" height="27"/>
-                                            <color key="backgroundColor" red="0.86657112839999995" green="0.28742766380000001" blue="0.0026916975620000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="64" id="BYc-1v-xNY"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="15"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clothes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ayl-C4-1HP">
-                                            <rect key="frame" x="227" y="50" width="117" height="15"/>
-                                            <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="12"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ns1-h3-KSM">
-                                            <rect key="frame" x="154" y="49" width="65" height="16"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="65" id="fPo-5W-Rch"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="Galvji-Bold" family="Galvji" pointSize="13"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vPf-3O-kkl">
-                                            <rect key="frame" x="154" y="70" width="39" height="16"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="39" id="f2q-LI-DA8"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="Galvji-Bold" family="Galvji" pointSize="13"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lease Length:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A94-0W-nds">
-                                            <rect key="frame" x="154" y="89" width="93" height="16"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="93" id="Mq0-9J-uwn"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="Galvji-Bold" family="Galvji" pointSize="13"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$5/day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qg5-0u-dVO">
-                                            <rect key="frame" x="201" y="71" width="126" height="15"/>
-                                            <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="12"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vFg-nf-tcs">
-                                            <rect key="frame" x="244" y="108" width="51" height="35"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
-                                        </button>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="A94-0W-nds" firstAttribute="firstBaseline" secondItem="dw8-o6-ovt" secondAttribute="firstBaseline" id="3Q1-6p-S96"/>
-                                        <constraint firstItem="Ayl-C4-1HP" firstAttribute="leading" secondItem="Ns1-h3-KSM" secondAttribute="trailing" constant="8" id="8PQ-rt-AD8"/>
-                                        <constraint firstItem="A94-0W-nds" firstAttribute="baseline" secondItem="dw8-o6-ovt" secondAttribute="baseline" id="K9L-HM-Glb"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="Qg5-0u-dVO" secondAttribute="trailing" constant="26" id="KiH-38-VcS"/>
-                                        <constraint firstItem="Ns1-h3-KSM" firstAttribute="baseline" secondItem="Ayl-C4-1HP" secondAttribute="baseline" id="LLQ-yZ-T5r"/>
-                                        <constraint firstItem="LWa-zV-grr" firstAttribute="trailing" secondItem="QZN-Q6-kxm" secondAttribute="trailingMargin" id="LgU-Un-bZE"/>
-                                        <constraint firstItem="Qg5-0u-dVO" firstAttribute="leading" secondItem="vPf-3O-kkl" secondAttribute="trailing" constant="8" id="NFQ-aK-pva"/>
-                                        <constraint firstItem="vPf-3O-kkl" firstAttribute="baseline" secondItem="Qg5-0u-dVO" secondAttribute="baseline" id="P3R-qa-70j"/>
-                                        <constraint firstItem="vPf-3O-kkl" firstAttribute="firstBaseline" secondItem="Qg5-0u-dVO" secondAttribute="firstBaseline" id="QG4-Lm-h4L"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="g39-65-cSM" secondAttribute="trailing" constant="-13" id="QZb-yA-uM7"/>
-                                        <constraint firstItem="g39-65-cSM" firstAttribute="trailing" secondItem="dw8-o6-ovt" secondAttribute="trailing" id="U4o-iu-nhU"/>
-                                        <constraint firstItem="LWa-zV-grr" firstAttribute="top" secondItem="dw8-o6-ovt" secondAttribute="bottom" constant="7" id="a1O-C7-DVc"/>
-                                        <constraint firstItem="vPf-3O-kkl" firstAttribute="leading" secondItem="A94-0W-nds" secondAttribute="leading" id="c73-Ff-emb"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="Ayl-C4-1HP" secondAttribute="trailing" constant="9" id="dxV-d5-Px3"/>
-                                        <constraint firstItem="Ns1-h3-KSM" firstAttribute="leading" secondItem="vPf-3O-kkl" secondAttribute="leading" id="eGx-Ba-1mb"/>
-                                        <constraint firstItem="Ns1-h3-KSM" firstAttribute="top" secondItem="g39-65-cSM" secondAttribute="bottom" constant="8" id="ehx-9h-fT9"/>
-                                        <constraint firstItem="g39-65-cSM" firstAttribute="top" secondItem="QZN-Q6-kxm" secondAttribute="topMargin" constant="-5" id="g56-Mz-784"/>
-                                        <constraint firstItem="vPf-3O-kkl" firstAttribute="top" secondItem="Ns1-h3-KSM" secondAttribute="bottom" constant="5" id="lzC-dU-EKC"/>
-                                        <constraint firstItem="jOv-Hj-2Qu" firstAttribute="leading" secondItem="QZN-Q6-kxm" secondAttribute="leadingMargin" constant="-20" id="mTu-aU-zr6"/>
-                                        <constraint firstItem="Ns1-h3-KSM" firstAttribute="firstBaseline" secondItem="Ayl-C4-1HP" secondAttribute="firstBaseline" id="qfX-ht-DSA"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="A94-0W-nds" secondAttribute="bottom" constant="34" id="r7x-qU-RT5"/>
-                                        <constraint firstItem="jOv-Hj-2Qu" firstAttribute="centerY" secondItem="QZN-Q6-kxm" secondAttribute="centerY" id="sXX-EC-jSr"/>
-                                        <constraint firstItem="LWa-zV-grr" firstAttribute="bottom" secondItem="QZN-Q6-kxm" secondAttribute="bottomMargin" id="sfh-d9-MpQ"/>
-                                        <constraint firstItem="jOv-Hj-2Qu" firstAttribute="top" secondItem="QZN-Q6-kxm" secondAttribute="topMargin" constant="-11" id="ulX-2M-obm"/>
-                                        <constraint firstItem="Ns1-h3-KSM" firstAttribute="leading" secondItem="jOv-Hj-2Qu" secondAttribute="trailing" constant="8" id="v7d-In-Kqp"/>
-                                        <constraint firstItem="g39-65-cSM" firstAttribute="leading" secondItem="jOv-Hj-2Qu" secondAttribute="trailing" constant="10" id="vER-Tf-ddS"/>
-                                        <constraint firstItem="dw8-o6-ovt" firstAttribute="leading" secondItem="A94-0W-nds" secondAttribute="trailing" constant="8" id="wwB-qg-l7E"/>
-                                        <constraint firstItem="A94-0W-nds" firstAttribute="top" secondItem="vPf-3O-kkl" secondAttribute="bottom" constant="3" id="xeZ-o3-D5h"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.95322332009999999" green="0.77520151110000002" blue="0.62606325220000003" alpha="0.95601942049999999" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <outlet property="ProductImage" destination="jOv-Hj-2Qu" id="WKF-FM-n0g"/>
-                                    <outlet property="dummyLeaseLengthLabel" destination="A94-0W-nds" id="cmQ-ey-cxj"/>
-                                    <outlet property="leaseBuyLabel" destination="LWa-zV-grr" id="dFM-Eg-BUD"/>
-                                    <outlet property="leaseLengthLabel" destination="dw8-o6-ovt" id="fU0-Fg-sEP"/>
-                                    <outlet property="productPriceLabel" destination="Qg5-0u-dVO" id="GDd-vh-Gri"/>
-                                    <outlet property="productSizeLabel" destination="Ayl-C4-1HP" id="hYb-B2-umH"/>
-                                    <outlet property="productTitleLabel" destination="g39-65-cSM" id="XD1-PK-KZl"/>
-                                </connections>
-                            </tableViewCell>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="qqa-tM-0be"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="hCp-BF-KsV"/>
-                    <connections>
-                        <outlet property="wishlistTableview" destination="F4l-Pt-u7y" id="AQv-s3-4iF"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WwA-If-GGx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1475,7 +1325,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nIA-Vy-m3C"/>
+        <segue reference="Eir-zo-M7n"/>
         <segue reference="qJZ-V7-u3e"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

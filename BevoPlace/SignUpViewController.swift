@@ -62,7 +62,8 @@ class SignUpViewController: UIViewController {
                             "email" : user,
                             "number": "",
                             "sound": true,
-                            "theme" : true
+                            "theme" : true,
+                            "wishlist" : [String]()
                         ])
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                             self.performSegue(withIdentifier: "signUpToTabSegue", sender: self)
