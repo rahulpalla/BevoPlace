@@ -128,16 +128,14 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
         if segue.identifier == "addItemSegue",
            let destination = segue.destination as? AddItemViewController
         {
-        }
-        
-        
-        else if segue.identifier == "lendSellToViewItemSegue",
+            
+        } else if segue.identifier == "lendSellToViewItemSegue",
                 let viewItemVC = segue.destination as? ViewItemViewController,
-                let index = myItemTableView.indexPathForSelectedRow?.row {
-                viewItemVC.delegate = self
-                viewItemVC.index = index
-                viewItemVC.product = myItems[index]
-            }
+                  let index = myItemTableView.indexPathForSelectedRow?.row {
+            viewItemVC.delegate = self
+            viewItemVC.index = index
+            viewItemVC.product = myItems[index]
+        }
     }
     
     // Swiping to delete the item

@@ -13,7 +13,6 @@ import FirebaseStorage
 public var items = [Product]()
 
 
-
 class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     var filteredItems : [Product] = items
