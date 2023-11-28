@@ -191,7 +191,7 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             
             // Upload data and metadata
             if let uploadData = UIImage(data: imageView.image!.pngData()!) {
-                photoRef.putData(uploadData.jpegData(compressionQuality: 0.2)!, metadata: metadata) { (metadata, error) in
+                photoRef.putData(uploadData.jpegData(compressionQuality: 0.05)!, metadata: metadata) { (metadata, error) in
                     if error != nil {
                         print(error?.localizedDescription)
                     } else {
