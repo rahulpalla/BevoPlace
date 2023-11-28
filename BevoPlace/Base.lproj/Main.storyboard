@@ -890,7 +890,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PF5-5E-NBE">
-                                <rect key="frame" x="151" y="146" width="91.333333333333314" height="26"/>
+                                <rect key="frame" x="151" y="146" width="91" height="26"/>
                                 <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="22"/>
                                 <color key="textColor" red="0.86657112839999995" green="0.28742766380000001" blue="0.0026916975620000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -944,9 +944,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Vx-aQ-fkV">
-                                <rect key="frame" x="151" y="612" width="90" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Vx-aQ-fkV">
+                                <rect key="frame" x="151" y="655" width="90" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="questionmark.circle" catalog="system" title=" Help"/>
                                 <connections>
@@ -965,10 +964,14 @@
                             <constraint firstItem="Ud9-l3-r1b" firstAttribute="leading" secondItem="Eo1-5v-7fn" secondAttribute="leading" id="VdQ-9w-AoK"/>
                             <constraint firstItem="vmV-Nm-Irf" firstAttribute="centerX" secondItem="7l5-kK-Jgd" secondAttribute="centerX" id="WtU-Eo-Z0q"/>
                             <constraint firstItem="PF5-5E-NBE" firstAttribute="centerX" secondItem="vmV-Nm-Irf" secondAttribute="centerX" id="aIb-0v-Cu3"/>
+                            <constraint firstItem="4Vx-aQ-fkV" firstAttribute="top" secondItem="7l5-kK-Jgd" secondAttribute="top" id="auC-yW-bxm"/>
                             <constraint firstItem="PF5-5E-NBE" firstAttribute="top" secondItem="Vf2-jg-hhA" secondAttribute="top" constant="102" id="d3g-Mx-NrC"/>
                             <constraint firstItem="Ud9-l3-r1b" firstAttribute="top" secondItem="S3G-cr-59d" secondAttribute="bottom" constant="68" id="d6e-tP-Nck"/>
+                            <constraint firstItem="4Vx-aQ-fkV" firstAttribute="centerX" secondItem="7l5-kK-Jgd" secondAttribute="centerX" id="iOM-EF-lmM"/>
                             <constraint firstItem="crL-Oe-U5u" firstAttribute="leading" secondItem="Vf2-jg-hhA" secondAttribute="leading" constant="49" id="kkN-Zs-VVF"/>
                             <constraint firstItem="S3G-cr-59d" firstAttribute="top" secondItem="crL-Oe-U5u" secondAttribute="bottom" constant="26" id="mee-Vy-ltS"/>
+                            <constraint firstItem="4Vx-aQ-fkV" firstAttribute="leading" secondItem="PF5-5E-NBE" secondAttribute="leading" id="ord-bp-HLA"/>
+                            <constraint firstItem="4Vx-aQ-fkV" firstAttribute="leading" secondItem="Vf2-jg-hhA" secondAttribute="leading" constant="151" id="rdw-7n-s3o"/>
                             <constraint firstItem="S3G-cr-59d" firstAttribute="leading" secondItem="Ud9-l3-r1b" secondAttribute="leading" id="tEq-Ez-iXB"/>
                             <constraint firstItem="7l5-kK-Jgd" firstAttribute="leading" secondItem="G7o-Gs-QGF" secondAttribute="leadingMargin" id="vmJ-Ht-8NK"/>
                             <constraint firstItem="crL-Oe-U5u" firstAttribute="leading" secondItem="S3G-cr-59d" secondAttribute="leading" id="ylP-2U-5rV"/>
