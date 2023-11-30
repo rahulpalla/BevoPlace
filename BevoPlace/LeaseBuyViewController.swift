@@ -222,17 +222,6 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        self.view.endEditing(true)
-        let touch = touches.first
-
-            if searchBar.isFirstResponder, let touchPoint = touch?.location(in: searchBar) {
-                // If the touch is inside the search bar, do not dismiss the keyboard
-                if searchBar.frame.contains(touchPoint) {
-                    return
-                }
-            }
-
-            // If the touch is outside the search bar, dismiss the keyboard
-            self.view.endEditing(true)
+        self.view.endEditing(true)
     }
 }
