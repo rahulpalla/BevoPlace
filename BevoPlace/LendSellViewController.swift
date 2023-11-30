@@ -121,6 +121,8 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
             cell.leaseLengthLabel.text = "\(myFilteredItems[row].numPeriods) \(myFilteredItems[row].period)s"
             cell.leaseBuyLabel.text = "Lease"
         }
+        cell.layer.cornerRadius = 15
+        
         return cell
     }
     

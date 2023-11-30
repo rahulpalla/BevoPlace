@@ -39,7 +39,6 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
         filteredItems = items
         
         itemTableView.layer.cornerRadius = 10.0
-        
         updateBackground()
 
         UserSettingsManager.shared.onChange = { [weak self] in
@@ -111,6 +110,7 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
         cell.leaseBuyLabel.layer.masksToBounds = true
         cell.productTitleLabel?.text = filteredItems[row].name
         cell.productSizeLabel.text = "\(String(describing: filteredItems[row].category))"
+        cell.textLabel?.backgroundColor = UIColor.red
         
         let price = round(filteredItems[row].price * 100.0) / 100.0
         if (!filteredItems[row].lease) {
@@ -126,6 +126,9 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
             cell.leaseLengthLabel.text = "\(filteredItems[row].numPeriods) \(filteredItems[row].period)s"
             cell.leaseBuyLabel.text = "Lease"
         }
+        cell.layer.cornerRadius = 15
+        
+        
         return cell
     }
     
