@@ -189,7 +189,9 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
                     let product = Product(id: id, name: name, description: description, category: category, userID: userID, image: image, lease: lease, price: price, period: period, numPeriods: numPeriods, size: size, docID: docID)
 
                     // Append the product to the items array
-                    self.myItems.append(product)
+                    if(product.userID == user){
+                        self.myItems.append(product)
+                    }
 
                     let imgPath = "image/\(docID)/productPhoto"
                     let pathReference = Storage.storage().reference(withPath: imgPath)
