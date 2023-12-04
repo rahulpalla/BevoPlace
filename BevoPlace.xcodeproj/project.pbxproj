@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		061208E42B1A8BA300C8A187 /* WishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061208E32B1A8BA300C8A187 /* WishlistViewController.swift */; };
+		061208E42B1A8BA300C8A187 /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061208E32B1A8BA300C8A187 /* WishListViewController.swift */; };
 		06B0C9842AF3198A00BECBC0 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B0C9832AF3198A00BECBC0 /* AddItemViewController.swift */; };
 		06B0C9882AF9BC0300BECBC0 /* LendSellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B0C9872AF9BC0200BECBC0 /* LendSellViewController.swift */; };
 		06B0C98A2AF9BF0E00BECBC0 /* MyProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B0C9892AF9BF0E00BECBC0 /* MyProductCell.swift */; };
 		06D1405C2ADEDA8D0011AC89 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D1405B2ADEDA8D0011AC89 /* SettingsViewController.swift */; };
 		06D1405E2ADEDAC40011AC89 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D1405D2ADEDAC40011AC89 /* ProfileViewController.swift */; };
-		06FCE9292B15648D0089A124 /* WishlistProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FCE9282B15648D0089A124 /* WishlistProductCell.swift */; };
+		06FCE9292B15648D0089A124 /* WishListProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FCE9282B15648D0089A124 /* WishListProductCell.swift */; };
 		72C6C9E92AFACCF10003AFFF /* UserSettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C6C9E82AFACCF10003AFFF /* UserSettingsManager.swift */; };
 		EC366B8D2B156EA400B484AB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC366B8C2B156EA400B484AB /* Extensions.swift */; };
 		EC43BF332AF599C20097CE27 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC43BF322AF599C20097CE27 /* ProductCell.swift */; };
@@ -62,13 +62,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		061208E32B1A8BA300C8A187 /* WishlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewController.swift; sourceTree = "<group>"; };
+		061208E32B1A8BA300C8A187 /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
 		06B0C9832AF3198A00BECBC0 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		06B0C9872AF9BC0200BECBC0 /* LendSellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LendSellViewController.swift; sourceTree = "<group>"; };
 		06B0C9892AF9BF0E00BECBC0 /* MyProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProductCell.swift; sourceTree = "<group>"; };
 		06D1405B2ADEDA8D0011AC89 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		06D1405D2ADEDAC40011AC89 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		06FCE9282B15648D0089A124 /* WishlistProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistProductCell.swift; sourceTree = "<group>"; };
+		06FCE9282B15648D0089A124 /* WishListProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListProductCell.swift; sourceTree = "<group>"; };
 		72C6C9E82AFACCF10003AFFF /* UserSettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsManager.swift; sourceTree = "<group>"; };
 		EC366B8C2B156EA400B484AB /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		EC43BF322AF599C20097CE27 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
@@ -155,7 +155,7 @@
 				ECBD7F8B2AF2FE6E0076A54B /* TexasLaunchSound.mp3 */,
 				FA5C35E82AC5DFE4006B83C8 /* AppDelegate.swift */,
 				FA1AE7F72ADF2F57004A515B /* SignUpViewController.swift */,
-				061208E32B1A8BA300C8A187 /* WishlistViewController.swift */,
+				061208E32B1A8BA300C8A187 /* WishListViewController.swift */,
 				FA5C35EC2AC5DFE4006B83C8 /* LoginViewController.swift */,
 				72C6C9E82AFACCF10003AFFF /* UserSettingsManager.swift */,
 				FA5C35EA2AC5DFE4006B83C8 /* SceneDelegate.swift */,
@@ -164,7 +164,7 @@
 				EC43BF322AF599C20097CE27 /* ProductCell.swift */,
 				ECBD7F892AF2F7A60076A54B /* Product.swift */,
 				FA5C35EE2AC5DFE4006B83C8 /* Main.storyboard */,
-				06FCE9282B15648D0089A124 /* WishlistProductCell.swift */,
+				06FCE9282B15648D0089A124 /* WishListProductCell.swift */,
 				06B0C9872AF9BC0200BECBC0 /* LendSellViewController.swift */,
 				EC366B8C2B156EA400B484AB /* Extensions.swift */,
 				06B0C9892AF9BF0E00BECBC0 /* MyProductCell.swift */,
@@ -324,8 +324,8 @@
 				EC366B8D2B156EA400B484AB /* Extensions.swift in Sources */,
 				EC43F6A22B1590A2008EF92B /* HelpViewController.swift in Sources */,
 				EC43BF332AF599C20097CE27 /* ProductCell.swift in Sources */,
-				061208E42B1A8BA300C8A187 /* WishlistViewController.swift in Sources */,
-				06FCE9292B15648D0089A124 /* WishlistProductCell.swift in Sources */,
+				061208E42B1A8BA300C8A187 /* WishListViewController.swift in Sources */,
+				06FCE9292B15648D0089A124 /* WishListProductCell.swift in Sources */,
 				06D1405C2ADEDA8D0011AC89 /* SettingsViewController.swift in Sources */,
 				FA5C35EB2AC5DFE4006B83C8 /* SceneDelegate.swift in Sources */,
 				06B0C9882AF9BC0300BECBC0 /* LendSellViewController.swift in Sources */,

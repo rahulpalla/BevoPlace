@@ -34,6 +34,11 @@ class ViewItemViewController: UIViewController {
     
     @IBOutlet weak var descriptionLabel: UILabel!
     
+    @IBOutlet weak var likeButton: UIButton!
+    
+    @IBOutlet weak var disLikeButton: UIButton!
+    
+    
     override func viewDidLoad() {
         
         itemImage.layer.cornerRadius = 15
@@ -85,5 +90,14 @@ class ViewItemViewController: UIViewController {
         super.viewDidLoad()
        
     }
+    
+    
+    
+    @IBAction func like(_ sender: Any) {
+        
+        
+    }
+    
+    
 
 }

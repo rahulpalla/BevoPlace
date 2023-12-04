@@ -230,19 +230,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wot-Pe-hNt">
-                                <rect key="frame" x="327" y="72" width="44" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain">
-                                    <imageReference key="image" image="gearshape.fill" catalog="system" symbolScale="large"/>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
-                                    <color key="baseForegroundColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <segue destination="lSv-ID-hfr" kind="show" identifier="settingsSegue" id="jxm-cg-TeY"/>
-                                </connections>
-                            </button>
                             <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C1p-9B-qWT">
                                 <rect key="frame" x="0.0" y="131" width="393" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -263,6 +250,32 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <segue destination="S0R-Ro-ZTy" kind="show" id="l6m-GO-W1N"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JR0-br-Ccx">
+                                <rect key="frame" x="206" y="67" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="">
+                                    <imageReference key="image" image="heart.circle.fill" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
+                                    <color key="baseForegroundColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="E2r-8F-T0y" kind="show" id="S2x-Cb-4rA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wot-Pe-hNt">
+                                <rect key="frame" x="310" y="73" width="44" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <imageReference key="image" image="gearshape.fill" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
+                                    <color key="baseForegroundColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="lSv-ID-hfr" kind="show" identifier="settingsSegue" id="jxm-cg-TeY"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1294,6 +1307,29 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="asp-gL-H5b">
+                                <rect key="frame" x="264" y="37" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="">
+                                    <imageReference key="image" image="heart.fill" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
+                                    <color key="baseForegroundColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="like:" destination="oN5-il-c2A" eventType="touchUpInside" id="NtO-pj-GZa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TDy-3j-fNi">
+                                <rect key="frame" x="333" y="37" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="">
+                                    <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
+                                    <color key="baseForegroundColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JZh-BC-M1w"/>
                         <color key="backgroundColor" red="0.95322332009999999" green="0.77520151110000002" blue="0.62606325220000003" alpha="0.95601942049999999" colorSpace="calibratedRGB"/>
@@ -1302,9 +1338,11 @@
                     <connections>
                         <outlet property="contactLabel" destination="uX6-lv-o4X" id="4dW-Mm-A8m"/>
                         <outlet property="descriptionLabel" destination="cHw-Sq-ubC" id="3lR-se-mMc"/>
+                        <outlet property="disLikeButton" destination="TDy-3j-fNi" id="fSB-Jd-Sm3"/>
                         <outlet property="displayNameLabel" destination="exj-BB-qeJ" id="CNT-aL-S02"/>
                         <outlet property="emailLabel" destination="c3z-pS-TKe" id="Nwx-Hi-Pok"/>
                         <outlet property="itemImage" destination="ohG-lc-VXv" id="5tj-Nd-JSd"/>
+                        <outlet property="likeButton" destination="asp-gL-H5b" id="VQC-tt-L2d"/>
                         <outlet property="priceLabel" destination="7gx-oy-nZ3" id="cNL-Ac-ete"/>
                         <outlet property="sizeLabel" destination="bJo-wL-pbu" id="fc0-Pj-LqN"/>
                         <outlet property="titleLabel" destination="mHG-8D-x1S" id="gsa-WN-lUJ"/>
@@ -1314,10 +1352,10 @@
             </objects>
             <point key="canvasLocation" x="4510.6870229007636" y="-292.25352112676057"/>
         </scene>
-        <!--Wishlist View Controller-->
+        <!--Wish List View Controller-->
         <scene sceneID="nxy-MN-pn3">
             <objects>
-                <viewController id="E2r-8F-T0y" customClass="WishlistViewController" customModule="BevoPlace" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="E2r-8F-T0y" customClass="WishListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5Jb-XB-5vJ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1441,7 +1479,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T8G-H9-V1G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6046.5648854961828" y="-137.32394366197184"/>
+            <point key="canvasLocation" x="3570" y="-223"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
@@ -1456,7 +1494,10 @@
         <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="gearshape" catalog="system" width="128" height="123"/>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
+        <image name="heart" catalog="system" width="128" height="107"/>
         <image name="heart.circle" catalog="system" width="128" height="123"/>
+        <image name="heart.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="heart.fill" catalog="system" width="128" height="107"/>
         <image name="person.crop.circle" catalog="system" width="128" height="123"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
         <image name="plus.app" catalog="system" width="128" height="114"/>

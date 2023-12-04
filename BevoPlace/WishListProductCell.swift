@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class WishlistProductCell: UITableViewCell {
+class WishListProductCell: UITableViewCell {
     
     @IBOutlet weak var wishProductImage: UIImageView!
     @IBOutlet weak var wishProductTitleLabel: UILabel!
