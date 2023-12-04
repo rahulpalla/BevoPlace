@@ -17,6 +17,8 @@ class ViewItemViewController: UIViewController {
     var index: Int!
     var product: Product!
     
+    var stringWishList = [String]()
+    
 
     @IBOutlet weak var titleLabel: UILabel!
     
@@ -34,8 +36,13 @@ class ViewItemViewController: UIViewController {
     
     @IBOutlet weak var descriptionLabel: UILabel!
     
+    @IBOutlet weak var likeButton: UIButton!
+    
+    @IBOutlet weak var disLikeButton: UIButton!
+    
+    
     override func viewDidLoad() {
-        
+        stringWishList.removeAll()
         itemImage.layer.cornerRadius = 15
         
         let background = UIImage(named: "towerPretty.png")
@@ -81,9 +88,93 @@ class ViewItemViewController: UIViewController {
                 print("Document does not exist")
             }
         }
-        
+        let docRef2 = db.collection("users").document(user)
+        docRef2.getDocument { (document, error) in
+            if let document = document, document.exists {
+                if let wishList = document.data()?["wishList"] as? [String] {
+                    print("Retrieved str wishlist: \(wishList)")
+                    for prod in wishList{
+                        self.stringWishList.append(prod)
+                    }
+                }
+            }
+            
+        }
         super.viewDidLoad()
-       
     }
+    
+    
+    
+    @IBAction func like(_ sender: Any) {
+        if(!stringWishList.contains(product.docID)){
+            stringWishList.append(product.docID)
+            let docRef = db.collection("users").document(user)
+            docRef.updateData(["wishList": self.stringWishList]) { error in
+                    if let error = error {
+                        print("Error updating document: \(error)")
+                        // Handle the error, show an alert if necessary
+                    } else {
+                        // Item added to Wish List successfully, show an alert
+                        self.showAlert(message: "Item added to Wish List!")
+                    }
+                }
+        }
+        else{
+            self.showAlert(message: "Item already in Wish List!")
+        }
+    }
+    
+    
+    
+    
+    @IBAction func dislike(_ sender: Any) {
+        if(stringWishList.contains(product.docID)){
+            var count = 0
+            for prod in stringWishList{
+                if(product.docID == prod){
+                    stringWishList.remove(at: count)
+                }
+                else{
+                    count+=1
+                }
+            }
+            let docRef = db.collection("users").document(user)
+            docRef.updateData(["wishList": self.stringWishList]) { error in
+                    if let error = error {
+                        print("Error updating document: \(error)")
+                        // Handle the error, show an alert if necessary
+                    } else {
+                        // Item added to Wish List successfully, show an alert
+                        self.showAlert(message: "Item removed from Wish List!")
+                    }
+                }
+        }
+        else{
+            self.showAlert(message: "Item not in Wish List!")
+        }
+        
+    }
+    
+    
+    
+    func showAlert(message: String) {
+        let alertController = UIAlertController(
+            title: "Wish List",
+            message: message,
+            preferredStyle: .alert
+        )
+
+        let okAction = UIAlertAction(
+            title: "OK",
+            style: .default,
+            handler: nil
+        )
+
+        alertController.addAction(okAction)
+
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    
 
 }
