@@ -87,26 +87,12 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = itemTableView.dequeueReusableCell(withIdentifier: itemCellIdentifier, for: indexPath as IndexPath) as! ProductCell
         
-        
-        
         let row = indexPath.row
         
-//        // check if we have the image saved locally
-//        let imgPath = "image/\(items[row].docID)/productPhoto"
-//        
-//         download image from firebase with the url
-//        let pathReference = Storage.storage().reference(withPath: imgPath)
-//        pathReference.getData(maxSize: 1 * 1024 * 1024 * 1024) { data, error in
-//            if let error = error {
-//                // Uh-oh, an error occurred!
-//                print(error.localizedDescription)
-//            } else {
-//                cell.ProductImage.image = UIImage(data: data!)
-//            }
-//        }
         cell.ProductImage.image = filteredItems[row].image
         
         cell.leaseBuyLabel.layer.cornerRadius = 10
+
         cell.leaseBuyLabel.layer.masksToBounds = true
         cell.productTitleLabel?.text = filteredItems[row].name
         cell.productSizeLabel.text = "\(String(describing: filteredItems[row].category))"
@@ -126,7 +112,15 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
             cell.leaseLengthLabel.text = "\(filteredItems[row].numPeriods) \(filteredItems[row].period)s"
             cell.leaseBuyLabel.text = "Lease"
         }
-        cell.layer.cornerRadius = 15
+        
+        // Only masking the leading and trailing corners of cells in the tableview
+        if (row == 0) {
+            cell.layer.cornerRadius = 15
+            cell.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        } else if (row == filteredItems.count - 1) {
+            cell.layer.cornerRadius = 15
+            cell.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        }
         
         
         return cell
