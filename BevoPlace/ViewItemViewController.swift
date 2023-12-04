@@ -42,7 +42,7 @@ class ViewItemViewController: UIViewController {
     
     
     override func viewDidLoad() {
-        
+        stringWishList.removeAll()
         itemImage.layer.cornerRadius = 15
         
         let background = UIImage(named: "towerPretty.png")
@@ -87,11 +87,20 @@ class ViewItemViewController: UIViewController {
             else{
                 print("Document does not exist")
             }
+        }
+        let docRef2 = db.collection("users").document(user)
+        docRef2.getDocument { (document, error) in
+            if let document = document, document.exists {
+                if let wishList = document.data()?["wishList"] as? [String] {
+                    print("Retrieved str wishlist: \(wishList)")
+                    for prod in wishList{
+                        self.stringWishList.append(prod)
+                    }
+                }
+            }
             
         }
-        
         super.viewDidLoad()
-       
     }
     
     
