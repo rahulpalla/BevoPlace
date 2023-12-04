@@ -114,7 +114,9 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
         }
         
         // Only masking the leading and trailing corners of cells in the tableview
-        if (row == 0) {
+        if (row == 0 && filteredItems.count == 1) {
+            cell.layer.cornerRadius = 15
+        } else if (row == 0) {
             cell.layer.cornerRadius = 15
             cell.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         } else if (row == filteredItems.count - 1) {

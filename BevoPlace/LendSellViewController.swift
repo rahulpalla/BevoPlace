@@ -123,7 +123,9 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
         }
         
         // Only masking the leading and trailing corners of cells in the tableview
-        if (row == 0) {
+        if (row == 0 && myFilteredItems.count == 1) {
+            cell.layer.cornerRadius = 15
+        } else if (row == 0) {
             cell.layer.cornerRadius = 15
             cell.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         } else if (row == myFilteredItems.count - 1) {
@@ -152,6 +154,19 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
         if editingStyle == .delete {
             // delete from firestore
             db.collection("products").document(myFilteredItems[indexPath.row].docID).delete()
+            
+            // Create a reference to the image file to delete (firebase storage)
+            let photoRef = storageRef.child("image/\(myFilteredItems[indexPath.row].docID)/productPhoto")
+
+            // Delete the file
+            photoRef.delete { error in
+              if let error = error {
+                  // Uh-oh, an error occurred!
+                  print("Error while deleting image from firebase: \(error.localizedDescription)")
+              } else {
+                  // File deleted successfully
+              }
+            }
             
             // delete from current items
             for i in 0...items.count {
