@@ -18,7 +18,7 @@ class WishListViewController: UIViewController, ObservableObject, UITableViewDel
     
     @IBOutlet weak var searchBar: UISearchBar!
     
-    //var myFilteredItems : [Product] = wishListItems
+    var filteredWishList : [Product] = wishListItems
     
     let itemCellIdentifier = "WishListItemCell"
        
@@ -35,7 +35,7 @@ class WishListViewController: UIViewController, ObservableObject, UITableViewDel
         wishListTableView.delegate = self
         wishListTableView.dataSource = self
         wishListTableView.layer.cornerRadius = 10.0
-        //myFilteredItems = wishListItems
+        filteredWishList = wishListItems
         
         updateBackground()
 
@@ -78,7 +78,7 @@ class WishListViewController: UIViewController, ObservableObject, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return wishListItems.count
+        return filteredWishList.count
     }
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -86,16 +86,16 @@ class WishListViewController: UIViewController, ObservableObject, UITableViewDel
         
         let row = indexPath.row
         
-        cell.wishProductImage.image = wishListItems[row].image
+        cell.wishProductImage.image = filteredWishList[row].image
         
         cell.wishLeaseBuyLabel.layer.cornerRadius = 10
         cell.wishLeaseBuyLabel.layer.masksToBounds = true
-        cell.wishProductTitleLabel?.text = wishListItems[row].name
-        cell.wishProductCategoryLabel.text = "\(String(describing: wishListItems[row].category))"
+        cell.wishProductTitleLabel?.text = filteredWishList[row].name
+        cell.wishProductCategoryLabel.text = "\(String(describing: filteredWishList[row].category))"
 
         
-        let price = round(wishListItems[row].price * 100.0) / 100.0
-        if (!wishListItems[row].lease) {
+        let price = round(filteredWishList[row].price * 100.0) / 100.0
+        if (!filteredWishList[row].lease) {
             // Buy Item interface
             cell.wishDummyLeaseLengthLabel.isHidden = true
             cell.wishProductPriceLabel.text = "$\(String(price))"
@@ -104,8 +104,8 @@ class WishListViewController: UIViewController, ObservableObject, UITableViewDel
         } else {
             // Lease Item interface
             cell.wishDummyLeaseLengthLabel.isHidden = false
-            cell.wishProductPriceLabel.text = "$\(String(price))/\(wishListItems[row].period)"
-            cell.wishLeaseLengthLabel.text = "\(wishListItems[row].numPeriods) \(wishListItems[row].period)s"
+            cell.wishProductPriceLabel.text = "$\(String(price))/\(filteredWishList[row].period)"
+            cell.wishLeaseLengthLabel.text = "\(filteredWishList[row].numPeriods) \(filteredWishList[row].period)s"
             cell.wishLeaseBuyLabel.text = "Lease"
         }
         cell.layer.cornerRadius = 15
@@ -210,7 +210,7 @@ class WishListViewController: UIViewController, ObservableObject, UITableViewDel
                             // Notify the main queue when all asynchronous tasks are complete
                             dispatchGroup.notify(queue: .main) {
                                 // Update the filteredItems array with the downloaded data
-                                //self.myFilteredItems = self.myItems
+                                self.filteredWishList = wishListItems
                                 // Reload the table view with the updated data
                                 self.wishListTableView.reloadData()
                             }
@@ -231,19 +231,19 @@ class WishListViewController: UIViewController, ObservableObject, UITableViewDel
         self.view.endEditing(true)
     }
     
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        if searchText == ""{
-//            myFilteredItems = wishListItems
-//        }
-//        else{
-//            myFilteredItems = []
-//            for myItem in wishListItems{
-//                if myItem.name.lowercased().contains(searchText.lowercased()){
-//                    myFilteredItems.append(myItem)
-//                }
-//            }
-//        }
-//        self.wishListTableView.reloadData()
-//    }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText == ""{
+            filteredWishList = wishListItems
+        }
+        else{
+            filteredWishList = []
+            for myItem in wishListItems{
+                if myItem.name.lowercased().contains(searchText.lowercased()){
+                    filteredWishList.append(myItem)
+                }
+            }
+        }
+        self.wishListTableView.reloadData()
+    }
 
 }
