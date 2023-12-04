@@ -262,7 +262,7 @@
                                     <color key="baseForegroundColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="E2r-8F-T0y" kind="show" id="S2x-Cb-4rA"/>
+                                    <segue destination="E2r-8F-T0y" kind="show" identifier="leaseBuyToWishList" id="eug-HT-S6C"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wot-Pe-hNt">
@@ -295,7 +295,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YNz-p8-JZz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3547.3282442748091" y="538.73239436619724"/>
+            <point key="canvasLocation" x="3242" y="499"/>
         </scene>
         <!--LendSellViewController-->
         <scene sceneID="IRr-oy-6uB">
@@ -1213,56 +1213,56 @@
                                 <rect key="frame" x="33" y="156" width="327" height="252"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exj-BB-qeJ">
-                                <rect key="frame" x="16" y="614" width="361" height="62"/>
+                                <rect key="frame" x="16" y="663" width="361" height="62"/>
                                 <color key="backgroundColor" red="0.95322332009999999" green="0.77520151110000002" blue="0.62606325220000003" alpha="0.95601942049999999" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3z-pS-TKe">
-                                <rect key="frame" x="16" y="684" width="361" height="62"/>
+                                <rect key="frame" x="16" y="733" width="361" height="62"/>
                                 <color key="backgroundColor" red="0.95322332009999999" green="0.77520151110000002" blue="0.62606325220000003" alpha="0.95601942049999999" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uX6-lv-o4X">
-                                <rect key="frame" x="16" y="754" width="361" height="62"/>
+                                <rect key="frame" x="16" y="803" width="361" height="62"/>
                                 <color key="backgroundColor" red="0.95322332009999999" green="0.77520151110000002" blue="0.62606325220000003" alpha="0.95601942049999999" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seller Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Yv-FP-quh">
-                                <rect key="frame" x="274" y="684" width="103" height="21"/>
+                                <rect key="frame" x="274" y="733" width="103" height="21"/>
                                 <color key="backgroundColor" red="0.86657112839999995" green="0.28742766380000001" blue="0.0026916975620000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seller Contact" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdB-0F-R5C">
-                                <rect key="frame" x="259" y="754" width="118" height="21"/>
+                                <rect key="frame" x="259" y="803" width="118" height="21"/>
                                 <color key="backgroundColor" red="0.86657112839999995" green="0.28742766380000001" blue="0.0026916975620000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seller" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oqd-Nu-LIU">
-                                <rect key="frame" x="287" y="614" width="90" height="21"/>
+                                <rect key="frame" x="287" y="663" width="90" height="21"/>
                                 <color key="backgroundColor" red="0.86657112839999995" green="0.28742766380000001" blue="0.0026916975620000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJo-wL-pbu">
-                                <rect key="frame" x="16" y="544" width="181" height="62"/>
+                                <rect key="frame" x="16" y="593" width="181" height="62"/>
                                 <color key="backgroundColor" red="0.95322332009999999" green="0.77520151110000002" blue="0.62606325220000003" alpha="0.95601942049999999" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Size" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m0P-XH-3eH">
-                                <rect key="frame" x="16" y="544" width="63" height="21"/>
+                                <rect key="frame" x="16" y="593" width="63" height="21"/>
                                 <color key="backgroundColor" red="0.86657112839999995" green="0.28742766380000001" blue="0.0026916975620000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="63" id="5XF-c5-1DY"/>
@@ -1272,28 +1272,28 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gx-oy-nZ3">
-                                <rect key="frame" x="207" y="543" width="170" height="62"/>
+                                <rect key="frame" x="207" y="592" width="170" height="62"/>
                                 <color key="backgroundColor" red="0.95322332009999999" green="0.77520151110000002" blue="0.62606325220000003" alpha="0.95601942049999999" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cHw-Sq-ubC">
-                                <rect key="frame" x="16" y="431" width="361" height="104"/>
+                                <rect key="frame" x="16" y="480" width="361" height="104"/>
                                 <color key="backgroundColor" red="0.95322332009999999" green="0.77520151110000002" blue="0.62606325220000003" alpha="0.95601942049999999" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mI2-vc-d2V">
-                                <rect key="frame" x="16" y="431" width="133" height="21"/>
+                                <rect key="frame" x="16" y="480" width="133" height="21"/>
                                 <color key="backgroundColor" red="0.86657112839999995" green="0.28742766380000001" blue="0.0026916975620000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOg-EK-KjU">
-                                <rect key="frame" x="207" y="542" width="63" height="21"/>
+                                <rect key="frame" x="207" y="591" width="63" height="21"/>
                                 <color key="backgroundColor" red="0.86657112839999995" green="0.28742766380000001" blue="0.0026916975620000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="63" id="sJ4-mR-fsi"/>
@@ -1408,7 +1408,7 @@
         <!--Wish List View Controller-->
         <scene sceneID="nxy-MN-pn3">
             <objects>
-                <viewController id="E2r-8F-T0y" customClass="WishListViewController" sceneMemberID="viewController">
+                <viewController id="E2r-8F-T0y" customClass="WishListViewController" customModule="BevoPlace" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5Jb-XB-5vJ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1419,7 +1419,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ItemCell" rowHeight="150" id="YGv-RD-x8Z" customClass="WishlistProductCell" customModule="BevoPlace" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WishListItemCell" rowHeight="150" id="YGv-RD-x8Z" customClass="WishListProductCell" customModule="BevoPlace" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="361" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YGv-RD-x8Z" id="6O6-FF-Hex">
@@ -1491,13 +1491,13 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.95322332009999999" green="0.77520151110000002" blue="0.62606325220000003" alpha="0.95601942049999999" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <outlet property="wishDummyLeaseLengthLabel" destination="8db-LA-XLI" id="6b2-pi-laH"/>
-                                            <outlet property="wishLeaseBuyLabel" destination="GY2-tE-2cE" id="3Hs-fp-GxK"/>
-                                            <outlet property="wishLeaseLengthLabel" destination="3Cu-io-5YA" id="jsn-QP-3Em"/>
-                                            <outlet property="wishProductCategoryLabel" destination="X7K-u9-DGo" id="kBp-CN-drY"/>
-                                            <outlet property="wishProductImage" destination="5eT-jx-l1O" id="FgD-DY-PVb"/>
-                                            <outlet property="wishProductPriceLabel" destination="Tm5-uY-J92" id="6DG-Gj-IDg"/>
-                                            <outlet property="wishProductTitleLabel" destination="gWl-l7-lSE" id="vdy-V4-g4b"/>
+                                            <outlet property="wishDummyLeaseLengthLabel" destination="8db-LA-XLI" id="SL3-YT-iWd"/>
+                                            <outlet property="wishLeaseBuyLabel" destination="GY2-tE-2cE" id="ZgG-IU-e18"/>
+                                            <outlet property="wishLeaseLengthLabel" destination="3Cu-io-5YA" id="HTb-3n-8iL"/>
+                                            <outlet property="wishProductCategoryLabel" destination="BZv-cL-MJj" id="2xu-AG-zoV"/>
+                                            <outlet property="wishProductImage" destination="5eT-jx-l1O" id="H2n-uO-Ud5"/>
+                                            <outlet property="wishProductPriceLabel" destination="ZPt-Ql-6fg" id="hrw-zr-Bka"/>
+                                            <outlet property="wishProductTitleLabel" destination="gWl-l7-lSE" id="yIt-8k-TBq"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1514,9 +1514,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="barTintColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="E2r-8F-T0y" id="9Q6-GT-4dJ"/>
-                                </connections>
                             </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eku-2n-GtT"/>
@@ -1526,8 +1523,8 @@
                     <navigationItem key="navigationItem" id="yVy-ew-5ef"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="itemTableView" destination="LGy-kp-ImD" id="bCN-sm-zEL"/>
-                        <outlet property="searchBar" destination="FX0-3S-2Eu" id="tsM-ek-Rfp"/>
+                        <outlet property="searchBar" destination="FX0-3S-2Eu" id="hBU-qb-Jh4"/>
+                        <outlet property="wishListTableView" destination="LGy-kp-ImD" id="oMc-zU-DkA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T8G-H9-V1G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1536,7 +1533,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nIA-Vy-m3C"/>
+        <segue reference="Eir-zo-M7n"/>
         <segue reference="qJZ-V7-u3e"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
