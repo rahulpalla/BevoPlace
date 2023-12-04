@@ -1498,6 +1498,7 @@
                                             <outlet property="wishProductImage" destination="5eT-jx-l1O" id="H2n-uO-Ud5"/>
                                             <outlet property="wishProductPriceLabel" destination="ZPt-Ql-6fg" id="hrw-zr-Bka"/>
                                             <outlet property="wishProductTitleLabel" destination="gWl-l7-lSE" id="yIt-8k-TBq"/>
+                                            <segue destination="oN5-il-c2A" kind="show" identifier="wishListToViewItem" id="YfO-Hv-89C"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1536,7 +1537,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nIA-Vy-m3C"/>
+        <segue reference="YfO-Hv-89C"/>
         <segue reference="qJZ-V7-u3e"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

@@ -126,18 +126,9 @@ class WishListViewController: UIViewController, ObservableObject, UITableViewDel
     // Swiping to delete the item
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // delete from firestore
-            db.collection("products").document(wishListItems[indexPath.row].docID).delete()
             
-            // delete from current items
-            for i in 0...items.count {
-                if (items[i].docID == wishListItems[indexPath.row].docID) {
-                    items.remove(at: i)
-                    break
-                }
-            }
-            let temp: Product = wishListItems[indexPath.row]
-            wishListItems.remove(at: indexPath.row)
+            let temp: Product = filteredWishList[indexPath.row]
+            filteredWishList.remove(at: indexPath.row)
             for i in 0...wishListItems.count{
                 if(temp.docID == wishListItems[i].docID){
                     wishListItems.remove(at: i)
@@ -145,6 +136,20 @@ class WishListViewController: UIViewController, ObservableObject, UITableViewDel
                 }
             }
             tableView.deleteRows(at: [indexPath], with: .fade)
+            var stringWishList = [String]()
+            for prod in wishListItems{
+                stringWishList.append(prod.docID)
+            }
+            let docRef = db.collection("users").document(user)
+            docRef.updateData(["wishList": stringWishList]) { error in
+                    if let error = error {
+                        print("Error updating document: \(error)")
+                        // Handle the error, show an alert if necessary
+                    } else {
+                        // Item added to Wish List successfully, show an alert
+                        self.showAlert(message: "Item removed from Wish List!")
+                    }
+                }
         }
     }
     
@@ -244,6 +249,25 @@ class WishListViewController: UIViewController, ObservableObject, UITableViewDel
             }
         }
         self.wishListTableView.reloadData()
+    }
+    
+    
+    func showAlert(message: String) {
+        let alertController = UIAlertController(
+            title: "Wish List",
+            message: message,
+            preferredStyle: .alert
+        )
+
+        let okAction = UIAlertAction(
+            title: "OK",
+            style: .default,
+            handler: nil
+        )
+
+        alertController.addAction(okAction)
+
+        present(alertController, animated: true, completion: nil)
     }
 
 }
