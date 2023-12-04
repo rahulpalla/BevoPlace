@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		061208E42B1A8BA300C8A187 /* WishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061208E32B1A8BA300C8A187 /* WishlistViewController.swift */; };
 		06B0C9842AF3198A00BECBC0 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B0C9832AF3198A00BECBC0 /* AddItemViewController.swift */; };
 		06B0C9882AF9BC0300BECBC0 /* LendSellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B0C9872AF9BC0200BECBC0 /* LendSellViewController.swift */; };
 		06B0C98A2AF9BF0E00BECBC0 /* MyProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B0C9892AF9BF0E00BECBC0 /* MyProductCell.swift */; };
@@ -61,6 +62,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		061208E32B1A8BA300C8A187 /* WishlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewController.swift; sourceTree = "<group>"; };
 		06B0C9832AF3198A00BECBC0 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		06B0C9872AF9BC0200BECBC0 /* LendSellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LendSellViewController.swift; sourceTree = "<group>"; };
 		06B0C9892AF9BF0E00BECBC0 /* MyProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProductCell.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				ECBD7F8B2AF2FE6E0076A54B /* TexasLaunchSound.mp3 */,
 				FA5C35E82AC5DFE4006B83C8 /* AppDelegate.swift */,
 				FA1AE7F72ADF2F57004A515B /* SignUpViewController.swift */,
+				061208E32B1A8BA300C8A187 /* WishlistViewController.swift */,
 				FA5C35EC2AC5DFE4006B83C8 /* LoginViewController.swift */,
 				72C6C9E82AFACCF10003AFFF /* UserSettingsManager.swift */,
 				FA5C35EA2AC5DFE4006B83C8 /* SceneDelegate.swift */,
@@ -321,6 +324,7 @@
 				EC366B8D2B156EA400B484AB /* Extensions.swift in Sources */,
 				EC43F6A22B1590A2008EF92B /* HelpViewController.swift in Sources */,
 				EC43BF332AF599C20097CE27 /* ProductCell.swift in Sources */,
+				061208E42B1A8BA300C8A187 /* WishlistViewController.swift in Sources */,
 				06FCE9292B15648D0089A124 /* WishlistProductCell.swift in Sources */,
 				06D1405C2ADEDA8D0011AC89 /* SettingsViewController.swift in Sources */,
 				FA5C35EB2AC5DFE4006B83C8 /* SceneDelegate.swift in Sources */,
