@@ -17,6 +17,8 @@ class ViewItemViewController: UIViewController {
     var index: Int!
     var product: Product!
     
+    var stringWishList = [String]()
+    
 
     @IBOutlet weak var titleLabel: UILabel!
     
@@ -94,8 +96,73 @@ class ViewItemViewController: UIViewController {
     
     
     @IBAction func like(_ sender: Any) {
+        if(!stringWishList.contains(product.docID)){
+            stringWishList.append(product.docID)
+            let docRef = db.collection("users").document(user)
+            docRef.updateData(["wishList": self.stringWishList]) { error in
+                    if let error = error {
+                        print("Error updating document: \(error)")
+                        // Handle the error, show an alert if necessary
+                    } else {
+                        // Item added to Wish List successfully, show an alert
+                        self.showAlert(message: "Item added to Wish List!")
+                    }
+                }
+        }
+        else{
+            self.showAlert(message: "Item already in Wish List!")
+        }
+    }
+    
+    
+    
+    
+    @IBAction func dislike(_ sender: Any) {
+        if(stringWishList.contains(product.docID)){
+            var count = 0
+            for prod in stringWishList{
+                if(product.docID == prod){
+                    stringWishList.remove(at: count)
+                }
+                else{
+                    count+=1
+                }
+            }
+            let docRef = db.collection("users").document(user)
+            docRef.updateData(["wishList": self.stringWishList]) { error in
+                    if let error = error {
+                        print("Error updating document: \(error)")
+                        // Handle the error, show an alert if necessary
+                    } else {
+                        // Item added to Wish List successfully, show an alert
+                        self.showAlert(message: "Item removed from Wish List!")
+                    }
+                }
+        }
+        else{
+            self.showAlert(message: "Item not in Wish List!")
+        }
         
-        
+    }
+    
+    
+    
+    func showAlert(message: String) {
+        let alertController = UIAlertController(
+            title: "Wish List",
+            message: message,
+            preferredStyle: .alert
+        )
+
+        let okAction = UIAlertAction(
+            title: "OK",
+            style: .default,
+            handler: nil
+        )
+
+        alertController.addAction(okAction)
+
+        present(alertController, animated: true, completion: nil)
     }
     
     
