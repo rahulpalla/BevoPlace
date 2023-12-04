@@ -121,8 +121,15 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
             cell.leaseLengthLabel.text = "\(myFilteredItems[row].numPeriods) \(myFilteredItems[row].period)s"
             cell.leaseBuyLabel.text = "Lease"
         }
-        cell.layer.cornerRadius = 15
         
+        // Only masking the leading and trailing corners of cells in the tableview
+        if (row == 0) {
+            cell.layer.cornerRadius = 15
+            cell.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        } else if (row == myFilteredItems.count - 1) {
+            cell.layer.cornerRadius = 15
+            cell.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        }
         return cell
     }
     
@@ -156,7 +163,7 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
             let temp: Product = myFilteredItems[indexPath.row]
             myFilteredItems.remove(at: indexPath.row)
             for i in 0...myItems.count{
-                if(temp.docID == myItems[i].docID){
+                if (temp.docID == myItems[i].docID){
                     myItems.remove(at: i)
                     break
                 }
