@@ -18,7 +18,7 @@ class WishListViewController: UIViewController, ObservableObject, UITableViewDel
     
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var myFilteredItems : [Product] = wishListItems
+    //var myFilteredItems : [Product] = wishListItems
     
     let itemCellIdentifier = "WishListItemCell"
        
@@ -35,7 +35,7 @@ class WishListViewController: UIViewController, ObservableObject, UITableViewDel
         wishListTableView.delegate = self
         wishListTableView.dataSource = self
         wishListTableView.layer.cornerRadius = 10.0
-        myFilteredItems = wishListItems
+        //myFilteredItems = wishListItems
         
         updateBackground()
 
@@ -78,7 +78,7 @@ class WishListViewController: UIViewController, ObservableObject, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myFilteredItems.count
+        return wishListItems.count
     }
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -86,16 +86,16 @@ class WishListViewController: UIViewController, ObservableObject, UITableViewDel
         
         let row = indexPath.row
         
-        cell.wishProductImage.image = myFilteredItems[row].image
+        cell.wishProductImage.image = wishListItems[row].image
         
         cell.wishLeaseBuyLabel.layer.cornerRadius = 10
         cell.wishLeaseBuyLabel.layer.masksToBounds = true
-        cell.wishProductTitleLabel?.text = myFilteredItems[row].name
-        cell.wishProductCategoryLabel.text = "\(String(describing: myFilteredItems[row].category))"
+        cell.wishProductTitleLabel?.text = wishListItems[row].name
+        cell.wishProductCategoryLabel.text = "\(String(describing: wishListItems[row].category))"
 
         
-        let price = round(myFilteredItems[row].price * 100.0) / 100.0
-        if (!myFilteredItems[row].lease) {
+        let price = round(wishListItems[row].price * 100.0) / 100.0
+        if (!wishListItems[row].lease) {
             // Buy Item interface
             cell.wishDummyLeaseLengthLabel.isHidden = true
             cell.wishProductPriceLabel.text = "$\(String(price))"
@@ -104,8 +104,8 @@ class WishListViewController: UIViewController, ObservableObject, UITableViewDel
         } else {
             // Lease Item interface
             cell.wishDummyLeaseLengthLabel.isHidden = false
-            cell.wishProductPriceLabel.text = "$\(String(price))/\(myFilteredItems[row].period)"
-            cell.wishLeaseLengthLabel.text = "\(myFilteredItems[row].numPeriods) \(myFilteredItems[row].period)s"
+            cell.wishProductPriceLabel.text = "$\(String(price))/\(wishListItems[row].period)"
+            cell.wishLeaseLengthLabel.text = "\(wishListItems[row].numPeriods) \(wishListItems[row].period)s"
             cell.wishLeaseBuyLabel.text = "Lease"
         }
         cell.layer.cornerRadius = 15
@@ -127,17 +127,17 @@ class WishListViewController: UIViewController, ObservableObject, UITableViewDel
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // delete from firestore
-            db.collection("products").document(myFilteredItems[indexPath.row].docID).delete()
+            db.collection("products").document(wishListItems[indexPath.row].docID).delete()
             
             // delete from current items
             for i in 0...items.count {
-                if (items[i].docID == myFilteredItems[indexPath.row].docID) {
+                if (items[i].docID == wishListItems[indexPath.row].docID) {
                     items.remove(at: i)
                     break
                 }
             }
-            let temp: Product = myFilteredItems[indexPath.row]
-            myFilteredItems.remove(at: indexPath.row)
+            let temp: Product = wishListItems[indexPath.row]
+            wishListItems.remove(at: indexPath.row)
             for i in 0...wishListItems.count{
                 if(temp.docID == wishListItems[i].docID){
                     wishListItems.remove(at: i)
@@ -150,14 +150,72 @@ class WishListViewController: UIViewController, ObservableObject, UITableViewDel
     
     func fetchWishList() {
         wishListItems.removeAll()
-        var stringWishList = [String]()
         let docRef = db.collection("users").document(user)
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
-                if let wishList = document.data()?["wishList"] as? [String] {
-                    // Successfully retrieved the wishList array
-                    stringWishList = wishList
-                    print("Retrieved wishList: \(wishList)")
+                if let stringWishList = document.data()?["wishList"] as? [String] {
+                    print("Retrieved str wishlist: \(stringWishList)")
+                    db.collection("products").getDocuments() { (querySnapshot, error) in
+                        if let error = error {
+                            print("Error getting documents: \(error)")
+                        } else {
+                            // Create a DispatchGroup to track the completion of all asynchronous tasks
+                            let dispatchGroup = DispatchGroup()
+
+                            for document in querySnapshot!.documents {
+                                // Enter the DispatchGroup before starting each asynchronous task
+                                dispatchGroup.enter()
+
+                                var data = document.data()
+                                let price = data["price"] as? Double ?? 0.0
+                                let lease = data["lease"] as? Bool ?? true
+                                let category = data["category"] as? String ?? ""
+                                let period = data["period"] as? String ?? ""
+                                let userID = data["userID"] as? String ?? ""
+                                let size = data["size"] as? String ?? ""
+                                let name = data["name"] as? String ?? ""
+                                let id = data["id"] as? Int ?? 0
+                                let image = data["image"] as? String ?? ""
+                                let numPeriods = data["numPeriods"] as? Int ?? 0
+                                let description = data["description"] as? String ?? ""
+                                let docID = data["docID"] as? String ?? ""
+
+                                // Create a product with a placeholder UIImage
+                                let product = Product(id: id, name: name, description: description, category: category, userID: userID, image: image, lease: lease, price: price, period: period, numPeriods: numPeriods, size: size, docID: docID)
+
+                                // Append the product to the items array
+                                if(stringWishList.contains(product.docID)){
+                                    wishListItems.append(product)
+                                }
+                                let imgPath = "image/\(docID)/productPhoto"
+                                let pathReference = Storage.storage().reference(withPath: imgPath)
+
+                                // Download image data asynchronously
+                                pathReference.getData(maxSize: 1 * 1024 * 1024 * 1024) { data, error in
+                                    // Ensure the leave() call is executed even if there's an error
+                                    defer {
+                                        dispatchGroup.leave()
+                                    }
+
+                                    if let error = error {
+                                        // Uh-oh, an error occurred!
+                                        print(error.localizedDescription)
+                                    } else {
+                                        // Set the product's image property once the image data is retrieved
+                                        product.image = UIImage(data: data!)!
+                                    }
+                                }
+                            }
+
+                            // Notify the main queue when all asynchronous tasks are complete
+                            dispatchGroup.notify(queue: .main) {
+                                // Update the filteredItems array with the downloaded data
+                                //self.myFilteredItems = self.myItems
+                                // Reload the table view with the updated data
+                                self.wishListTableView.reloadData()
+                            }
+                        }
+                    }
                 } else {
                     // The document does not contain a valid wishList field
                     print("Error: Document does not contain a valid wishList field")
@@ -167,87 +225,25 @@ class WishListViewController: UIViewController, ObservableObject, UITableViewDel
                 print("Error fetching document: \(error?.localizedDescription ?? "Unknown error")")
             }
         }
-        db.collection("products").getDocuments() { (querySnapshot, error) in
-            if let error = error {
-                print("Error getting documents: \(error)")
-            } else {
-                // Create a DispatchGroup to track the completion of all asynchronous tasks
-                let dispatchGroup = DispatchGroup()
-
-                for document in querySnapshot!.documents {
-                    // Enter the DispatchGroup before starting each asynchronous task
-                    dispatchGroup.enter()
-
-                    var data = document.data()
-                    let price = data["price"] as? Double ?? 0.0
-                    let lease = data["lease"] as? Bool ?? true
-                    let category = data["category"] as? String ?? ""
-                    let period = data["period"] as? String ?? ""
-                    let userID = data["userID"] as? String ?? ""
-                    let size = data["size"] as? String ?? ""
-                    let name = data["name"] as? String ?? ""
-                    let id = data["id"] as? Int ?? 0
-                    let image = data["image"] as? String ?? ""
-                    let numPeriods = data["numPeriods"] as? Int ?? 0
-                    let description = data["description"] as? String ?? ""
-                    let docID = data["docID"] as? String ?? ""
-
-                    // Create a product with a placeholder UIImage
-                    let product = Product(id: id, name: name, description: description, category: category, userID: userID, image: image, lease: lease, price: price, period: period, numPeriods: numPeriods, size: size, docID: docID)
-
-                    // Append the product to the items array
-                    if(stringWishList.contains(product.docID)){
-                        wishListItems.append(product)
-                    }
-
-                    let imgPath = "image/\(docID)/productPhoto"
-                    let pathReference = Storage.storage().reference(withPath: imgPath)
-
-                    // Download image data asynchronously
-                    pathReference.getData(maxSize: 1 * 1024 * 1024 * 1024) { data, error in
-                        // Ensure the leave() call is executed even if there's an error
-                        defer {
-                            dispatchGroup.leave()
-                        }
-
-                        if let error = error {
-                            // Uh-oh, an error occurred!
-                            print(error.localizedDescription)
-                        } else {
-                            // Set the product's image property once the image data is retrieved
-                            product.image = UIImage(data: data!)!
-                        }
-                    }
-                }
-
-                // Notify the main queue when all asynchronous tasks are complete
-                dispatchGroup.notify(queue: .main) {
-                    // Update the filteredItems array with the downloaded data
-                    //self.myFilteredItems = self.myItems
-                    // Reload the table view with the updated data
-                    self.wishListTableView.reloadData()
-                }
-            }
-        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText == ""{
-            myFilteredItems = wishListItems
-        }
-        else{
-            myFilteredItems = []
-            for myItem in wishListItems{
-                if myItem.name.lowercased().contains(searchText.lowercased()){
-                    myFilteredItems.append(myItem)
-                }
-            }
-        }
-        self.wishListTableView.reloadData()
-    }
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        if searchText == ""{
+//            myFilteredItems = wishListItems
+//        }
+//        else{
+//            myFilteredItems = []
+//            for myItem in wishListItems{
+//                if myItem.name.lowercased().contains(searchText.lowercased()){
+//                    myFilteredItems.append(myItem)
+//                }
+//            }
+//        }
+//        self.wishListTableView.reloadData()
+//    }
 
 }

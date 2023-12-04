@@ -87,6 +87,7 @@ class ViewItemViewController: UIViewController {
             else{
                 print("Document does not exist")
             }
+            
         }
         
         super.viewDidLoad()
