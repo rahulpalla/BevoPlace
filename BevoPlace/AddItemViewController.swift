@@ -18,8 +18,9 @@ var imageClick = false
 
 class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    var textFieldAlert: UIAlertController?
+  
     
+    //Outlets
     @IBOutlet weak var lendSellSegCtrl: UISegmentedControl!
     
     @IBOutlet weak var categoryPicker: UIPickerView!
@@ -46,37 +47,38 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     @IBOutlet weak var postItemButton: UIButton!
     
+    
+    //Variables
+    var textFieldAlert: UIAlertController?
+    
+    //Constants
     let picker = UIImagePickerController()
     
-    
+    //Set up
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         postItemButton.layer.cornerRadius = 10
-        
         picker.delegate = self
-        
         categoryPicker.delegate = self
         categoryPicker.dataSource = self
-        
         sizePicker.delegate = self
         sizePicker.dataSource = self
-        
         periodsPicker.delegate = self
         periodsPicker.dataSource = self
         
         let numPeriodsTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleNumPeriodsTap))
         numPeriodsTextField.addGestureRecognizer(numPeriodsTapGesture)
-
         let priceTapGesture = UITapGestureRecognizer(target: self, action: #selector(handlePriceTap))
         priceTextField.addGestureRecognizer(priceTapGesture)
 
     }
     
+    //Dismiss Keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
+    //Seg Control
     @IBAction func onSegCtrlChanged(_ sender: Any) {
         if(lendSellSegCtrl.selectedSegmentIndex == 0) {
             periodsPicker.isHidden = false
@@ -115,6 +117,7 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         }
     }
     
+    //Camera button pressed
     @IBAction func onCameraButtonPressed(_ sender: Any) {
         if UIImagePickerController.availableCaptureModes(for: .rear) != nil {
             // there is a rear camera available
@@ -138,7 +141,6 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             present(picker,animated: true)
             
         } else {
-            
             // there is no rear camera
             let alertVC = UIAlertController(title: "No camera", message: "Sorry, this device has no rear camera", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default)
@@ -147,6 +149,7 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         }
     }
     
+    //Upload image
     @IBAction func onUploadImageButtonPressed(_ sender: Any) {
         picker.allowsEditing = false
         picker.sourceType = .photoLibrary
@@ -172,7 +175,9 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         dismiss(animated: true)
     }
     
+    //Post Item
     @IBAction func onPostButtonClicked(_ sender: Any) {
+        //setting gields
         var lease = (lendSellSegCtrl.selectedSegmentIndex == 0)
         let categoryPickerRow = categoryPicker.selectedRow(inComponent: 0)
         let categoryValue = String(categoryPickerData[categoryPickerRow])
@@ -183,6 +188,7 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         let priceValue = Double(priceTextField.text!) ?? 0
         let numPeriodsValue = Double(numPeriodsTextField.text!) ?? 0
         
+        //Check for empty fields
         if (titleField.text == ""){
             statusLabel.text = "Please enter a title"
             let controller = UIAlertController(
@@ -242,7 +248,7 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                     "userID": user,
                     "docID": newProduct.documentID
                 ]
-                
+                //Create product
                 newProduct.setData(productData) { error in
                     if let error = error {
                         print("Error creating new product: \(error)")
@@ -253,15 +259,10 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                             self.dismiss(animated: true)
                         }
-                        
-                        
                     }
                 }
             }
         }
-//        let otherVC = delegate as! TableProtocol
-//        otherVC.fetchAllProducts()
-        
     }
     
     // Compresses image for efficient fetch/save calls to database
@@ -281,21 +282,17 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
 
     func presentTextFieldAlert(forTextField textField: UITextField) {
         textFieldAlert = UIAlertController(title: "Enter Value", message: nil, preferredStyle: .alert)
-
         textFieldAlert?.addTextField { (alertTextField) in
             alertTextField.placeholder = "Enter value"
         }
-
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] (action) in
             if let enteredText = self?.textFieldAlert?.textFields?.first?.text {
                 textField.text = enteredText
             }
         }
-
         textFieldAlert?.addAction(cancelAction)
         textFieldAlert?.addAction(okAction)
-
         present(textFieldAlert!, animated: true, completion: nil)
     }
 }

@@ -15,6 +15,7 @@ protocol loadSettings{
 
 class SettingsViewController: UIViewController {
 
+    //Outlets
     @IBOutlet weak var lightModeLabel: UILabel!
     @IBOutlet weak var soundModeLabel: UILabel!
     @IBOutlet weak var lightModeSwitch: UISwitch!
@@ -23,13 +24,12 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var soundModeSwitch: UISwitch!
     @IBOutlet weak var statusLabel: UILabel!
     
-    
+    //Variables
     var audioPlayer: AVAudioPlayer?
     var firestore: Firestore!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         saveChangesButton.layer.cornerRadius = 10
         lightModeLabel.text = "Light Mode Activated:"
         soundModeLabel.text = "Sound Off:"
@@ -38,19 +38,21 @@ class SettingsViewController: UIViewController {
         self.soundModeSwitch.isOn = UserSettingsManager.shared.soundEnabled
     }
     
+    //Switch Light/Dark Mode
     @IBAction func onLightModeSwitched(_ sender: UISwitch) {
         lightModeLabel.text = "Dark Mode Activated:"
         UserSettingsManager.shared.darkModeEnabled = sender.isOn
         UserSettingsManager.shared.applyUserSettings()
     }
     
+    //Turn sound on/off
     @IBAction func onSoundModeSwitched(_ sender: UISwitch) {
         soundModeLabel.text = sender.isOn ? "Sound On:" : "Sound Off:"
-        
         UserSettingsManager.shared.soundEnabled = sender.isOn
         UserSettingsManager.shared.applyUserSettings()
     }
     
+    //Updates user app preferences
     @IBAction func onSaveChangesButtonPressed(_ sender: Any) {
         saveUserSettings()
         statusLabel.text = "Settings updated!"
@@ -58,10 +60,7 @@ class SettingsViewController: UIViewController {
     }
     
     func saveUserSettings() {
-        // Assuming you have a way to identify the current user (e.g., authentication)
-        // Replace "currentUserID" with the actual user ID or a unique identifier for the user.
         let currentUserID = user
-        
         // Update and save user settings in Firestore
         firestore.collection("user_settings").document(currentUserID).setData([
             "darkMode": lightModeSwitch.isOn,
@@ -73,8 +72,6 @@ class SettingsViewController: UIViewController {
         if segue.identifier == "helpSegue",
            let destination = segue.destination as? HelpViewController
         {
-
         }
     }
-
 }

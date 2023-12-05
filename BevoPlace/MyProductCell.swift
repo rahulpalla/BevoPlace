@@ -10,6 +10,7 @@ import UIKit
 
 class MyProductCell: UITableViewCell {
     
+    //Outlets
     @IBOutlet weak var dummyLeaseLengthLabel: UILabel!
     @IBOutlet weak var myProductImage: UIImageView!
     @IBOutlet weak var productTitleLabel: UILabel!

@@ -13,28 +13,28 @@ var soundEnabled: Bool = false
 var userSettings: [String: Any] = [:]
 class LoginViewController: UIViewController {
     
-        //Outlets
-        @IBOutlet weak var emailTextField: UITextField!
+    //Outlets
+    @IBOutlet weak var emailTextField: UITextField!
+    
+    @IBOutlet weak var passwordTextField: UITextField!
+    
+    @IBOutlet weak var forgotPasswordButton: UIButton!
+    
+    @IBOutlet weak var loginButton: UIButton!
+    
+    @IBOutlet weak var signUpButton: UIButton!
+    
+    @IBOutlet weak var errorLabel: UILabel!
+    
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        super.viewDidLoad()
+        passwordTextField.isSecureTextEntry = true
+        loginButton.layer.cornerRadius = 10
+        signUpButton.layer.cornerRadius = 10
         
-        @IBOutlet weak var passwordTextField: UITextField!
-        
-        @IBOutlet weak var forgotPasswordButton: UIButton!
-        
-        @IBOutlet weak var loginButton: UIButton!
-        
-        @IBOutlet weak var signUpButton: UIButton!
-        
-        @IBOutlet weak var errorLabel: UILabel!
-        
-        
-        
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            super.viewDidLoad()
-            passwordTextField.isSecureTextEntry = true
-            loginButton.layer.cornerRadius = 10
-            signUpButton.layer.cornerRadius = 10
-            
 //            Auth.auth().addStateDidChangeListener() {
 //                (auth,user) in
 //                if user != nil {
@@ -43,8 +43,8 @@ class LoginViewController: UIViewController {
 //                    self.passwordTextField.text = nil
 //                }
 //            }
-        }
-        
+    }
+    
     //Dismiss keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
          self.view.endEditing(true)

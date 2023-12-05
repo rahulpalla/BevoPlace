@@ -9,35 +9,30 @@ import UIKit
 import FirebaseStorage
 
 class LendSellViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
-
-    var myItems:[Product] = []
     
-    var myFilteredItems : [Product] = items
-    
+    //Outlets
     @IBOutlet weak var myItemTableView: UITableView!
-    
-    
     @IBOutlet weak var searchBar: UISearchBar!
     
-    let itemCellIdentifier = "MyItemCell"
+    //Variables
+    var myItems:[Product] = []
+    var myFilteredItems : [Product] = items
     
+    //constants
+    let itemCellIdentifier = "MyItemCell"
     let myRefreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         myRefreshControl.addTarget(self, action: #selector( handleRefreshControl(_:)), for: .valueChanged)
         self.myItemTableView.addSubview(self.myRefreshControl)
-        
         self.fetchAllProducts()
         // Important setup for Table View.
         myItemTableView.delegate = self
         myItemTableView.dataSource = self
         myItemTableView.layer.cornerRadius = 10.0
         myFilteredItems = myItems
-        
         updateBackground()
-
         UserSettingsManager.shared.onChange = { [weak self] in
             DispatchQueue.main.async {
                 self?.updateBackground()
@@ -46,22 +41,21 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
         
     }
     
+    //Update background
     func updateBackground() {
         let backgroundImageName = UserSettingsManager.shared.darkModeEnabled ? "dark.jpeg" : "back2.jpeg"
         let backgroundImage = UIImage(named: backgroundImageName)
-        
         // Set the content mode to aspect fill
         let imageView = UIImageView(image: backgroundImage)
         imageView.contentMode = .scaleAspectFill
         imageView.frame = view.bounds
-        
         // Remove existing background image views
         view.subviews.filter { $0 is UIImageView }.forEach { $0.removeFromSuperview() }
-
         // Add the new background image view
         view.insertSubview(imageView, at: 0)
     }
     
+    //Refresh Control
     @objc func handleRefreshControl(_ myRefreshControl: UIRefreshControl) {
        // Update your content…
         self.fetchAllProducts()
@@ -72,41 +66,26 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
        }
     }
     
+    //View will appear
     override func viewWillAppear(_ animated: Bool) {
         myItemTableView.reloadData()
     }
     
+    //Table View
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return myFilteredItems.count
     }
         
+    //Table View
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyItemCell", for: indexPath) as! MyProductCell
-        
         let row = indexPath.row
-                
-//        let imgPath = "image/\(myItems[row].docID)/productPhoto"
-//        
-//        // download image from firebase with the url
-//        let pathReference = Storage.storage().reference(withPath: imgPath)
-//        pathReference.getData(maxSize: 1 * 1024 * 1024 * 1024) { data, error in
-//            if let error = error {
-//                // Uh-oh, an error occurred!
-//                print(error.localizedDescription)
-//                cell.myProductImage.image = UIImage()
-//            } else {
-//                cell.myProductImage.image = UIImage(data: data!)
-//            }
-//        }
-        
         cell.myProductImage.image = myFilteredItems[row].image
-        
         cell.leaseBuyLabel.layer.cornerRadius = 10
         cell.leaseBuyLabel.layer.masksToBounds = true
         cell.productTitleLabel?.text = myFilteredItems[row].name
         cell.productSizeLabel.text = "\(String(describing: myFilteredItems[row].category))"
 
-        
         let price = round(myFilteredItems[row].price * 100.0) / 100.0
         if (!myFilteredItems[row].lease) {
             // Buy Item interface
@@ -187,9 +166,9 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
+    //Fetch products
     func fetchAllProducts() {
         myItems.removeAll()
-
         db.collection("products").getDocuments() { (querySnapshot, error) in
             if let error = error {
                 print("Error getting documents: \(error)")
@@ -254,10 +233,12 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
+    //Dismiss keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
+    //Search bar
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText == ""{
             myFilteredItems = myItems

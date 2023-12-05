@@ -8,7 +8,9 @@
 import Foundation
 import UIKit
 
+//Product class
 public class Product {
+    //Product class variables
     var id: Int
     var name: String
     var description: String
@@ -23,6 +25,7 @@ public class Product {
     var image: UIImage
     var docID: String
     
+    //initializing product
     init(id: Int, name: String, description: String, category: String, userID: String, image: String, lease: Bool, price: Double, period: String, numPeriods: Int, size: String, docID: String) {
         self.id = id
         self.name = name

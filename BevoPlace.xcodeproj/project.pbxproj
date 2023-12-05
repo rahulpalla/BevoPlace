@@ -171,11 +171,11 @@
 				06B0C9832AF3198A00BECBC0 /* AddItemViewController.swift */,
 				06D1405D2ADEDAC40011AC89 /* ProfileViewController.swift */,
 				06D1405B2ADEDA8D0011AC89 /* SettingsViewController.swift */,
+				EC43F6A12B1590A2008EF92B /* HelpViewController.swift */,
 				FA5C35F12AC5DFE5006B83C8 /* Assets.xcassets */,
 				FA5C35F32AC5DFE5006B83C8 /* LaunchScreen.storyboard */,
 				ECC036632ADE1632006FE32B /* GoogleService-Info.plist */,
 				FA5C35F62AC5DFE5006B83C8 /* Info.plist */,
-				EC43F6A12B1590A2008EF92B /* HelpViewController.swift */,
 			);
 			path = BevoPlace;
 			sourceTree = "<group>";
