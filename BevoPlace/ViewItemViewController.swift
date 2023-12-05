@@ -107,6 +107,17 @@ class ViewItemViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if(self.stringWishList.contains(self.product.docID)) {
+            let likedImage = UIImage(systemName: "heart.fill")
+            self.likeButton.setImage(likedImage, for: .normal)
+        } else {
+            let unlikedImage = UIImage(systemName: "heart")
+            self.likeButton.setImage(unlikedImage, for: .normal)
+        }
+
+    }
+    
     @IBAction func like(_ sender: Any) {
         if(!stringWishList.contains(product.docID)){
             // add item to wishlist
