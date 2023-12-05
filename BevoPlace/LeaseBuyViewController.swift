@@ -12,27 +12,24 @@ import FirebaseStorage
 
 public var items = [Product]()
 
-
 class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     var filteredItems : [Product] = items
+    let itemCellIdentifier = "ItemCell"
+    let myRefreshControl = UIRefreshControl()
         
     @IBOutlet weak var itemTableView: UITableView!
-    
     @IBOutlet weak var searchBar: UISearchBar!
-    
-    let itemCellIdentifier = "ItemCell"
-    
-    let myRefreshControl = UIRefreshControl()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
         myRefreshControl.addTarget(self, action: #selector( handleRefreshControl(_:)), for: .valueChanged)
         self.itemTableView.addSubview(self.myRefreshControl)
-        
         self.fetchAllProducts()
         self.itemTableView.reloadData()
+        
         // Important setup for Table View.
         itemTableView.delegate = self
         itemTableView.dataSource = self
@@ -46,7 +43,6 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
                 self?.updateBackground()
             }
         }
-        
     }
     
     func updateBackground() {
@@ -66,10 +62,10 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
     }
     
     @objc func handleRefreshControl(_ myRefreshControl: UIRefreshControl) {
-       // Update your content…
+        // Update your content…
         self.fetchAllProducts()
         self.itemTableView.reloadData()
-       // Dismiss the refresh control.
+        // Dismiss the refresh control.
        DispatchQueue.main.async {
           myRefreshControl.endRefreshing()
        }
@@ -80,19 +76,18 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
         updateBackground()
     }
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredItems.count
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = itemTableView.dequeueReusableCell(withIdentifier: itemCellIdentifier, for: indexPath as IndexPath) as! ProductCell
-        
         let row = indexPath.row
         
         cell.ProductImage.image = filteredItems[row].image
-        
         cell.leaseBuyLabel.layer.cornerRadius = 10
-
         cell.leaseBuyLabel.layer.masksToBounds = true
         cell.productTitleLabel?.text = filteredItems[row].name
         cell.productSizeLabel.text = "\(String(describing: filteredItems[row].category))"
@@ -124,9 +119,9 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
             cell.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         }
         
-        
         return cell
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "leaseBuyToViewItemSegue",
@@ -137,6 +132,7 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
             viewItemVC.product = items[index]
         }
     }
+    
     
     func fetchAllProducts() {
         items.removeAll()
@@ -208,8 +204,7 @@ class LeaseBuyViewController: UIViewController, ObservableObject, UITableViewDel
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText == ""{
             filteredItems = items
-        }
-        else{
+        } else {
             filteredItems = []
             for item in items{
                 if item.name.lowercased().contains(searchText.lowercased()){

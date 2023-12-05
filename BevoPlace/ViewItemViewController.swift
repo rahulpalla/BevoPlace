@@ -11,31 +11,20 @@ import FirebaseCore
 import FirebaseFirestore
 import FirebaseStorage
 class ViewItemViewController: UIViewController {
-    
-    
+
     var delegate:UIViewController!
     var index: Int!
     var product: Product!
-    
     var stringWishList = [String]()
-    
 
     @IBOutlet weak var titleLabel: UILabel!
-    
     @IBOutlet weak var itemImage: UIImageView!
-    
     @IBOutlet weak var displayNameLabel: UILabel!
-    
     @IBOutlet weak var emailLabel: UILabel!
-    
     @IBOutlet weak var contactLabel: UILabel!
-    
     @IBOutlet weak var priceLabel: UILabel!
-    
     @IBOutlet weak var sizeLabel: UILabel!
-    
     @IBOutlet weak var descriptionLabel: UILabel!
-    
     @IBOutlet weak var likeButton: UIButton!
     
     override func viewDidLoad() {
@@ -43,7 +32,6 @@ class ViewItemViewController: UIViewController {
         itemImage.layer.cornerRadius = 15
         
         let background = UIImage(named: "towerPretty.png")
-
         var imageView : UIImageView!
         imageView = UIImageView(frame: view.bounds)
         imageView.contentMode =  UIView.ContentMode.scaleAspectFill
@@ -80,11 +68,11 @@ class ViewItemViewController: UIViewController {
                     self.emailLabel.text = self.product.userID
                     self.contactLabel.text = document["number"] as? String
                 }
-            }
-            else{
+            } else {
                 print("Document does not exist")
             }
         }
+        
         let docRef2 = db.collection("users").document(user)
         docRef2.getDocument { (document, error) in
             if let document = document, document.exists {
@@ -96,7 +84,8 @@ class ViewItemViewController: UIViewController {
                 }
             }
         }
-        if(self.stringWishList.contains(self.product.docID)) {
+        
+        if (self.stringWishList.contains(self.product.docID)) {
             let likedImage = UIImage(systemName: "heart.fill")
             self.likeButton.setImage(likedImage, for: .normal)
         } else {
@@ -108,7 +97,7 @@ class ViewItemViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if(self.stringWishList.contains(self.product.docID)) {
+        if (self.stringWishList.contains(self.product.docID)) {
             let likedImage = UIImage(systemName: "heart.fill")
             self.likeButton.setImage(likedImage, for: .normal)
         } else {
@@ -119,7 +108,7 @@ class ViewItemViewController: UIViewController {
     }
     
     @IBAction func like(_ sender: Any) {
-        if(!stringWishList.contains(product.docID)){
+        if (!stringWishList.contains(product.docID)) {
             // add item to wishlist
             let likeImage = UIImage(systemName: "heart.fill")
             self.likeButton.setImage(likeImage, for: .normal)
@@ -135,20 +124,19 @@ class ViewItemViewController: UIViewController {
                         self.showAlert(message: "Item added to Wish List!")
                     }
                 }
-        }
-        else{
+        } else {
             // remove item from wishlist
             let unlikeImage = UIImage(systemName: "heart")
             self.likeButton.setImage(unlikeImage, for: .normal)
             var count = 0
             for prod in stringWishList{
-                if(product.docID == prod){
+                if (product.docID == prod){
                     stringWishList.remove(at: count)
-                }
-                else{
-                    count+=1
+                } else {
+                    count += 1
                 }
             }
+            
             let docRef = db.collection("users").document(user)
             docRef.updateData(["wishList": self.stringWishList]) { error in
                     if let error = error {
@@ -176,7 +164,6 @@ class ViewItemViewController: UIViewController {
         )
 
         alertController.addAction(okAction)
-
         present(alertController, animated: true, completion: nil)
     }
     
