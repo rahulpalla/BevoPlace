@@ -22,7 +22,6 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var darkModeSwitch: UISwitch!
     @IBOutlet weak var saveChangesButton: UIButton!
     @IBOutlet weak var soundModeSwitch: UISwitch!
-    @IBOutlet weak var statusLabel: UILabel!
     
     //Variables
     var audioPlayer: AVAudioPlayer?
@@ -55,7 +54,7 @@ class SettingsViewController: UIViewController {
     //Updates user app preferences
     @IBAction func onSaveChangesButtonPressed(_ sender: Any) {
         saveUserSettings()
-        statusLabel.text = "Settings updated!"
+        self.showAlert(message: "Settings Updated!")
         
     }
     
@@ -73,5 +72,21 @@ class SettingsViewController: UIViewController {
            let destination = segue.destination as? HelpViewController
         {
         }
+    }
+    
+    func showAlert(message: String) {
+        let alertController = UIAlertController(
+            title: "Settings",
+            message: message,
+            preferredStyle: .alert
+        )
+
+        let okAction = UIAlertAction(
+            title: "OK",
+            style: .default,
+            handler: nil
+        )
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
     }
 }

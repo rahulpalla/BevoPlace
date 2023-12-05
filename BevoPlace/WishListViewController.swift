@@ -136,11 +136,13 @@ class WishListViewController: UIViewController, ObservableObject, UITableViewDel
             
             let temp: Product = filteredWishList[indexPath.row]
             filteredWishList.remove(at: indexPath.row)
-            for i in 0...wishListItems.count{
+            var i = 0
+            while(i < wishListItems.count){
                 if(temp.docID == wishListItems[i].docID){
                     wishListItems.remove(at: i)
                     break
                 }
+                i+=1
             }
             tableView.deleteRows(at: [indexPath], with: .fade)
             var stringWishList = [String]()

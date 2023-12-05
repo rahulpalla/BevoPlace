@@ -148,19 +148,23 @@ class LendSellViewController: UIViewController, UITableViewDelegate, UITableView
             }
             
             // delete from current items
-            for i in 0...items.count {
+            var i = 0
+            while(i < items.count){
                 if (items[i].docID == myFilteredItems[indexPath.row].docID) {
                     items.remove(at: i)
                     break
                 }
+                i+=1
             }
             let temp: Product = myFilteredItems[indexPath.row]
             myFilteredItems.remove(at: indexPath.row)
-            for i in 0...myItems.count{
+            i = 0
+            while(i < myItems.count){
                 if (temp.docID == myItems[i].docID){
                     myItems.remove(at: i)
                     break
                 }
+                i+=1
             }
             tableView.deleteRows(at: [indexPath], with: .fade)
         }

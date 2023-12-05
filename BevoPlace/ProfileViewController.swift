@@ -73,7 +73,7 @@ class ProfileViewController: UIViewController {
     //Alerts
     func showAlert(message: String) {
         let alertController = UIAlertController(
-            title: "Wish List",
+            title: "Profile",
             message: message,
             preferredStyle: .alert
         )
@@ -83,10 +83,7 @@ class ProfileViewController: UIViewController {
             style: .default,
             handler: nil
         )
-
         alertController.addAction(okAction)
-
         present(alertController, animated: true, completion: nil)
     }
-
 }

@@ -43,8 +43,6 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     @IBOutlet weak var imageView: UIImageView!
     
-    @IBOutlet weak var statusLabel: UILabel!
-    
     @IBOutlet weak var postItemButton: UIButton!
     
     
@@ -70,6 +68,7 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         numPeriodsTextField.addGestureRecognizer(numPeriodsTapGesture)
         let priceTapGesture = UITapGestureRecognizer(target: self, action: #selector(handlePriceTap))
         priceTextField.addGestureRecognizer(priceTapGesture)
+        self.dismiss(animated: true)
 
     }
     
@@ -190,7 +189,7 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         //Check for empty fields
         if (titleField.text == ""){
-            statusLabel.text = "Please enter a title"
+            self.showAlert(message: "Please enter a title")
             let controller = UIAlertController(
                 title: "Add Item Error",
                 message: "Please enter a title",
@@ -199,7 +198,7 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             controller.addAction(UIAlertAction(title: "OK", style: .default))
             self.present(controller, animated: true)
         } else if (descriptionField.text == ""){
-            statusLabel.text = "Please enter a description"
+            self.showAlert(message: "Please enter a description")
             let controller = UIAlertController(
                 title: "Add Item Error",
                 message: "Please enter a description",
@@ -208,7 +207,7 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             controller.addAction(UIAlertAction(title: "OK", style: .default))
             self.present(controller, animated: true)
         } else if ((imageView.image?.pngData() == nil)) {
-            statusLabel.text = "Please add a photo"
+            self.showAlert(message: "Please add a photo")
             let controller = UIAlertController(
                 title: "Add Item Error",
                 message: "Please add a photo",
@@ -252,10 +251,10 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                 newProduct.setData(productData) { error in
                     if let error = error {
                         print("Error creating new product: \(error)")
-                        self.statusLabel.text = "Error creating new product: \(error)"
+                        self.showAlert(message: "Error creating new product: \(error)")
                     } else {
                         print("Product successfully created!")
-                        self.statusLabel.text = "Product successfully created!"
+                        self.showAlert(message: "Product successfully created!")
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                             self.dismiss(animated: true)
                         }
@@ -294,5 +293,21 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         textFieldAlert?.addAction(cancelAction)
         textFieldAlert?.addAction(okAction)
         present(textFieldAlert!, animated: true, completion: nil)
+    }
+    
+    //Alerts
+    func showAlert(message: String) {
+        let alertController = UIAlertController(
+            title: "Add Item",
+            message: message,
+            preferredStyle: .alert
+        )
+        let okAction = UIAlertAction(
+            title: "OK",
+            style: .default,
+            handler: nil
+        )
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
     }
 }

@@ -152,7 +152,7 @@ class ViewItemViewController: UIViewController {
     
     func showAlert(message: String) {
         let alertController = UIAlertController(
-            title: "Wish List",
+            title: "View Item",
             message: message,
             preferredStyle: .alert
         )
