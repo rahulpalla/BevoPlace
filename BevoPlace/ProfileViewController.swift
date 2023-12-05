@@ -20,7 +20,6 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var logOutButton: UIButton!
     
     @IBOutlet weak var displayEmailLabel: UILabel!
-    @IBOutlet weak var profileStatusLabel: UILabel!
     
     override func viewDidLoad() {
         saveChangesButton.layer.cornerRadius = 10
@@ -47,19 +46,17 @@ class ProfileViewController: UIViewController {
     
     @IBAction func onSaveChangesButtonPressed(_ sender: Any) {
         if displayNameTextField.text == "" {
-            self.profileStatusLabel.text = "Please enter a display name"
-        } else if otherInfoTextField.text == "" {
-            self.profileStatusLabel.text = "Please enter contact information"
+            displayNameTextField.text = displayNameTextField.placeholder
         }
-        else{
-            self.profileStatusLabel.text = "Successfully updated!"
-            let docRef = db.collection("users").document(user)
-            docRef.updateData([
-                "name" : self.displayNameTextField.text!,
-                "number" : self.otherInfoTextField.text!
-            ])
-            
+        if otherInfoTextField.text == "" {
+            otherInfoTextField.text = otherInfoTextField.placeholder
         }
+        let docRef = db.collection("users").document(user)
+        docRef.updateData([
+            "name" : self.displayNameTextField.text!,
+            "number" : self.otherInfoTextField.text!
+        ])
+        self.showAlert(message: "Successfully Updated!")
     }
     
     @IBAction func logoutButtonPressed(_ sender: Any) {
@@ -69,6 +66,24 @@ class ProfileViewController: UIViewController {
         } catch {
             print("Sign out error")
         }
+    }
+    
+    func showAlert(message: String) {
+        let alertController = UIAlertController(
+            title: "Wish List",
+            message: message,
+            preferredStyle: .alert
+        )
+
+        let okAction = UIAlertAction(
+            title: "OK",
+            style: .default,
+            handler: nil
+        )
+
+        alertController.addAction(okAction)
+
+        present(alertController, animated: true, completion: nil)
     }
 
 }
