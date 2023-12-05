@@ -38,9 +38,6 @@ class ViewItemViewController: UIViewController {
     
     @IBOutlet weak var likeButton: UIButton!
     
-    @IBOutlet weak var disLikeButton: UIButton!
-    
-    
     override func viewDidLoad() {
         stringWishList.removeAll()
         itemImage.layer.cornerRadius = 15
@@ -98,15 +95,35 @@ class ViewItemViewController: UIViewController {
                     }
                 }
             }
-            
         }
+        if(self.stringWishList.contains(self.product.docID)) {
+            let likedImage = UIImage(systemName: "heart.fill")
+            self.likeButton.setImage(likedImage, for: .normal)
+        } else {
+            let unlikedImage = UIImage(systemName: "heart")
+            self.likeButton.setImage(unlikedImage, for: .normal)
+        }
+        
         super.viewDidLoad()
     }
     
-    
+    override func viewDidAppear(_ animated: Bool) {
+        if(self.stringWishList.contains(self.product.docID)) {
+            let likedImage = UIImage(systemName: "heart.fill")
+            self.likeButton.setImage(likedImage, for: .normal)
+        } else {
+            let unlikedImage = UIImage(systemName: "heart")
+            self.likeButton.setImage(unlikedImage, for: .normal)
+        }
+
+    }
     
     @IBAction func like(_ sender: Any) {
         if(!stringWishList.contains(product.docID)){
+            // add item to wishlist
+            let likeImage = UIImage(systemName: "heart.fill")
+            self.likeButton.setImage(likeImage, for: .normal)
+
             stringWishList.append(product.docID)
             let docRef = db.collection("users").document(user)
             docRef.updateData(["wishList": self.stringWishList]) { error in
@@ -120,15 +137,9 @@ class ViewItemViewController: UIViewController {
                 }
         }
         else{
-            self.showAlert(message: "Item already in Wish List!")
-        }
-    }
-    
-    
-    
-    
-    @IBAction func dislike(_ sender: Any) {
-        if(stringWishList.contains(product.docID)){
+            // remove item from wishlist
+            let unlikeImage = UIImage(systemName: "heart")
+            self.likeButton.setImage(unlikeImage, for: .normal)
             var count = 0
             for prod in stringWishList{
                 if(product.docID == prod){
@@ -149,13 +160,7 @@ class ViewItemViewController: UIViewController {
                     }
                 }
         }
-        else{
-            self.showAlert(message: "Item not in Wish List!")
-        }
-        
     }
-    
-    
     
     func showAlert(message: String) {
         let alertController = UIAlertController(
