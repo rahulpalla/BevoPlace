@@ -18,13 +18,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="chg-tb-mgV">
-                                <rect key="frame" x="16" y="197.66666666666666" width="998" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="chg-tb-mgV">
+                                <rect key="frame" x="16" y="198" width="361" height="34"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XDZ-NS-nKD">
-                                <rect key="frame" x="16" y="279.66666666666669" width="998" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XDZ-NS-nKD">
+                                <rect key="frame" x="16" y="280" width="361" height="34"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -1213,42 +1213,42 @@
                                 <rect key="frame" x="33" y="156" width="327" height="252"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exj-BB-qeJ">
-                                <rect key="frame" x="16" y="614" width="361" height="62"/>
+                                <rect key="frame" x="16" y="614" width="350.66666666666669" height="62"/>
                                 <color key="backgroundColor" red="0.95322332009999999" green="0.77520151110000002" blue="0.62606325220000003" alpha="0.95601942049999999" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3z-pS-TKe">
-                                <rect key="frame" x="16" y="684" width="361" height="62"/>
+                                <rect key="frame" x="16" y="684" width="350.66666666666669" height="62"/>
                                 <color key="backgroundColor" red="0.95322332009999999" green="0.77520151110000002" blue="0.62606325220000003" alpha="0.95601942049999999" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uX6-lv-o4X">
-                                <rect key="frame" x="16" y="754" width="361" height="62"/>
+                                <rect key="frame" x="16" y="754" width="350.66666666666669" height="62"/>
                                 <color key="backgroundColor" red="0.95322332009999999" green="0.77520151110000002" blue="0.62606325220000003" alpha="0.95601942049999999" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seller Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Yv-FP-quh">
-                                <rect key="frame" x="274" y="684" width="103" height="21"/>
+                                <rect key="frame" x="274" y="684" width="92.666666666666686" height="21"/>
                                 <color key="backgroundColor" red="0.86657112839999995" green="0.28742766380000001" blue="0.0026916975620000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seller Contact" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdB-0F-R5C">
-                                <rect key="frame" x="259" y="754" width="118" height="21"/>
+                                <rect key="frame" x="259" y="754" width="107.66666666666669" height="21"/>
                                 <color key="backgroundColor" red="0.86657112839999995" green="0.28742766380000001" blue="0.0026916975620000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seller" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oqd-Nu-LIU">
-                                <rect key="frame" x="287" y="614" width="90" height="21"/>
+                                <rect key="frame" x="287" y="614" width="79.666666666666686" height="21"/>
                                 <color key="backgroundColor" red="0.86657112839999995" green="0.28742766380000001" blue="0.0026916975620000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1272,14 +1272,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gx-oy-nZ3">
-                                <rect key="frame" x="207" y="543" width="170" height="62"/>
+                                <rect key="frame" x="207" y="543" width="159.66666666666663" height="62"/>
                                 <color key="backgroundColor" red="0.95322332009999999" green="0.77520151110000002" blue="0.62606325220000003" alpha="0.95601942049999999" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cHw-Sq-ubC">
-                                <rect key="frame" x="16" y="431" width="361" height="104"/>
+                                <rect key="frame" x="16" y="431" width="350.66666666666669" height="104"/>
                                 <color key="backgroundColor" red="0.95322332009999999" green="0.77520151110000002" blue="0.62606325220000003" alpha="0.95601942049999999" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -1303,7 +1303,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="asp-gL-H5b">
-                                <rect key="frame" x="264" y="37" width="44" height="44"/>
+                                <rect key="frame" x="304" y="39" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="Oht-vy-ai5"/>
                                 </constraints>
@@ -1315,18 +1315,6 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="like:" destination="oN5-il-c2A" eventType="touchUpInside" id="qD3-LD-Vqp"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TDy-3j-fNi">
-                                <rect key="frame" x="333" y="37" width="44" height="44"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="">
-                                    <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
-                                    <color key="baseForegroundColor" red="0.80000001190000003" green="0.32941177490000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="dislike:" destination="oN5-il-c2A" eventType="touchUpInside" id="CtI-nl-XFD"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1343,7 +1331,6 @@
                             <constraint firstItem="mHG-8D-x1S" firstAttribute="centerX" secondItem="ohG-lc-VXv" secondAttribute="centerX" id="8rv-3W-4uE"/>
                             <constraint firstItem="asp-gL-H5b" firstAttribute="leading" secondItem="JZh-BC-M1w" secondAttribute="leading" constant="264" id="9b7-aZ-AN8"/>
                             <constraint firstItem="mHG-8D-x1S" firstAttribute="top" secondItem="asp-gL-H5b" secondAttribute="bottom" constant="10" id="9dl-8y-Fwu"/>
-                            <constraint firstItem="TDy-3j-fNi" firstAttribute="trailing" secondItem="Lxg-qf-3ig" secondAttribute="trailingMargin" id="B2s-1m-UHW"/>
                             <constraint firstItem="m0P-XH-3eH" firstAttribute="top" secondItem="cHw-Sq-ubC" secondAttribute="bottom" constant="9" id="B5k-Xy-7nA"/>
                             <constraint firstItem="cHw-Sq-ubC" firstAttribute="trailing" secondItem="7gx-oy-nZ3" secondAttribute="trailing" id="CaB-Vp-xNL"/>
                             <constraint firstItem="bJo-wL-pbu" firstAttribute="leading" secondItem="exj-BB-qeJ" secondAttribute="leading" id="Dqd-hM-ncI"/>
@@ -1359,7 +1346,6 @@
                             <constraint firstItem="7gx-oy-nZ3" firstAttribute="top" secondItem="cHw-Sq-ubC" secondAttribute="bottom" constant="8" id="RVb-7U-18i"/>
                             <constraint firstItem="c3z-pS-TKe" firstAttribute="top" secondItem="oqd-Nu-LIU" secondAttribute="bottom" constant="49" id="SX7-g4-IS3"/>
                             <constraint firstItem="mHG-8D-x1S" firstAttribute="leading" secondItem="Lxg-qf-3ig" secondAttribute="leadingMargin" id="TLE-IU-Osy"/>
-                            <constraint firstItem="asp-gL-H5b" firstAttribute="baseline" secondItem="TDy-3j-fNi" secondAttribute="baseline" id="Ta9-TP-Unw"/>
                             <constraint firstItem="uX6-lv-o4X" firstAttribute="top" secondItem="c3z-pS-TKe" secondAttribute="bottom" constant="8" id="Uig-Ev-zYv"/>
                             <constraint firstItem="gOg-EK-KjU" firstAttribute="leading" secondItem="7gx-oy-nZ3" secondAttribute="leading" id="Von-Ub-zpe"/>
                             <constraint firstItem="c3z-pS-TKe" firstAttribute="top" secondItem="exj-BB-qeJ" secondAttribute="bottom" constant="8" id="aeD-SJ-vac"/>
@@ -1379,9 +1365,7 @@
                             <constraint firstItem="gOg-EK-KjU" firstAttribute="leading" secondItem="bJo-wL-pbu" secondAttribute="trailing" constant="10" id="pQH-Lq-eJy"/>
                             <constraint firstItem="oqd-Nu-LIU" firstAttribute="trailing" secondItem="exj-BB-qeJ" secondAttribute="trailing" id="rci-Ps-Vdk"/>
                             <constraint firstItem="exj-BB-qeJ" firstAttribute="top" secondItem="7gx-oy-nZ3" secondAttribute="bottom" constant="9" id="tcN-5j-IhX"/>
-                            <constraint firstItem="TDy-3j-fNi" firstAttribute="trailing" secondItem="mHG-8D-x1S" secondAttribute="trailing" id="u90-9T-xhg"/>
                             <constraint firstItem="mI2-vc-d2V" firstAttribute="top" secondItem="ohG-lc-VXv" secondAttribute="bottom" constant="23" id="ufy-zZ-CSb"/>
-                            <constraint firstItem="TDy-3j-fNi" firstAttribute="leading" secondItem="asp-gL-H5b" secondAttribute="trailing" constant="25" id="vLl-Me-ThG"/>
                             <constraint firstItem="hdB-0F-R5C" firstAttribute="trailing" secondItem="uX6-lv-o4X" secondAttribute="trailing" id="xfc-S5-iKN"/>
                             <constraint firstItem="mHG-8D-x1S" firstAttribute="trailing" secondItem="cHw-Sq-ubC" secondAttribute="trailing" id="xnb-NH-3vk"/>
                             <constraint firstItem="c3z-pS-TKe" firstAttribute="leading" secondItem="uX6-lv-o4X" secondAttribute="leading" id="zBk-Ib-Yme"/>
@@ -1391,7 +1375,6 @@
                     <connections>
                         <outlet property="contactLabel" destination="uX6-lv-o4X" id="4dW-Mm-A8m"/>
                         <outlet property="descriptionLabel" destination="cHw-Sq-ubC" id="3lR-se-mMc"/>
-                        <outlet property="disLikeButton" destination="TDy-3j-fNi" id="fSB-Jd-Sm3"/>
                         <outlet property="displayNameLabel" destination="exj-BB-qeJ" id="CNT-aL-S02"/>
                         <outlet property="emailLabel" destination="c3z-pS-TKe" id="Nwx-Hi-Pok"/>
                         <outlet property="itemImage" destination="ohG-lc-VXv" id="5tj-Nd-JSd"/>
@@ -1548,7 +1531,6 @@
         <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="gearshape" catalog="system" width="128" height="123"/>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
-        <image name="heart" catalog="system" width="128" height="107"/>
         <image name="heart.circle" catalog="system" width="128" height="123"/>
         <image name="heart.circle.fill" catalog="system" width="128" height="123"/>
         <image name="heart.fill" catalog="system" width="128" height="107"/>
