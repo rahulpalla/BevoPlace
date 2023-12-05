@@ -13,16 +13,18 @@ import FirebaseStorage
 public var wishListItems = [Product]()
 
 class WishListViewController: UIViewController, ObservableObject, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
-
+    
+    //Outlets
     @IBOutlet weak var wishListTableView: UITableView!
     
     @IBOutlet weak var searchBar: UISearchBar!
     
+    //Filtered Wish List array for search bar
     var filteredWishList : [Product] = wishListItems
     
     let itemCellIdentifier = "WishListItemCell"
        
-       let myRefreshControl = UIRefreshControl()
+    let myRefreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +49,7 @@ class WishListViewController: UIViewController, ObservableObject, UITableViewDel
         
     }
     
+    //Updating background
     func updateBackground() {
         let backgroundImageName = UserSettingsManager.shared.darkModeEnabled ? "dark.jpeg" : "back2.jpeg"
         let backgroundImage = UIImage(named: backgroundImageName)
@@ -63,6 +66,7 @@ class WishListViewController: UIViewController, ObservableObject, UITableViewDel
         view.insertSubview(imageView, at: 0)
     }
     
+    //Refresh Control
     @objc func handleRefreshControl(_ myRefreshControl: UIRefreshControl) {
        // Update your content…
         self.fetchWishList()
@@ -73,27 +77,29 @@ class WishListViewController: UIViewController, ObservableObject, UITableViewDel
        }
     }
     
+    //Table View function
     override func viewWillAppear(_ animated: Bool) {
         wishListTableView.reloadData()
     }
     
+    //Table View function
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredWishList.count
     }
         
+    //Table View function
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WishListItemCell", for: indexPath) as! WishListProductCell
         
         let row = indexPath.row
         
+        //Stylings for cells
         cell.wishProductImage.image = filteredWishList[row].image
-        
         cell.wishLeaseBuyLabel.layer.cornerRadius = 10
         cell.wishLeaseBuyLabel.layer.masksToBounds = true
         cell.wishProductTitleLabel?.text = filteredWishList[row].name
         cell.wishProductCategoryLabel.text = "\(String(describing: filteredWishList[row].category))"
 
-        
         let price = round(filteredWishList[row].price * 100.0) / 100.0
         if (!filteredWishList[row].lease) {
             // Buy Item interface
@@ -113,6 +119,7 @@ class WishListViewController: UIViewController, ObservableObject, UITableViewDel
         return cell
     }
     
+    //Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
          if segue.identifier == "wishListToViewItem",
                 let viewItemVC = segue.destination as? ViewItemViewController,
@@ -153,6 +160,7 @@ class WishListViewController: UIViewController, ObservableObject, UITableViewDel
         }
     }
     
+    //Fetching wishlist
     func fetchWishList() {
         wishListItems.removeAll()
         let docRef = db.collection("users").document(user)
@@ -232,10 +240,12 @@ class WishListViewController: UIViewController, ObservableObject, UITableViewDel
         }
     }
     
+    //Dismiss keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
+    //Search bar
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText == ""{
             filteredWishList = wishListItems

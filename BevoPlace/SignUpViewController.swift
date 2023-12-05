@@ -12,8 +12,9 @@ import FirebaseFirestore
 
 let db = Firestore.firestore()
 class SignUpViewController: UIViewController {
-
-    @IBOutlet weak var signUpEmailTextField: UITextField!
+        
+        //Outlets
+        @IBOutlet weak var signUpEmailTextField: UITextField!
         
         @IBOutlet weak var signUpPasswordTextField: UITextField!
         
@@ -36,7 +37,7 @@ class SignUpViewController: UIViewController {
         }
         
         @IBAction func signupButtonPressed(_ sender: Any) {
-            //custom error messages for empty fields
+            //If empty email field
             if signUpEmailTextField.text == "" {
                 self.signUpStatusLabel.text = "Please enter your username"
                 let controller = UIAlertController(
@@ -46,6 +47,7 @@ class SignUpViewController: UIViewController {
                 
                 controller.addAction(UIAlertAction(title: "OK", style: .default))
                 self.present(controller, animated: true)
+                //if empty password field
             } else if signUpPasswordTextField.text == "" {
                 self.signUpStatusLabel.text = "Please enter your password"
                 let controller = UIAlertController(
@@ -56,6 +58,7 @@ class SignUpViewController: UIViewController {
                 controller.addAction(UIAlertAction(title: "OK", style: .default))
                 self.present(controller, animated: true)
             }
+            //if empty confirm password field
             else if signUpConfirmPasswordTextField.text == ""{
                 self.signUpStatusLabel.text = "Please confirm your password"
                 let controller = UIAlertController(
@@ -66,6 +69,7 @@ class SignUpViewController: UIViewController {
                 controller.addAction(UIAlertAction(title: "OK", style: .default))
                 self.present(controller, animated: true)
             }
+            //if password and confirm password fields do not match
             else if signUpPasswordTextField.text != signUpConfirmPasswordTextField.text{
                 self.signUpStatusLabel.text = "Passwords do not match"
                 let controller = UIAlertController(
@@ -77,7 +81,9 @@ class SignUpViewController: UIViewController {
                 self.present(controller, animated: true)
             }
             else {
+                //signing up and in
                 Auth.auth().createUser(withEmail: signUpEmailTextField.text!, password: signUpPasswordTextField.text!) { authResult, error in
+                    //if errors
                     if let error = error as NSError? {
                         self.signUpStatusLabel.text = "\(error.localizedDescription)"
                         let controller = UIAlertController(
@@ -87,6 +93,7 @@ class SignUpViewController: UIViewController {
                         
                         controller.addAction(UIAlertAction(title: "OK", style: .default))
                         self.present(controller, animated: true)
+                    //successful login
                     } else {
                         self.signUpStatusLabel.text = "Success!"
                         user = self.signUpEmailTextField.text!
@@ -103,7 +110,6 @@ class SignUpViewController: UIViewController {
                     }
                 }
             }
-        
         }
 
 }

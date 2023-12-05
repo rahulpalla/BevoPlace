@@ -12,6 +12,8 @@ var darkModeEnabled: Bool = false
 var soundEnabled: Bool = false
 var userSettings: [String: Any] = [:]
 class LoginViewController: UIViewController {
+    
+        //Outlets
         @IBOutlet weak var emailTextField: UITextField!
         
         @IBOutlet weak var passwordTextField: UITextField!
@@ -43,11 +45,14 @@ class LoginViewController: UIViewController {
 //            }
         }
         
-        override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-             self.view.endEditing(true)
-        }
+    //Dismiss keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+         self.view.endEditing(true)
+    }
         
+    //Login button pressed
     @IBAction func loginButtonPressed(_ sender: Any) {
+        //Empty email
         if emailTextField.text == "" {
             self.errorLabel.text = "Please enter your username"
             let controller = UIAlertController(
@@ -57,6 +62,7 @@ class LoginViewController: UIViewController {
             
             controller.addAction(UIAlertAction(title: "OK", style: .default))
             self.present(controller, animated: true)
+            //Empty password
         } else if passwordTextField.text == "" {
             self.errorLabel.text = "Please enter your password"
             let controller = UIAlertController(
@@ -70,6 +76,7 @@ class LoginViewController: UIViewController {
         else {
             Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) {
                 (authResult,error) in
+                //Error
                 if let error = error as NSError? {
                     self.errorLabel.text = "\(error.localizedDescription)"
                     let controller = UIAlertController(
@@ -80,6 +87,7 @@ class LoginViewController: UIViewController {
                     controller.addAction(UIAlertAction(title: "OK", style: .default))
                     self.present(controller, animated: true)
                 } else {
+                    //Logging in
                     user = self.emailTextField.text!
                     self.errorLabel.text = ""
                     self.loadUserSettingsAndSegue()

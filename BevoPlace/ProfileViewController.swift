@@ -11,19 +11,18 @@ import FirebaseCore
 import FirebaseFirestore
 
 class ProfileViewController: UIViewController {
-
+    
+    //Outlets
     @IBOutlet weak var displayNameTextField: UITextField!
-    
-    
     @IBOutlet weak var otherInfoTextField: UITextField!
     @IBOutlet weak var saveChangesButton: UIButton!
     @IBOutlet weak var logOutButton: UIButton!
-    
     @IBOutlet weak var displayEmailLabel: UILabel!
     
     override func viewDidLoad() {
         saveChangesButton.layer.cornerRadius = 10
         logOutButton.layer.cornerRadius = 10
+        //Getting user info from firebase
         let docRef = db.collection("users").document(user)
         docRef.getDocument{(document, error) in
             if let document = document, document.exists {
@@ -40,10 +39,12 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    //Dismiss keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
+    //Updates user information
     @IBAction func onSaveChangesButtonPressed(_ sender: Any) {
         if displayNameTextField.text == "" {
             displayNameTextField.text = displayNameTextField.placeholder
@@ -59,6 +60,7 @@ class ProfileViewController: UIViewController {
         self.showAlert(message: "Successfully Updated!")
     }
     
+    //Logs out user
     @IBAction func logoutButtonPressed(_ sender: Any) {
         do {
             try Auth.auth().signOut()
@@ -68,6 +70,7 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    //Alerts
     func showAlert(message: String) {
         let alertController = UIAlertController(
             title: "Wish List",
