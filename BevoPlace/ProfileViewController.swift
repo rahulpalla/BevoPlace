@@ -11,20 +11,18 @@ import FirebaseCore
 import FirebaseFirestore
 
 class ProfileViewController: UIViewController {
-
+    
+    //Outlets
     @IBOutlet weak var displayNameTextField: UITextField!
-    
-    
     @IBOutlet weak var otherInfoTextField: UITextField!
     @IBOutlet weak var saveChangesButton: UIButton!
     @IBOutlet weak var logOutButton: UIButton!
-    
     @IBOutlet weak var displayEmailLabel: UILabel!
-    @IBOutlet weak var profileStatusLabel: UILabel!
     
     override func viewDidLoad() {
         saveChangesButton.layer.cornerRadius = 10
         logOutButton.layer.cornerRadius = 10
+        //Getting user info from firebase
         let docRef = db.collection("users").document(user)
         docRef.getDocument{(document, error) in
             if let document = document, document.exists {
@@ -41,27 +39,28 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    //Dismiss keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
+    //Updates user information
     @IBAction func onSaveChangesButtonPressed(_ sender: Any) {
         if displayNameTextField.text == "" {
-            self.profileStatusLabel.text = "Please enter a display name"
-        } else if otherInfoTextField.text == "" {
-            self.profileStatusLabel.text = "Please enter contact information"
+            displayNameTextField.text = displayNameTextField.placeholder
         }
-        else{
-            self.profileStatusLabel.text = "Successfully updated!"
-            let docRef = db.collection("users").document(user)
-            docRef.updateData([
-                "name" : self.displayNameTextField.text!,
-                "number" : self.otherInfoTextField.text!
-            ])
-            
+        if otherInfoTextField.text == "" {
+            otherInfoTextField.text = otherInfoTextField.placeholder
         }
+        let docRef = db.collection("users").document(user)
+        docRef.updateData([
+            "name" : self.displayNameTextField.text!,
+            "number" : self.otherInfoTextField.text!
+        ])
+        self.showAlert(message: "Successfully Updated!")
     }
     
+    //Logs out user
     @IBAction func logoutButtonPressed(_ sender: Any) {
         do {
             try Auth.auth().signOut()
@@ -69,6 +68,25 @@ class ProfileViewController: UIViewController {
         } catch {
             print("Sign out error")
         }
+    }
+    
+    //Alerts
+    func showAlert(message: String) {
+        let alertController = UIAlertController(
+            title: "Wish List",
+            message: message,
+            preferredStyle: .alert
+        )
+
+        let okAction = UIAlertAction(
+            title: "OK",
+            style: .default,
+            handler: nil
+        )
+
+        alertController.addAction(okAction)
+
+        present(alertController, animated: true, completion: nil)
     }
 
 }
