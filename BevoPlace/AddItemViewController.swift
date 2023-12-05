@@ -18,6 +18,8 @@ var imageClick = false
 
 class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    var textFieldAlert: UIAlertController?
+    
     @IBOutlet weak var lendSellSegCtrl: UISegmentedControl!
     
     @IBOutlet weak var categoryPicker: UIPickerView!
@@ -62,6 +64,12 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         periodsPicker.delegate = self
         periodsPicker.dataSource = self
+        
+        let numPeriodsTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleNumPeriodsTap))
+        numPeriodsTextField.addGestureRecognizer(numPeriodsTapGesture)
+
+        let priceTapGesture = UITapGestureRecognizer(target: self, action: #selector(handlePriceTap))
+        priceTextField.addGestureRecognizer(priceTapGesture)
 
     }
     
@@ -177,10 +185,31 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         if (titleField.text == ""){
             statusLabel.text = "Please enter a title"
+            let controller = UIAlertController(
+                title: "Add Item Error",
+                message: "Please enter a title",
+                preferredStyle: .alert)
+            
+            controller.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(controller, animated: true)
         } else if (descriptionField.text == ""){
             statusLabel.text = "Please enter a description"
+            let controller = UIAlertController(
+                title: "Add Item Error",
+                message: "Please enter a description",
+                preferredStyle: .alert)
+            
+            controller.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(controller, animated: true)
         } else if ((imageView.image?.pngData() == nil)) {
             statusLabel.text = "Please add a photo"
+            let controller = UIAlertController(
+                title: "Add Item Error",
+                message: "Please add a photo",
+                preferredStyle: .alert)
+            
+            controller.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(controller, animated: true)
         } else {
             let newProduct = db.collection("products").document()
             
@@ -242,4 +271,31 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         return resizedImage
     }
     
+    @objc func handleNumPeriodsTap() {
+        presentTextFieldAlert(forTextField: numPeriodsTextField)
+    }
+
+    @objc func handlePriceTap() {
+        presentTextFieldAlert(forTextField: priceTextField)
+    }
+
+    func presentTextFieldAlert(forTextField textField: UITextField) {
+        textFieldAlert = UIAlertController(title: "Enter Value", message: nil, preferredStyle: .alert)
+
+        textFieldAlert?.addTextField { (alertTextField) in
+            alertTextField.placeholder = "Enter value"
+        }
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] (action) in
+            if let enteredText = self?.textFieldAlert?.textFields?.first?.text {
+                textField.text = enteredText
+            }
+        }
+
+        textFieldAlert?.addAction(cancelAction)
+        textFieldAlert?.addAction(okAction)
+
+        present(textFieldAlert!, animated: true, completion: nil)
+    }
 }

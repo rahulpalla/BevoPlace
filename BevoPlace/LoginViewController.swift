@@ -4,18 +4,14 @@
 //
 //  Created by Rahul Palla on 9/28/23.
 //
-
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
-
 var user: String = ""
 var darkModeEnabled: Bool = false
 var soundEnabled: Bool = false
 var userSettings: [String: Any] = [:]
-
 class LoginViewController: UIViewController {
-
         @IBOutlet weak var emailTextField: UITextField!
         
         @IBOutlet weak var passwordTextField: UITextField!
@@ -27,7 +23,6 @@ class LoginViewController: UIViewController {
         @IBOutlet weak var signUpButton: UIButton!
         
         @IBOutlet weak var errorLabel: UILabel!
-
         
         
         
@@ -55,14 +50,35 @@ class LoginViewController: UIViewController {
     @IBAction func loginButtonPressed(_ sender: Any) {
         if emailTextField.text == "" {
             self.errorLabel.text = "Please enter your username"
+            let controller = UIAlertController(
+                title: "Log In Error",
+                message: "Please Enter Your Username",
+                preferredStyle: .alert)
+            
+            controller.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(controller, animated: true)
         } else if passwordTextField.text == "" {
             self.errorLabel.text = "Please enter your password"
+            let controller = UIAlertController(
+                title: "Log In Error",
+                message: "Please Enter Your Password",
+                preferredStyle: .alert)
+            
+            controller.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(controller, animated: true)
         }
         else {
             Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) {
                 (authResult,error) in
                 if let error = error as NSError? {
                     self.errorLabel.text = "\(error.localizedDescription)"
+                    let controller = UIAlertController(
+                        title: "Log In Error",
+                        message: error.localizedDescription,
+                        preferredStyle: .alert)
+                    
+                    controller.addAction(UIAlertAction(title: "OK", style: .default))
+                    self.present(controller, animated: true)
                 } else {
                     user = self.emailTextField.text!
                     self.errorLabel.text = ""
@@ -81,7 +97,6 @@ class LoginViewController: UIViewController {
                     if let isDarkModeOn = data["darkMode"] as? Bool {
                         UserSettingsManager.shared.darkModeEnabled = isDarkModeOn
                     }
-
                     if let isSoundOn = data["soundOn"] as? Bool {
                         UserSettingsManager.shared.soundEnabled = isSoundOn
                     }
@@ -92,8 +107,5 @@ class LoginViewController: UIViewController {
             self.performSegue(withIdentifier: "loginToTabSegue", sender: nil)
         }
     }
-
-
     
 }
-
