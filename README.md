@@ -8,6 +8,7 @@ Special Instructions:
 - Use an iPhone X+ Simulator (except any of Pro Max lines)
 - Before running the app, turn volume on your phone all the way up to test our sound, make sure the ringer is on, and that your settings preferences have the sound turned on
 - Sign up and create an account, or use our test account (UN: test123@gmail.com, PW: test123)
+- The top bar buttons such as wish list, settings, profile, and add item buttons can be sticky sometimes so you may need to click it multiple times which is why live phone is preferred but either way you may need to click it multiple times regardless.
 
 
 
