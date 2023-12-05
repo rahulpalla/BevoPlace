@@ -43,6 +43,7 @@ class UserSettingsManager {
         }
     }
     
+    //Play song
     func playThemeSong() {
         guard let url = Bundle.main.url(forResource: "TexasLaunchSound", withExtension: "mp3") else {
             print("Theme song not found")
@@ -58,6 +59,7 @@ class UserSettingsManager {
         }
     }
 
+    //Stop song
     func stopThemeSong() {
         audioPlayer?.stop()
         audioPlayer = nil
